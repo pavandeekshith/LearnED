@@ -139,7 +139,7 @@ const Academics = () => {
           >
             Our carefully designed curriculum focuses on building strong foundations in mathematics and science, 
             preparing students for academic success and future challenges.
-          </p>
+          </motion.p>
         </div>
       </section>
 
