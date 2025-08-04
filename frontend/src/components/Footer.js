@@ -245,8 +245,7 @@ const Footer = () => {
         </motion.div>
       </div>
 
-      {/* Decorative Elements */}
-      <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-red-600 via-red-500 to-red-600"></div>
+
     </footer>
   );
 };
