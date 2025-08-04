@@ -45,7 +45,10 @@ const FloatingDemoButton = () => {
     <>
       {/* Floating Button */}
       <motion.button
-        onClick={() => setShowForm(true)}
+        onClick={() => {
+          console.log("Floating button clicked!");
+          setShowForm(true);
+        }}
         className="fixed bottom-6 right-6 bg-gradient-to-r from-red-600 to-red-700 text-white p-4 rounded-full shadow-2xl hover:from-red-700 hover:to-red-800 transition-all duration-300 z-50 group"
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
