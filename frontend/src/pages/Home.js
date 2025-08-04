@@ -148,8 +148,11 @@ const Home = () => {
             >
               Take Quiz <Play size={20} />
             </button>
-            <button className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-white hover:text-red-600 transition-all duration-300 flex items-center gap-2">
-              Learn More <ChevronRight size={20} />
+            <button 
+              onClick={() => setShowDemoForm(true)}
+              className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-white hover:text-red-600 transition-all duration-300 flex items-center gap-2"
+            >
+              Book Free Demo <ChevronRight size={20} />
             </button>
           </motion.div>
         </div>
