@@ -2,6 +2,8 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Navigation from './components/Navigation';
+import Footer from './components/Footer';
+import FloatingDemoButton from './components/FloatingDemoButton';
 import Home from './pages/Home';
 import Team from './pages/Team';
 import Academics from './pages/Academics';
@@ -25,6 +27,8 @@ function App() {
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </motion.main>
+        <Footer />
+        <FloatingDemoButton />
       </div>
     </Router>
   );
