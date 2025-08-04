@@ -145,7 +145,7 @@ const Contact = () => {
 
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                    Email Address *
+                    Email Address
                   </label>
                   <input
                     type="email"
@@ -153,9 +153,8 @@ const Contact = () => {
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
-                    required
                     className="form-input"
-                    placeholder="Enter your email address"
+                    placeholder="Enter your email address (optional)"
                   />
                 </div>
 
