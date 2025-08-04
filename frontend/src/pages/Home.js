@@ -5,6 +5,11 @@ import QuizComponent from '../components/QuizComponent';
 
 const Home = () => {
   const [showQuiz, setShowQuiz] = useState(false);
+  const [showDemoForm, setShowDemoForm] = useState(false);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const testimonials = [
     {
