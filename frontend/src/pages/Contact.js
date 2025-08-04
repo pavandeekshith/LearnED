@@ -176,16 +176,15 @@ const Contact = () => {
 
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                    Message *
+                    Message
                   </label>
                   <textarea
                     id="message"
                     name="message"
                     value={formData.message}
                     onChange={handleInputChange}
-                    required
                     className="form-textarea"
-                    placeholder="Tell us how we can help you..."
+                    placeholder="Tell us how we can help you... (optional)"
                   ></textarea>
                 </div>
 
