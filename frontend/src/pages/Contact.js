@@ -40,45 +40,69 @@ const Contact = () => {
     {
       icon: Phone,
       title: "Phone",
-      details: ["+91 98765 43210", "+91 87654 32109"],
+      details: ["+91-9773197838", "+91-6385904860"],
       description: "Call us for immediate assistance"
     },
     {
       icon: Mail,
       title: "Email",
-      details: ["info@learned.edu", "support@learned.edu"],
+      details: ["learned.edtech@gmail.com"],
       description: "Send us your queries anytime"
     },
     {
       icon: MapPin,
       title: "Address",
-      details: ["123 Education Street", "Mumbai, Maharashtra 400001", "India"],
+      details: ["M-2/111, Phase-2, Kabir Nagar", "Raipur, Chhattisgarh, India", "Pincode: 492099"],
       description: "Visit our main campus"
     },
     {
       icon: Clock,
       title: "Office Hours",
-      details: ["Monday - Friday: 9:00 AM - 6:00 PM", "Saturday: 10:00 AM - 4:00 PM", "Sunday: Closed"],
+      details: ["Monday - Friday: 9:00 AM - 8:00 PM", "Saturday: 10:00 AM - 6:00 PM", "Sunday: 2:00 PM - 6:00 PM"],
       description: "We're here to help during these hours"
     }
   ];
 
   const faqs = [
     {
-      question: "What subjects do you teach?",
-      answer: "We specialize in Mathematics and Science for students from Class 2 to Class 10."
+      question: "What is LearnED?",
+      answer: "LearnED is an innovative online teaching platform dedicated to helping students achieve their full potential. We focus on providing personalized attention to small groups of students, ensuring they excel academically."
     },
     {
-      question: "Do you offer online classes?",
-      answer: "Yes, we provide both online and offline learning options to suit your preferences."
+      question: "How many classes will my child have in a month?",
+      answer: "Your child will receive 12 hours of instruction per month, typically distributed as 3 hours per week. This structure allows for consistent learning and ample time for practice and reinforcement."
     },
     {
-      question: "What is your teaching methodology?",
-      answer: "We combine traditional proven methods with innovative techniques for effective learning."
+      question: "How long is each session?",
+      answer: "Each session lasts 90 minutes, with your child attending two sessions per week. This format is designed to maximize engagement and retention without overwhelming the student."
     },
     {
-      question: "How do you track student progress?",
-      answer: "We conduct regular assessments and provide detailed progress reports to parents."
+      question: "What subjects can my child study at LearnED?",
+      answer: "We offer comprehensive tutoring for students from Grade 2 to Grade 10, covering subjects like Mathematics, Science, and English. We specialize in CBSE, ICSE, and IGCSE curricula."
+    },
+    {
+      question: "What are the qualifications of the tutors at LearnED?",
+      answer: "Our tutors are highly qualified and carefully selected to match your child's specific needs. We ensure that each tutor has the expertise and teaching experience required to guide your child effectively."
+    },
+    {
+      question: "How is the class schedule determined?",
+      answer: "Class schedules are tailored to fit your child's availability. We work closely with parents to find a time that best suits the student's routine, ensuring a consistent learning experience."
+    },
+    {
+      question: "What is the fee structure?",
+      answer: "The fee is determined based on your child's specific educational needs and the board of education they are enrolled in. Our pricing is competitive and reflective of the personalized service we offer."
+    },
+    {
+      question: "How do you assess my child's progress?",
+      answer: "We conduct regular assessments to monitor your child's progress. Feedback is provided after each session, and detailed progress reports are shared periodically with parents to ensure transparency and track improvements."
+    },
+    {
+      question: "What technology is required for online classes?",
+      answer: "Your child will need a stable internet connection, a computer or tablet, and a webcam for interactive sessions. We also recommend using a headset with a microphone for clear communication."
+    },
+    {
+      question: "How do I enroll my child in LearnED?",
+      answer: "Enrollment is simple. Contact us via our WhatsApp or over a phone call, and we'll guide you through the process, including an initial consultation to understand your child's needs and set up their learning plan."
     }
   ];
 
