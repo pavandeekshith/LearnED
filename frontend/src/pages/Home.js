@@ -20,6 +20,33 @@ const Home = () => {
     window.scrollTo(0, 0);
   }, []);
 
+  const handleDemoInputChange = (e) => {
+    const { name, value } = e.target;
+    setDemoFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleDemoSubmit = async (e) => {
+    e.preventDefault();
+    setIsDemoSubmitting(true);
+    
+    try {
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      setDemoSubmitStatus('success');
+      setDemoFormData({ name: '', phone: '', email: '', message: '' });
+      setTimeout(() => {
+        setShowDemoForm(false);
+        setDemoSubmitStatus(null);
+      }, 3000);
+    } catch (error) {
+      setDemoSubmitStatus('error');
+    } finally {
+      setIsDemoSubmitting(false);
+    }
+  };
+
   const testimonials = [
     {
       name: "Bivabasu Nagesh",
