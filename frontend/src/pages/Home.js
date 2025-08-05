@@ -376,7 +376,10 @@ const Home = () => {
               >
                 Take Assessment Quiz
               </button>
-              <button className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-white hover:text-red-600 transition-colors">
+              <button 
+                onClick={() => setShowDemoForm(true)}
+                className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-white hover:text-red-600 transition-colors"
+              >
                 Book Free Demo
               </button>
             </div>
