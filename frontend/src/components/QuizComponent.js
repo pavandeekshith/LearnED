@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Clock, CheckCircle, XCircle } from 'lucide-react';
+import { X, Clock, CheckCircle, XCircle, Trophy, Star, BookOpen } from 'lucide-react';
 
 const QuizComponent = ({ onClose }) => {
   const [selectedClass, setSelectedClass] = useState('');
@@ -136,7 +136,7 @@ const QuizComponent = ({ onClose }) => {
         correct: '206'
       }
     ],
-    '10': [
+    '8': [
       {
         subject: 'Mathematics',
         question: 'Solve: 2x + 5 = 15. What is x?',
@@ -151,9 +151,9 @@ const QuizComponent = ({ onClose }) => {
       },
       {
         subject: 'Mathematics',
-        question: 'What is the value of sin 30°?',
-        options: ['1/2', '√3/2', '1', '0'],
-        correct: '1/2'
+        question: 'What is the value of √64?',
+        options: ['6', '7', '8', '9'],
+        correct: '8'
       },
       {
         subject: 'Science',
@@ -163,9 +163,9 @@ const QuizComponent = ({ onClose }) => {
       },
       {
         subject: 'Mathematics',
-        question: 'If log₁₀(100) = x, what is x?',
-        options: ['1', '2', '10', '100'],
-        correct: '2'
+        question: 'If a triangle has angles 60°, 60°, what is the third angle?',
+        options: ['30°', '60°', '90°', '120°'],
+        correct: '60°'
       },
       {
         subject: 'Science',
@@ -175,15 +175,15 @@ const QuizComponent = ({ onClose }) => {
       },
       {
         subject: 'Mathematics',
-        question: 'Find the derivative of x²:',
-        options: ['x', '2x', 'x²', '2x²'],
-        correct: '2x'
+        question: 'What is 25% of 80?',
+        options: ['15', '20', '25', '30'],
+        correct: '20'
       },
       {
         subject: 'Science',
-        question: 'What type of bond is formed between Na and Cl in NaCl?',
-        options: ['Covalent', 'Ionic', 'Metallic', 'Hydrogen'],
-        correct: 'Ionic'
+        question: 'Which gas is most abundant in Earth\'s atmosphere?',
+        options: ['Oxygen', 'Carbon Dioxide', 'Nitrogen', 'Argon'],
+        correct: 'Nitrogen'
       },
       {
         subject: 'Mathematics',
@@ -193,11 +193,57 @@ const QuizComponent = ({ onClose }) => {
       },
       {
         subject: 'Science',
-        question: 'Which law states that force equals mass times acceleration?',
-        options: ['Newton\'s First Law', 'Newton\'s Second Law', 'Newton\'s Third Law', 'Law of Gravitation'],
-        correct: 'Newton\'s Second Law'
+        question: 'What type of energy is stored in food?',
+        options: ['Kinetic', 'Potential', 'Chemical', 'Thermal'],
+        correct: 'Chemical'
       }
     ]
+  };
+
+  const getScoreMessage = (score, total) => {
+    const percentage = (score / total) * 100;
+    
+    if (percentage >= 90) {
+      return {
+        title: "Outstanding! 🌟",
+        message: "You're a true champion! Your dedication to learning shines through. You have excellent conceptual understanding and are ready for more advanced challenges!",
+        color: "text-green-600",
+        bgColor: "bg-green-50",
+        icon: <Trophy className="w-12 h-12 text-yellow-500" />
+      };
+    } else if (percentage >= 80) {
+      return {
+        title: "Excellent Work! 🎉",
+        message: "You've shown great understanding of the concepts! With a little more practice, you'll be mastering these topics completely. Keep up the fantastic effort!",
+        color: "text-blue-600",
+        bgColor: "bg-blue-50",
+        icon: <Star className="w-12 h-12 text-blue-500" />
+      };
+    } else if (percentage >= 70) {
+      return {
+        title: "Good Job! 👏",
+        message: "You're on the right track! You understand most concepts well. A bit more focus on the areas you missed will help you excel even further!",
+        color: "text-indigo-600",
+        bgColor: "bg-indigo-50",
+        icon: <BookOpen className="w-12 h-12 text-indigo-500" />
+      };
+    } else if (percentage >= 60) {
+      return {
+        title: "Keep Learning! 📚",
+        message: "You've got the basics down! With more practice and revision, you'll see significant improvement. Remember, every expert was once a beginner!",
+        color: "text-orange-600",
+        bgColor: "bg-orange-50",
+        icon: <BookOpen className="w-12 h-12 text-orange-500" />
+      };
+    } else {
+      return {
+        title: "Practice Makes Perfect! 💪",
+        message: "Don't worry - learning is a journey! Focus on understanding the fundamentals, and you'll see amazing progress. Our teachers are here to help you succeed!",
+        color: "text-red-600",
+        bgColor: "bg-red-50",
+        icon: <BookOpen className="w-12 h-12 text-red-500" />
+      };
+    }
   };
 
   useEffect(() => {
@@ -254,6 +300,9 @@ const QuizComponent = ({ onClose }) => {
     return `${mins}:${secs.toString().padStart(2, '0')}`;
   };
 
+  const availableClasses = ['2', '3', '4', '5', '6', '7', '8'];
+  const scoreMessage = showResult ? getScoreMessage(score, questions[selectedClass]?.length || 10) : null;
+
   return (
     <AnimatePresence>
       <motion.div
@@ -271,7 +320,7 @@ const QuizComponent = ({ onClose }) => {
           onClick={(e) => e.stopPropagation()}
         >
           <div className="flex justify-between items-center mb-6">
-            <h2 className="text-3xl font-bold text-gray-900">LearnED Quiz</h2>
+            <h2 className="text-3xl font-bold bg-gradient-to-r from-red-600 to-red-700 bg-clip-text text-transparent">LearnED Assessment</h2>
             <button
               onClick={onClose}
               className="text-gray-500 hover:text-gray-700 transition-colors"
@@ -282,29 +331,36 @@ const QuizComponent = ({ onClose }) => {
 
           {!quizStarted && !showResult && (
             <div className="text-center">
-              <h3 className="text-xl font-semibold mb-6 text-gray-800">Select Your Class</h3>
-              <div className="grid grid-cols-3 gap-4 mb-8">
-                {['2', '5', '10'].map((classNum) => (
+              <h3 className="text-xl font-semibold mb-6 text-gray-800">Select Your Class Level</h3>
+              <div className="grid grid-cols-4 gap-3 mb-8">
+                {availableClasses.map((classNum) => (
                   <button
                     key={classNum}
                     onClick={() => setSelectedClass(classNum)}
-                    className={`p-4 rounded-lg border-2 transition-all ${
+                    className={`p-3 rounded-lg border-2 transition-all ${
                       selectedClass === classNum
-                        ? 'border-red-500 bg-red-50 text-red-600'
-                        : 'border-gray-300 hover:border-red-300'
+                        ? 'border-red-500 bg-gradient-to-br from-red-50 to-red-100 text-red-600'
+                        : 'border-gray-300 hover:border-red-300 hover:bg-red-25'
                     }`}
                   >
-                    <div className="text-2xl font-bold">Class {classNum}</div>
-                    <div className="text-sm text-gray-600">Math & Science</div>
+                    <div className="text-lg font-bold">Class {classNum}</div>
+                    <div className="text-xs text-gray-600">Math & Science</div>
                   </button>
                 ))}
+              </div>
+              <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-4 rounded-xl mb-6">
+                <p className="text-blue-800 text-sm">
+                  📝 This assessment will help us understand your current level and customize learning for you!
+                </p>
               </div>
               <button
                 onClick={startQuiz}
                 disabled={!selectedClass}
-                className={`btn-primary ${!selectedClass ? 'opacity-50 cursor-not-allowed' : ''}`}
+                className={`bg-gradient-to-r from-red-600 to-red-700 text-white px-8 py-3 rounded-xl font-semibold transition-all ${
+                  !selectedClass ? 'opacity-50 cursor-not-allowed' : 'hover:from-red-700 hover:to-red-800 transform hover:scale-105'
+                }`}
               >
-                Start Quiz (10 Questions)
+                Start Assessment (10 Questions)
               </button>
             </div>
           )}
@@ -317,12 +373,12 @@ const QuizComponent = ({ onClose }) => {
                 </div>
                 <div className="flex items-center gap-2 text-red-600">
                   <Clock size={16} />
-                  <span className="font-mono">{formatTime(timeLeft)}</span>
+                  <span className="font-mono font-semibold">{formatTime(timeLeft)}</span>
                 </div>
               </div>
 
               <div className="mb-4">
-                <span className="inline-block bg-red-100 text-red-600 px-3 py-1 rounded-full text-sm font-medium mb-4">
+                <span className="inline-block bg-gradient-to-r from-red-100 to-red-200 text-red-700 px-3 py-1 rounded-full text-sm font-medium mb-4">
                   {questions[selectedClass][currentQuestion].subject}
                 </span>
                 <h3 className="text-xl font-semibold text-gray-900 mb-6">
@@ -337,8 +393,8 @@ const QuizComponent = ({ onClose }) => {
                     onClick={() => handleAnswerSelect(option)}
                     className={`w-full p-4 text-left rounded-lg border-2 transition-all ${
                       selectedAnswer === option
-                        ? 'border-red-500 bg-red-50'
-                        : 'border-gray-200 hover:border-red-300'
+                        ? 'border-red-500 bg-gradient-to-r from-red-50 to-red-100'
+                        : 'border-gray-200 hover:border-red-300 hover:bg-red-25'
                     }`}
                   >
                     {option}
@@ -349,43 +405,48 @@ const QuizComponent = ({ onClose }) => {
               <button
                 onClick={nextQuestion}
                 disabled={!selectedAnswer}
-                className={`btn-primary w-full ${!selectedAnswer ? 'opacity-50 cursor-not-allowed' : ''}`}
+                className={`bg-gradient-to-r from-red-600 to-red-700 text-white px-6 py-3 rounded-xl font-semibold w-full transition-all ${
+                  !selectedAnswer ? 'opacity-50 cursor-not-allowed' : 'hover:from-red-700 hover:to-red-800 transform hover:scale-105'
+                }`}
               >
-                {currentQuestion === questions[selectedClass].length - 1 ? 'Finish Quiz' : 'Next Question'}
+                {currentQuestion === questions[selectedClass].length - 1 ? 'Complete Assessment' : 'Next Question'}
               </button>
             </div>
           )}
 
-          {showResult && (
+          {showResult && scoreMessage && (
             <div className="text-center">
               <div className="mb-6">
-                {score >= 7 ? (
-                  <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
-                ) : (
-                  <XCircle className="w-16 h-16 text-red-500 mx-auto mb-4" />
-                )}
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">Quiz Complete!</h3>
-                <p className="text-lg text-gray-600">
-                  You scored <span className="font-bold text-red-600">{score}</span> out of{' '}
-                  <span className="font-bold">{questions[selectedClass].length}</span>
-                </p>
-              </div>
-
-              <div className="bg-gray-50 rounded-lg p-6 mb-6">
-                <div className="text-4xl font-bold text-red-600 mb-2">
-                  {Math.round((score / questions[selectedClass].length) * 100)}%
+                <div className="flex justify-center mb-4">
+                  {scoreMessage.icon}
                 </div>
-                <p className="text-gray-600">
-                  {score >= 8 ? 'Excellent work!' : score >= 6 ? 'Good job!' : 'Keep practicing!'}
-                </p>
+                <h3 className={`text-2xl font-bold mb-2 ${scoreMessage.color}`}>{scoreMessage.title}</h3>
+                <div className={`${scoreMessage.bgColor} rounded-2xl p-6 mb-6`}>
+                  <p className={`text-lg ${scoreMessage.color} mb-4`}>
+                    You scored <span className="font-bold text-2xl">{score}</span> out of{' '}
+                    <span className="font-bold text-2xl">{questions[selectedClass].length}</span>
+                  </p>
+                  <div className={`text-4xl font-bold mb-4 ${scoreMessage.color}`}>
+                    {Math.round((score / questions[selectedClass].length) * 100)}%
+                  </div>
+                  <p className={`${scoreMessage.color} leading-relaxed`}>
+                    {scoreMessage.message}
+                  </p>
+                </div>
               </div>
 
-              <div className="flex gap-4 justify-center">
-                <button onClick={restartQuiz} className="btn-secondary">
-                  Take Another Quiz
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <button 
+                  onClick={restartQuiz} 
+                  className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-3 rounded-xl font-semibold hover:from-blue-700 hover:to-blue-800 transition-all"
+                >
+                  Try Another Class
                 </button>
-                <button onClick={onClose} className="btn-primary">
-                  Close
+                <button 
+                  onClick={onClose} 
+                  className="bg-gradient-to-r from-green-600 to-green-700 text-white px-6 py-3 rounded-xl font-semibold hover:from-green-700 hover:to-green-800 transition-all"
+                >
+                  Book Free Demo
                 </button>
               </div>
             </div>
