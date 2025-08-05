@@ -351,7 +351,14 @@ const Contact = () => {
               Don't wait to unlock your potential. Contact us today and take the first step 
               towards academic excellence.
             </p>
-            <button className="bg-red-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-red-700 transition-colors">
+            <button 
+              onClick={() => {
+                document.getElementById('send-message')?.scrollIntoView({ 
+                  behavior: 'smooth' 
+                });
+              }}
+              className="bg-red-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-red-700 transition-colors"
+            >
               Schedule a Consultation
             </button>
           </motion.div>
