@@ -74,6 +74,130 @@ const QuizComponent = ({ onClose }) => {
         correct: '5'
       }
     ],
+    '3': [
+      {
+        subject: 'Mathematics',
+        question: 'What is 7 × 3?',
+        options: ['18', '21', '24', '27'],
+        correct: '21'
+      },
+      {
+        subject: 'Science',
+        question: 'Which part of the plant absorbs water from the soil?',
+        options: ['Leaves', 'Flowers', 'Roots', 'Stem'],
+        correct: 'Roots'
+      },
+      {
+        subject: 'Mathematics',
+        question: 'What is 45 ÷ 5?',
+        options: ['8', '9', '10', '11'],
+        correct: '9'
+      },
+      {
+        subject: 'Science',
+        question: 'What do we call animals that eat only plants?',
+        options: ['Carnivores', 'Herbivores', 'Omnivores', 'Scavengers'],
+        correct: 'Herbivores'
+      },
+      {
+        subject: 'Mathematics',
+        question: 'How many sides does a rectangle have?',
+        options: ['3', '4', '5', '6'],
+        correct: '4'
+      },
+      {
+        subject: 'Science',
+        question: 'Which sense organ helps us to hear?',
+        options: ['Eyes', 'Nose', 'Ears', 'Tongue'],
+        correct: 'Ears'
+      },
+      {
+        subject: 'Mathematics',
+        question: 'What is 100 - 37?',
+        options: ['63', '73', '67', '53'],
+        correct: '63'
+      },
+      {
+        subject: 'Science',
+        question: 'What happens to water when it is heated?',
+        options: ['It freezes', 'It evaporates', 'It becomes solid', 'Nothing happens'],
+        correct: 'It evaporates'
+      },
+      {
+        subject: 'Mathematics',
+        question: 'What is the next number in the pattern: 2, 4, 6, 8, ___?',
+        options: ['9', '10', '11', '12'],
+        correct: '10'
+      },
+      {
+        subject: 'Science',
+        question: 'How many days are there in a week?',
+        options: ['5', '6', '7', '8'],
+        correct: '7'
+      }
+    ],
+    '4': [
+      {
+        subject: 'Mathematics',
+        question: 'What is 125 + 89?',
+        options: ['204', '214', '224', '234'],
+        correct: '214'
+      },
+      {
+        subject: 'Science',
+        question: 'What is the largest organ in the human body?',
+        options: ['Heart', 'Liver', 'Brain', 'Skin'],
+        correct: 'Skin'
+      },
+      {
+        subject: 'Mathematics',
+        question: 'What is 84 ÷ 12?',
+        options: ['6', '7', '8', '9'],
+        correct: '7'
+      },
+      {
+        subject: 'Science',
+        question: 'Which planet is closest to the Sun?',
+        options: ['Venus', 'Earth', 'Mercury', 'Mars'],
+        correct: 'Mercury'
+      },
+      {
+        subject: 'Mathematics',
+        question: 'What is the area of a square with side 6 cm?',
+        options: ['24 sq cm', '30 sq cm', '36 sq cm', '42 sq cm'],
+        correct: '36 sq cm'
+      },
+      {
+        subject: 'Science',
+        question: 'What do we call the process by which plants make food using sunlight?',
+        options: ['Respiration', 'Photosynthesis', 'Digestion', 'Circulation'],
+        correct: 'Photosynthesis'
+      },
+      {
+        subject: 'Mathematics',
+        question: 'Convert 3 hours into minutes:',
+        options: ['150 minutes', '160 minutes', '170 minutes', '180 minutes'],
+        correct: '180 minutes'
+      },
+      {
+        subject: 'Science',
+        question: 'Which of these is a mammal?',
+        options: ['Snake', 'Fish', 'Bird', 'Whale'],
+        correct: 'Whale'
+      },
+      {
+        subject: 'Mathematics',
+        question: 'What is 15% of 200?',
+        options: ['25', '30', '35', '40'],
+        correct: '30'
+      },
+      {
+        subject: 'Science',
+        question: 'What gas do we breathe in?',
+        options: ['Carbon dioxide', 'Oxygen', 'Nitrogen', 'Hydrogen'],
+        correct: 'Oxygen'
+      }
+    ],
     '5': [
       {
         subject: 'Mathematics',
@@ -134,6 +258,130 @@ const QuizComponent = ({ onClose }) => {
         question: 'How many bones are there in an adult human body?',
         options: ['196', '206', '216', '226'],
         correct: '206'
+      }
+    ],
+    '6': [
+      {
+        subject: 'Mathematics',
+        question: 'What is 25% of 120?',
+        options: ['25', '30', '35', '40'],
+        correct: '30'
+      },
+      {
+        subject: 'Science',
+        question: 'What is the smallest unit of life?',
+        options: ['Atom', 'Molecule', 'Cell', 'Tissue'],
+        correct: 'Cell'
+      },
+      {
+        subject: 'Mathematics',
+        question: 'Solve: 3x + 4 = 19. What is x?',
+        options: ['4', '5', '6', '7'],
+        correct: '5'
+      },
+      {
+        subject: 'Science',
+        question: 'Which gas makes up about 78% of Earth\'s atmosphere?',
+        options: ['Oxygen', 'Carbon Dioxide', 'Nitrogen', 'Argon'],
+        correct: 'Nitrogen'
+      },
+      {
+        subject: 'Mathematics',
+        question: 'What is the LCM of 6 and 8?',
+        options: ['12', '24', '48', '36'],
+        correct: '24'
+      },
+      {
+        subject: 'Science',
+        question: 'What type of animal is a frog?',
+        options: ['Mammal', 'Reptile', 'Amphibian', 'Fish'],
+        correct: 'Amphibian'
+      },
+      {
+        subject: 'Mathematics',
+        question: 'What is (-3) + (+7)?',
+        options: ['4', '-4', '10', '-10'],
+        correct: '4'
+      },
+      {
+        subject: 'Science',
+        question: 'Which part of the flower produces pollen?',
+        options: ['Petals', 'Sepals', 'Stamen', 'Pistil'],
+        correct: 'Stamen'
+      },
+      {
+        subject: 'Mathematics',
+        question: 'Convert 5/8 to decimal:',
+        options: ['0.625', '0.725', '0.525', '0.825'],
+        correct: '0.625'
+      },
+      {
+        subject: 'Science',
+        question: 'What is the pH value of pure water?',
+        options: ['6', '7', '8', '9'],
+        correct: '7'
+      }
+    ],
+    '7': [
+      {
+        subject: 'Mathematics',
+        question: 'What is the value of 2³?',
+        options: ['6', '8', '9', '12'],
+        correct: '8'
+      },
+      {
+        subject: 'Science',
+        question: 'What is the chemical symbol for gold?',
+        options: ['Go', 'Gd', 'Au', 'Ag'],
+        correct: 'Au'
+      },
+      {
+        subject: 'Mathematics',
+        question: 'Solve: 2x - 3 = 11. What is x?',
+        options: ['6', '7', '8', '9'],
+        correct: '7'
+      },
+      {
+        subject: 'Science',
+        question: 'Which blood vessels carry blood away from the heart?',
+        options: ['Veins', 'Arteries', 'Capillaries', 'Nerves'],
+        correct: 'Arteries'
+      },
+      {
+        subject: 'Mathematics',
+        question: 'What is the area of a circle with radius 7 cm? (Use π = 22/7)',
+        options: ['154 sq cm', '144 sq cm', '164 sq cm', '174 sq cm'],
+        correct: '154 sq cm'
+      },
+      {
+        subject: 'Science',
+        question: 'What is the process of conversion of solid directly to gas called?',
+        options: ['Melting', 'Evaporation', 'Sublimation', 'Condensation'],
+        correct: 'Sublimation'
+      },
+      {
+        subject: 'Mathematics',
+        question: 'Express 0.375 as a fraction:',
+        options: ['3/8', '3/7', '5/8', '2/5'],
+        correct: '3/8'
+      },
+      {
+        subject: 'Science',
+        question: 'Which vitamin is produced when skin is exposed to sunlight?',
+        options: ['Vitamin A', 'Vitamin B', 'Vitamin C', 'Vitamin D'],
+        correct: 'Vitamin D'
+      },
+      {
+        subject: 'Mathematics',
+        question: 'What is the sum of interior angles of a pentagon?',
+        options: ['360°', '540°', '720°', '900°'],
+        correct: '540°'
+      },
+      {
+        subject: 'Science',
+        question: 'What is the hardest part of the human body?',
+        options: ['Bones', 'Teeth (Enamel)', 'Nails', 'Skull'],
+        correct: 'Teeth (Enamel)'
       }
     ],
     '8': [
