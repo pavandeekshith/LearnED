@@ -239,6 +239,156 @@ const Home = () => {
       {/* Quiz Section */}
       {showQuiz && <QuizComponent onClose={() => setShowQuiz(false)} />}
 
+      {/* Demo Form Modal */}
+      {showDemoForm && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[100] p-4"
+          onClick={() => setShowDemoForm(false)}
+        >
+          <motion.div
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.9, opacity: 0 }}
+            className="bg-white rounded-2xl p-8 max-w-md w-full max-h-[90vh] overflow-y-auto"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex justify-between items-center mb-6">
+              <div>
+                <h3 className="text-2xl font-bold bg-gradient-to-r from-red-600 to-red-700 bg-clip-text text-transparent">
+                  Book Free Demo
+                </h3>
+                <p className="text-gray-600 text-sm">Start your learning journey today!</p>
+              </div>
+              <button
+                onClick={() => setShowDemoForm(false)}
+                className="text-gray-500 hover:text-gray-700 transition-colors"
+              >
+                <X size={24} />
+              </button>
+            </div>
+
+            {demoSubmitStatus === 'success' ? (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="text-center py-8"
+              >
+                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Send className="w-8 h-8 text-green-600" />
+                </div>
+                <h4 className="text-xl font-bold text-green-600 mb-2">Request Submitted!</h4>
+                <p className="text-gray-600">
+                  Thank you for your interest! Our team will contact you within 24 hours to schedule your free demo session.
+                </p>
+              </motion.div>
+            ) : (
+              <form onSubmit={handleDemoSubmit} className="space-y-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <User size={16} className="inline mr-2" />
+                    Full Name *
+                  </label>
+                  <input
+                    type="text"
+                    name="name"
+                    value={demoFormData.name}
+                    onChange={handleDemoInputChange}
+                    required
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-red-500 focus:outline-none transition-colors"
+                    placeholder="Enter your full name"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <Phone size={16} className="inline mr-2" />
+                    Phone Number *
+                  </label>
+                  <input
+                    type="tel"
+                    name="phone"
+                    value={demoFormData.phone}
+                    onChange={handleDemoInputChange}
+                    required
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-red-500 focus:outline-none transition-colors"
+                    placeholder="Enter your phone number"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <Mail size={16} className="inline mr-2" />
+                    Email Address
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    value={demoFormData.email}
+                    onChange={handleDemoInputChange}
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-red-500 focus:outline-none transition-colors"
+                    placeholder="Enter your email (optional)"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <MessageCircle size={16} className="inline mr-2" />
+                    Message
+                  </label>
+                  <textarea
+                    name="message"
+                    value={demoFormData.message}
+                    onChange={handleDemoInputChange}
+                    rows={3}
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-red-500 focus:outline-none transition-colors resize-vertical"
+                    placeholder="Tell us about your learning goals (optional)"
+                  ></textarea>
+                </div>
+
+                <div className="bg-gradient-to-r from-blue-50 to-blue-100 p-4 rounded-lg border border-blue-200">
+                  <p className="text-blue-800 text-sm">
+                    🎉 <strong>What you'll get:</strong> 30-minute personalized demo session, curriculum overview, and learning assessment - completely FREE!
+                  </p>
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={isDemoSubmitting}
+                  className={`w-full bg-gradient-to-r from-red-600 to-red-700 text-white py-3 px-6 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center gap-2 ${
+                    isDemoSubmitting ? 'opacity-70 cursor-not-allowed' : 'hover:from-red-700 hover:to-red-800 transform hover:scale-105'
+                  }`}
+                >
+                  {isDemoSubmitting ? (
+                    <>
+                      <div className="animate-spin rounded-full h-4 w-4 border-2 border-white border-t-transparent"></div>
+                      Submitting...
+                    </>
+                  ) : (
+                    <>
+                      <Send size={16} />
+                      Book My Free Demo Session
+                    </>
+                  )}
+                </button>
+
+                {demoSubmitStatus === 'error' && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="text-red-600 text-sm text-center bg-red-50 p-3 rounded-lg"
+                  >
+                    Something went wrong. Please try again or contact us directly.
+                  </motion.div>
+                )}
+              </form>
+            )}
+          </motion.div>
+        </motion.div>
+      )}
+
       {/* Quick Stats */}
       <section className="section-padding bg-gradient-to-r from-gray-900 to-black text-white">
         <div className="container mx-auto px-4">
