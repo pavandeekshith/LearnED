@@ -334,37 +334,7 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Map Section */}
-      <section className="section-padding bg-white">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
-              Visit Our <span className="text-gradient">Campus</span>
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Located in the heart of Mumbai, our campus provides an ideal learning environment
-            </p>
-          </motion.div>
-          
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="bg-gray-200 rounded-2xl h-96 flex items-center justify-center"
-          >
-            <div className="text-center">
-              <MapPin className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-              <p className="text-gray-600 text-lg">Interactive Map Coming Soon</p>
-              <p className="text-gray-500">123 Education Street, Mumbai, Maharashtra 400001</p>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+
 
       {/* CTA Section */}
       <section className="section-padding bg-gray-900 text-white">
