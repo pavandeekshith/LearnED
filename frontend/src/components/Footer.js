@@ -89,14 +89,6 @@ const Footer = () => {
               >
                 <Linkedin size={18} />
               </a>
-              <a 
-                href="https://wa.me/919773197838" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="bg-gray-700 p-2 rounded-full hover:bg-green-600 transition-colors duration-300"
-              >
-                <MessageCircle size={18} />
-              </a>
             </div>
           </motion.div>
 
