@@ -323,31 +323,7 @@ const Team = () => {
         </div>
       </section>
 
-      {/* Join Our Team CTA */}
-      <section className="section-padding bg-gradient-to-r from-gray-900 to-black text-white">
-        <div className="container mx-auto px-4 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Ready to Learn with the <span className="text-red-400">Best?</span>
-            </h2>
-            <p className="text-xl mb-8 max-w-2xl mx-auto text-gray-300">
-              Experience the difference that dedicated, passionate educators can make in your academic journey.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-gradient-to-r from-red-600 to-red-700 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:from-red-700 hover:to-red-800 transition-all">
-                Book Free Demo
-              </button>
-              <button className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-white hover:text-gray-900 transition-all">
-                Learn More
-              </button>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+
     </div>
   );
 };
