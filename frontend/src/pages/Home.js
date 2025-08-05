@@ -7,6 +7,14 @@ import FloatingDemoButton from '../components/FloatingDemoButton';
 const Home = () => {
   const [showQuiz, setShowQuiz] = useState(false);
   const [showDemoForm, setShowDemoForm] = useState(false);
+  const [demoFormData, setDemoFormData] = useState({
+    name: '',
+    phone: '',
+    email: '',
+    message: ''
+  });
+  const [isDemoSubmitting, setIsDemoSubmitting] = useState(false);
+  const [demoSubmitStatus, setDemoSubmitStatus] = useState(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);
