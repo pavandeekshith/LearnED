@@ -8,6 +8,10 @@ const Academics = () => {
   const [selectedCurriculum, setSelectedCurriculum] = useState(null);
   const [expandedTopic, setExpandedTopic] = useState(null);
 
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   // Comprehensive Syllabus Data Structure
   const syllabusData = {
     // Classes 2-8 Regular/NCERT Curriculum
