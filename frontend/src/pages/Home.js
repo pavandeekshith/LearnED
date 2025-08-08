@@ -390,7 +390,7 @@ const Home = () => {
       )}
 
       {/* Quick Stats */}
-      <section className="section-padding bg-gradient-to-r from-gray-900 to-black text-white">
+      {/* <section className="section-padding bg-gradient-to-r from-gray-900 to-black text-white">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
@@ -415,7 +415,7 @@ const Home = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* USPs Section */}
       <section className="section-padding bg-gradient-to-br from-white to-gray-50">
