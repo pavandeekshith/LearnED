@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Heart, BookOpen, Award, Users, Lightbulb, Target } from 'lucide-react';
+import { useEffect } from 'react';
 
 const Team = () => {
   const founders = [
