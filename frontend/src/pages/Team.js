@@ -4,6 +4,10 @@ import { Heart, BookOpen, Award, Users, Lightbulb, Target } from 'lucide-react';
 import { useEffect } from 'react';
 
 const Team = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const founders = [
     {
       name: "Rahul Nallana",
