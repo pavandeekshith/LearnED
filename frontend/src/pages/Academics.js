@@ -68,6 +68,348 @@ const Academics = () => {
           }
         }
       },
+      '3': {
+        name: 'Class 3',
+        age: '8-9 years',
+        subjects: {
+          mathematics: {
+            name: 'Mathematics',
+            icon: Calculator,
+            color: 'blue',
+            description: 'Developing mathematical thinking and problem-solving skills',
+            topics: [
+              { title: 'Where to Look From', subtopics: ['Directions and positions', 'Spatial understanding', 'Maps and directions'] },
+              { title: 'Fun With Numbers', subtopics: ['Number games', 'Number relationships', 'Mental math strategies'] },
+              { title: 'Give and Take', subtopics: ['Advanced addition/subtraction', 'Borrowing and carrying', 'Multi-digit operations'] },
+              { title: 'Long and Short', subtopics: ['Length measurement', 'Standard units', 'Comparison and estimation'] },
+              { title: 'Shapes and Designs', subtopics: ['2D and 3D shapes', 'Shape properties', 'Pattern creation'] },
+              { title: 'Fun With Give and Take', subtopics: ['Word problems', 'Real-life applications', 'Problem-solving strategies'] },
+              { title: 'Time Goes On', subtopics: ['Reading time', 'Time duration', 'Calendar concepts'] },
+              { title: 'Who is Heavier?', subtopics: ['Weight comparison', 'Standard units of weight', 'Balancing'] },
+              { title: 'How Many Times?', subtopics: ['Multiplication concepts', 'Tables practice', 'Repeated addition'] },
+              { title: 'Play With Patterns', subtopics: ['Number patterns', 'Shape patterns', 'Pattern completion'] },
+              { title: 'Jugs and Mugs', subtopics: ['Capacity and volume', 'Liquid measurement', 'Container comparison'] },
+              { title: 'Can We Share?', subtopics: ['Division concepts', 'Equal sharing', 'Grouping'] },
+              { title: 'Smart Charts!', subtopics: ['Data collection', 'Simple graphs', 'Chart interpretation'] },
+              { title: 'Rupees and Paise', subtopics: ['Money concepts', 'Currency recognition', 'Simple transactions'] }
+            ]
+          },
+          science: {
+            name: 'Environmental Science',
+            icon: Microscope,
+            color: 'green',
+            description: 'Exploring nature and understanding our environment',
+            topics: [
+              { title: 'Poonam\'s Day Out', subtopics: ['Daily life observations', 'Environmental awareness', 'Nature exploration'] },
+              { title: 'The Plant Fairy', subtopics: ['Plant parts', 'Plant growth', 'Plant importance'] },
+              { title: 'Water O\' Water!', subtopics: ['Water cycle', 'Water sources', 'Water conservation'] },
+              { title: 'Our First School', subtopics: ['School environment', 'Learning spaces', 'Educational journey'] },
+              { title: 'Chhotu\'s House', subtopics: ['Home environment', 'Family life', 'Household activities'] },
+              { title: 'Foods We Eat', subtopics: ['Food groups', 'Nutrition', 'Healthy eating habits'] },
+              { title: 'Saying Without Speaking', subtopics: ['Non-verbal communication', 'Body language', 'Sign language'] },
+              { title: 'Flying High', subtopics: ['Birds and flight', 'Animal adaptations', 'Sky observations'] },
+              { title: 'It\'s Raining', subtopics: ['Weather phenomena', 'Rain cycle', 'Seasonal changes'] },
+              { title: 'What is Cooking', subtopics: ['Food preparation', 'Kitchen science', 'Cooking processes'] },
+              { title: 'From Here to There', subtopics: ['Transportation', 'Journey concepts', 'Travel methods'] },
+              { title: 'Work We Do', subtopics: ['Different occupations', 'Community helpers', 'Work importance'] },
+              { title: 'Sharing Our Feelings', subtopics: ['Emotional expression', 'Communication skills', 'Social relationships'] },
+              { title: 'The Story of Food', subtopics: ['Food sources', 'Food journey', 'Agricultural practices'] },
+              { title: 'Making Pots', subtopics: ['Handicrafts', 'Traditional skills', 'Creative expression'] },
+              { title: 'Games We Play', subtopics: ['Physical activity', 'Traditional games', 'Sports and health'] },
+              { title: 'Here Comes A Letter', subtopics: ['Postal system', 'Communication methods', 'Letter writing'] },
+              { title: 'A House Like This!', subtopics: ['Architecture', 'Building materials', 'Shelter designs'] },
+              { title: 'Our Friends – Animals', subtopics: ['Animal behavior', 'Pet care', 'Wildlife conservation'] },
+              { title: 'Drop by Drop', subtopics: ['Water conservation', 'Water usage', 'Environmental responsibility'] },
+              { title: 'Families Can Be Different', subtopics: ['Family diversity', 'Social structures', 'Cultural differences'] },
+              { title: 'Left-Right', subtopics: ['Directional concepts', 'Spatial awareness', 'Navigation skills'] },
+              { title: 'A Beautiful Cloth', subtopics: ['Textile production', 'Traditional crafts', 'Cultural heritage'] },
+              { title: 'Web of Life', subtopics: ['Ecosystem connections', 'Food chains', 'Environmental balance'] }
+            ]
+          }
+        }
+      },
+      '4': {
+        name: 'Class 4',
+        age: '9-10 years',
+        subjects: {
+          mathematics: {
+            name: 'Mathematics',
+            icon: Calculator,
+            color: 'blue',
+            description: 'Building strong mathematical foundations with practical applications',
+            topics: [
+              { title: 'Building with Bricks', subtopics: ['3D shapes and structures', 'Volume concepts', 'Spatial visualization'] },
+              { title: 'Long and Short', subtopics: ['Measurement units', 'Length conversions', 'Estimation skills'] },
+              { title: 'A Trip to Bhopal', subtopics: ['Distance and travel', 'Map reading', 'Route planning'] },
+              { title: 'Tick-Tick-Tick', subtopics: ['Time measurement', 'Clock reading', 'Time calculations'] },
+              { title: 'The Way the World Looks', subtopics: ['Mapping skills', 'Scale and proportion', 'Geographic concepts'] },
+              { title: 'The Junk Seller', subtopics: ['Data handling', 'Sorting and classifying', 'Graph interpretation'] },
+              { title: 'Jugs and Mugs', subtopics: ['Capacity measurement', 'Volume calculations', 'Liquid measurement'] },
+              { title: 'Carts and Wheels', subtopics: ['Circular motion', 'Symmetry', 'Geometric patterns'] },
+              { title: 'Halves and Quarters', subtopics: ['Fraction concepts', 'Part-whole relationships', 'Fraction operations'] },
+              { title: 'Play with Patterns', subtopics: ['Number sequences', 'Pattern recognition', 'Mathematical patterns'] },
+              { title: 'Tables and Shares', subtopics: ['Multiplication tables', 'Division concepts', 'Equal distribution'] },
+              { title: 'How Heavy? How Light?', subtopics: ['Weight measurement', 'Mass concepts', 'Weighing techniques'] },
+              { title: 'Fields and Fences', subtopics: ['Perimeter and area', 'Boundary concepts', 'Measurement applications'] },
+              { title: 'Smart Charts', subtopics: ['Data representation', 'Chart creation', 'Statistical concepts'] }
+            ]
+          },
+          science: {
+            name: 'Environmental Science',
+            icon: Microscope,
+            color: 'green',
+            description: 'Understanding scientific concepts through environmental exploration',
+            topics: [
+              { title: 'Going to School', subtopics: ['Transportation methods', 'Road safety', 'School environment'] },
+              { title: 'Ear to Ear', subtopics: ['Communication systems', 'Sound transmission', 'Hearing mechanisms'] },
+              { title: 'A Day with Nandu', subtopics: ['Animal behavior', 'Pet relationships', 'Animal care'] },
+              { title: 'The Story of Amrita', subtopics: ['Environmental conservation', 'Tree protection', 'Ecological awareness'] },
+              { title: 'Anita and the Honeybees', subtopics: ['Pollination process', 'Bee behavior', 'Ecosystem services'] },
+              { title: 'Omana\'s Journey', subtopics: ['Travel experiences', 'Cultural diversity', 'Geographic features'] },
+              { title: 'From the Window', subtopics: ['Observation skills', 'Environmental changes', 'Seasonal patterns'] },
+              { title: 'Reaching Grandmother\'s House', subtopics: ['Family relationships', 'Travel planning', 'Distance concepts'] },
+              { title: 'Changing Families', subtopics: ['Family structures', 'Social changes', 'Adaptation'] },
+              { title: 'Hu Tu Tu, Hu Tu Tu', subtopics: ['Traditional games', 'Physical activity', 'Cultural heritage'] },
+              { title: 'The Valley of Flowers', subtopics: ['Biodiversity', 'Plant varieties', 'Conservation efforts'] },
+              { title: 'Changing Times', subtopics: ['Technological progress', 'Social evolution', 'Historical awareness'] },
+              { title: 'A River\'s Tale', subtopics: ['Water systems', 'River ecosystems', 'Water conservation'] },
+              { title: 'Basva\'s Farm', subtopics: ['Agricultural practices', 'Crop cultivation', 'Farming techniques'] },
+              { title: 'From Market to Home', subtopics: ['Food supply chain', 'Market systems', 'Economic understanding'] },
+              { title: 'A Busy Month', subtopics: ['Seasonal activities', 'Time management', 'Planning skills'] },
+              { title: 'Nandita in Mumbai', subtopics: ['Urban life', 'City systems', 'Metropolitan challenges'] },
+              { title: 'Too Much Water, Too Little Water', subtopics: ['Water scarcity', 'Flood management', 'Water cycle'] },
+              { title: 'Abdul in the Garden', subtopics: ['Gardening practices', 'Plant care', 'Horticultural skills'] },
+              { title: 'Eating Together', subtopics: ['Food sharing', 'Community dining', 'Social bonding'] },
+              { title: 'Food and Fun', subtopics: ['Nutrition concepts', 'Food preparation', 'Healthy lifestyle'] },
+              { title: 'The World in My Home', subtopics: ['Global connections', 'Cultural exchange', 'International awareness'] },
+              { title: 'Pochampalli', subtopics: ['Traditional crafts', 'Weaving techniques', 'Cultural preservation'] },
+              { title: 'Home and Abroad', subtopics: ['Migration patterns', 'Cultural adaptation', 'Global citizenship'] },
+              { title: 'Spicy Riddles', subtopics: ['Problem-solving', 'Critical thinking', 'Logical reasoning'] },
+              { title: 'Defence Officer: Wahida', subtopics: ['Career exploration', 'Service professions', 'Leadership qualities'] },
+              { title: 'Chuskit Goes to School', subtopics: ['Educational access', 'Inclusive education', 'Overcoming challenges'] }
+            ]
+          }
+        }
+      },
+      '5': {
+        name: 'Class 5',
+        age: '10-11 years',
+        subjects: {
+          mathematics: {
+            name: 'Mathematics',
+            icon: Calculator,
+            color: 'blue',
+            description: 'Advanced mathematical concepts with real-world applications',
+            topics: [
+              { title: 'The Fish Tale', subtopics: ['Large numbers', 'Place value system', 'Number comparisons'] },
+              { title: 'Shapes and Angles', subtopics: ['Geometric shapes', 'Angle measurement', 'Shape properties'] },
+              { title: 'How Many Squares?', subtopics: ['Area concepts', 'Square units', 'Area calculations'] },
+              { title: 'Parts and Wholes', subtopics: ['Fraction concepts', 'Equivalent fractions', 'Fraction operations'] },
+              { title: 'Does it Look the Same?', subtopics: ['Symmetry', 'Reflection', 'Pattern symmetry'] },
+              { title: 'Be My Multiple, I\'ll Be Your Factor', subtopics: ['Factors and multiples', 'Prime numbers', 'Number relationships'] },
+              { title: 'Can You See the Pattern?', subtopics: ['Number patterns', 'Sequence recognition', 'Pattern continuation'] },
+              { title: 'Mapping Your Way', subtopics: ['Scale and maps', 'Direction concepts', 'Distance measurement'] },
+              { title: 'Boxes and Sketches', subtopics: ['3D visualization', 'Net of shapes', 'Spatial understanding'] },
+              { title: 'Tenths and Hundredths', subtopics: ['Decimal concepts', 'Decimal operations', 'Decimal-fraction relationship'] },
+              { title: 'Area and its Boundary', subtopics: ['Perimeter and area', 'Measurement techniques', 'Practical applications'] },
+              { title: 'Smart Charts', subtopics: ['Data interpretation', 'Graph construction', 'Statistical analysis'] },
+              { title: 'Ways to Multiply and Divide', subtopics: ['Multiplication strategies', 'Division methods', 'Mental math techniques'] },
+              { title: 'How Big? How Heavy?', subtopics: ['Measurement units', 'Weight and volume', 'Measurement conversions'] }
+            ]
+          },
+          science: {
+            name: 'Environmental Science',
+            icon: Microscope,
+            color: 'green',
+            description: 'Scientific exploration and environmental understanding',
+            topics: [
+              { title: 'Super Senses', subtopics: ['Animal senses', 'Sensory adaptations', 'Human vs animal senses'] },
+              { title: 'A Snake Charmer\'s Story', subtopics: ['Traditional occupations', 'Animal behavior', 'Cultural practices'] },
+              { title: 'From Tasting to Digesting', subtopics: ['Digestive system', 'Food processing', 'Nutritional awareness'] },
+              { title: 'Mangoes Round the Year', subtopics: ['Food preservation', 'Seasonal availability', 'Food processing'] },
+              { title: 'Seeds and Seeds', subtopics: ['Plant reproduction', 'Seed dispersal', 'Growth patterns'] },
+              { title: 'Every Drop Counts', subtopics: ['Water conservation', 'Water cycle', 'Resource management'] },
+              { title: 'Experiments with Water', subtopics: ['Water properties', 'Scientific method', 'Experimentation'] },
+              { title: 'A Treat for Mosquitoes', subtopics: ['Insect behavior', 'Disease prevention', 'Health awareness'] },
+              { title: 'Up You Go!', subtopics: ['Climbing adaptations', 'Plant support', 'Growth strategies'] },
+              { title: 'Walls Tell Stories', subtopics: ['Construction techniques', 'Building materials', 'Architectural heritage'] },
+              { title: 'Sunita in Space', subtopics: ['Space exploration', 'Astronaut life', 'Scientific achievements'] },
+              { title: 'What if it Finishes…?', subtopics: ['Resource depletion', 'Sustainability', 'Environmental responsibility'] },
+              { title: 'A Shelter so High!', subtopics: ['Animal habitats', 'Adaptation strategies', 'Survival techniques'] },
+              { title: 'When the Earth Shook!', subtopics: ['Natural disasters', 'Earthquake awareness', 'Safety measures'] },
+              { title: 'Blow Hot, Blow Cold', subtopics: ['Temperature concepts', 'Weather patterns', 'Climate effects'] },
+              { title: 'Who will do this Work?', subtopics: ['Occupational diversity', 'Skill recognition', 'Work dignity'] },
+              { title: 'Across the Wall', subtopics: ['Boundaries and barriers', 'Social divisions', 'Unity in diversity'] },
+              { title: 'No Place for Us?', subtopics: ['Habitat destruction', 'Wildlife conservation', 'Human impact'] },
+              { title: 'A Seed tells a Farmer\'s Story', subtopics: ['Agricultural practices', 'Crop cycles', 'Farming challenges'] },
+              { title: 'Whose Forests?', subtopics: ['Forest conservation', 'Indigenous rights', 'Environmental protection'] },
+              { title: 'Like Father, Like Daughter', subtopics: ['Gender equality', 'Breaking stereotypes', 'Career choices'] },
+              { title: 'On the Move Again', subtopics: ['Migration patterns', 'Seasonal movement', 'Adaptation strategies'] }
+            ]
+          }
+        }
+      },
+      '6': {
+        name: 'Class 6',
+        age: '11-12 years',
+        subjects: {
+          mathematics: {
+            name: 'Mathematics',
+            icon: Calculator,
+            color: 'blue',
+            description: 'Foundational concepts for higher mathematics',
+            topics: [
+              { title: 'Knowing Our Numbers', subtopics: ['Number system', 'Place value', 'Roman numerals', 'Number comparisons'] },
+              { title: 'Whole Numbers', subtopics: ['Properties of whole numbers', 'Number line', 'Operations'] },
+              { title: 'Playing With Numbers', subtopics: ['Factors and multiples', 'Prime and composite', 'Divisibility rules'] },
+              { title: 'Basic Geometrical Ideas', subtopics: ['Points, lines, rays', 'Line segments', 'Angles', 'Curves'] },
+              { title: 'Understanding Elementary Shapes', subtopics: ['Triangles', 'Quadrilaterals', 'Circles', 'Polygons'] },
+              { title: 'Integers', subtopics: ['Positive and negative numbers', 'Number line', 'Integer operations'] },
+              { title: 'Fractions', subtopics: ['Types of fractions', 'Equivalent fractions', 'Fraction operations'] },
+              { title: 'Decimals', subtopics: ['Decimal representation', 'Decimal operations', 'Fraction-decimal conversion'] },
+              { title: 'Data Handling', subtopics: ['Data collection', 'Bar graphs', 'Pictographs', 'Data interpretation'] },
+              { title: 'Mensuration', subtopics: ['Perimeter and area', 'Area of rectangles', 'Area of squares'] },
+              { title: 'Algebra', subtopics: ['Variables', 'Expressions', 'Equations', 'Patterns'] },
+              { title: 'Ratio and Proportion', subtopics: ['Ratio concepts', 'Equivalent ratios', 'Proportions', 'Applications'] },
+              { title: 'Symmetry', subtopics: ['Line symmetry', 'Symmetrical shapes', 'Reflection'] },
+              { title: 'Practical Geometry', subtopics: ['Construction techniques', 'Circle construction', 'Angle construction'] }
+            ]
+          },
+          science: {
+            name: 'Science',
+            icon: Microscope,
+            color: 'green',
+            description: 'Introduction to scientific concepts and methods',
+            topics: [
+              { title: 'Food: Where Does It Come From?', subtopics: ['Food sources', 'Plant and animal products', 'Food ingredients'] },
+              { title: 'Components of Food', subtopics: ['Nutrients', 'Balanced diet', 'Deficiency diseases'] },
+              { title: 'Fibre to Fabric', subtopics: ['Natural fibers', 'Fabric making', 'Cotton and jute'] },
+              { title: 'Sorting Materials into Groups', subtopics: ['Material properties', 'Classification', 'Uses of materials'] },
+              { title: 'Separation of Substances', subtopics: ['Separation methods', 'Filtration', 'Evaporation', 'Sieving'] },
+              { title: 'Changes Around Us', subtopics: ['Physical changes', 'Chemical changes', 'Reversible changes'] },
+              { title: 'Getting to Know Plants', subtopics: ['Plant parts', 'Functions', 'Types of plants'] },
+              { title: 'Body Movements', subtopics: ['Human skeleton', 'Joints', 'Muscles', 'Animal movement'] },
+              { title: 'The Living Organisms — Characteristics and Habitats', subtopics: ['Life processes', 'Habitats', 'Adaptations'] },
+              { title: 'Motion and Measurement of Distances', subtopics: ['Types of motion', 'Measurement', 'Standard units'] },
+              { title: 'Light, Shadows and Reflections', subtopics: ['Light sources', 'Shadow formation', 'Reflection'] },
+              { title: 'Electricity and Circuits', subtopics: ['Electric circuits', 'Conductors and insulators', 'Switches'] },
+              { title: 'Fun with Magnets', subtopics: ['Magnetic properties', 'Magnetic materials', 'Compass'] },
+              { title: 'Water', subtopics: ['Water cycle', 'Groundwater', 'Water conservation'] },
+              { title: 'Air Around Us', subtopics: ['Air composition', 'Properties of air', 'Air pollution'] },
+              { title: 'Garbage In, Garbage Out', subtopics: ['Waste management', 'Recycling', 'Composting'] }
+            ]
+          }
+        }
+      },
+      '7': {
+        name: 'Class 7',
+        age: '12-13 years',
+        subjects: {
+          mathematics: {
+            name: 'Mathematics',
+            icon: Calculator,
+            color: 'blue',
+            description: 'Advanced mathematical concepts and applications',
+            topics: [
+              { title: 'Integers', subtopics: ['Integer properties', 'Integer operations', 'Number line applications'] },
+              { title: 'Fractions and Decimals', subtopics: ['Fraction operations', 'Decimal operations', 'Mixed numbers'] },
+              { title: 'Data Handling', subtopics: ['Data organization', 'Mean, median, mode', 'Probability basics'] },
+              { title: 'Simple Equations', subtopics: ['Linear equations', 'Solving equations', 'Applications'] },
+              { title: 'Lines and Angles', subtopics: ['Angle relationships', 'Parallel lines', 'Transversals'] },
+              { title: 'The Triangle and its Properties', subtopics: ['Triangle types', 'Angle sum', 'Triangle inequality'] },
+              { title: 'Comparing Quantities', subtopics: ['Ratios', 'Percentages', 'Profit and loss', 'Simple interest'] },
+              { title: 'Rational Numbers', subtopics: ['Rational number operations', 'Number line representation'] },
+              { title: 'Perimeter and Area', subtopics: ['Perimeter of shapes', 'Area calculations', 'Composite figures'] },
+              { title: 'Algebraic Expressions', subtopics: ['Terms and factors', 'Like and unlike terms', 'Addition and subtraction'] },
+              { title: 'Exponents and Powers', subtopics: ['Exponential notation', 'Laws of exponents', 'Applications'] },
+              { title: 'Symmetry', subtopics: ['Line symmetry', 'Rotational symmetry', 'Symmetry in nature'] },
+              { title: 'Visualising Solid Shapes', subtopics: ['3D shapes', 'Nets of solids', 'Cross-sections'] }
+            ]
+          },
+          science: {
+            name: 'Science',
+            icon: Microscope,
+            color: 'green',
+            description: 'Comprehensive science covering physics, chemistry, and biology',
+            topics: [
+              { title: 'Nutrition in Plants', subtopics: ['Photosynthesis', 'Autotrophic nutrition', 'Heterotrophic nutrition'] },
+              { title: 'Nutrition in Animals', subtopics: ['Digestive systems', 'Human digestion', 'Nutrition in different animals'] },
+              { title: 'Fibre to Fabric', subtopics: ['Animal fibers', 'Silk production', 'Wool processing'] },
+              { title: 'Heat', subtopics: ['Temperature and heat', 'Heat transfer', 'Thermal expansion'] },
+              { title: 'Acids, Bases and Salts', subtopics: ['Acid-base properties', 'Indicators', 'Neutralization'] },
+              { title: 'Physical and Chemical Changes', subtopics: ['Types of changes', 'Chemical reactions', 'Rusting'] },
+              { title: 'Weather, Climate and Adaptations of Animals to Climate', subtopics: ['Weather vs climate', 'Animal adaptations', 'Migration'] },
+              { title: 'Winds, Storms and Cyclones', subtopics: ['Air pressure', 'Wind formation', 'Storm safety'] },
+              { title: 'Soil', subtopics: ['Soil formation', 'Soil types', 'Soil conservation'] },
+              { title: 'Respiration in Organisms', subtopics: ['Breathing process', 'Cellular respiration', 'Respiration in plants'] },
+              { title: 'Transportation in Animals and Plants', subtopics: ['Circulatory system', 'Transport in plants', 'Excretion'] },
+              { title: 'Reproduction in Plants', subtopics: ['Sexual reproduction', 'Asexual reproduction', 'Seed dispersal'] },
+              { title: 'Motion and Time', subtopics: ['Types of motion', 'Speed and time', 'Distance-time graphs'] },
+              { title: 'Electric Current and its Effects', subtopics: ['Electric circuits', 'Heating effects', 'Electromagnets'] },
+              { title: 'Light', subtopics: ['Light reflection', 'Spherical mirrors', 'Light refraction'] },
+              { title: 'Water: A Precious Resource', subtopics: ['Water scarcity', 'Water management', 'Rainwater harvesting'] },
+              { title: 'Forests: Our Lifeline', subtopics: ['Forest ecosystem', 'Deforestation', 'Conservation'] },
+              { title: 'Wastewater Story', subtopics: ['Sewage treatment', 'Water pollution', 'Sanitation'] }
+            ]
+          }
+        }
+      },
+      '8': {
+        name: 'Class 8',
+        age: '13-14 years',
+        subjects: {
+          mathematics: {
+            name: 'Mathematics',
+            icon: Calculator,
+            color: 'blue',
+            description: 'Pre-algebra and advanced mathematical reasoning',
+            topics: [
+              { title: 'Rational Numbers', subtopics: ['Rational number properties', 'Operations on rationals', 'Representation'] },
+              { title: 'Linear Equations in One Variable', subtopics: ['Solving linear equations', 'Applications', 'Word problems'] },
+              { title: 'Understanding Quadrilaterals', subtopics: ['Quadrilateral properties', 'Parallelograms', 'Rhombus and squares'] },
+              { title: 'Practical Geometry', subtopics: ['Construction of quadrilaterals', 'Unique constructions', 'Special quadrilaterals'] },
+              { title: 'Data Handling', subtopics: ['Histograms', 'Circle graphs', 'Data interpretation', 'Probability'] },
+              { title: 'Squares and Square Roots', subtopics: ['Perfect squares', 'Square root calculation', 'Pythagorean triplets'] },
+              { title: 'Cubes and Cube Roots', subtopics: ['Perfect cubes', 'Cube root calculation', 'Cube patterns'] },
+              { title: 'Comparing Quantities', subtopics: ['Percentage applications', 'Compound interest', 'Rate calculations'] },
+              { title: 'Algebraic Expressions and Identities', subtopics: ['Algebraic identities', 'Factorization', 'Expression manipulation'] },
+              { title: 'Visualising Solid Shapes', subtopics: ['3D visualization', 'Surface area', 'Volume calculations'] },
+              { title: 'Mensuration', subtopics: ['Area of polygons', 'Surface area of solids', 'Volume of solids'] },
+              { title: 'Exponents and Powers', subtopics: ['Laws of exponents', 'Standard form', 'Applications'] },
+              { title: 'Direct and Inverse Proportion', subtopics: ['Proportional relationships', 'Applications', 'Variation'] },
+              { title: 'Factorisation', subtopics: ['Common factors', 'Algebraic factorization', 'Identity applications'] },
+              { title: 'Introduction to Graphs', subtopics: ['Coordinate geometry', 'Linear graphs', 'Graph interpretation'] },
+              { title: 'Playing with Numbers', subtopics: ['Number patterns', 'Divisibility', 'Mathematical games'] }
+            ]
+          },
+          science: {
+            name: 'Science',
+            icon: Microscope,
+            color: 'green',
+            description: 'Advanced science concepts with practical applications',
+            topics: [
+              { title: 'Crop Production and Management', subtopics: ['Agricultural practices', 'Crop variety', 'Modern farming'] },
+              { title: 'Microorganisms: Friend and Foe', subtopics: ['Beneficial microorganisms', 'Harmful microorganisms', 'Food preservation'] },
+              { title: 'Synthetic Fibres and Plastics', subtopics: ['Synthetic materials', 'Plastic properties', 'Environmental impact'] },
+              { title: 'Materials: Metals and Non-Metals', subtopics: ['Metal properties', 'Non-metal properties', 'Uses of metals'] },
+              { title: 'Coal and Petroleum', subtopics: ['Fossil fuels', 'Formation process', 'Conservation'] },
+              { title: 'Combustion and Flame', subtopics: ['Combustion types', 'Flame structure', 'Fire safety'] },
+              { title: 'Conservation of Plants and Animals', subtopics: ['Biodiversity', 'Endangered species', 'Conservation methods'] },
+              { title: 'Cell—Structure and Functions', subtopics: ['Cell theory', 'Cell organelles', 'Cell types'] },
+              { title: 'Reproduction in Animals', subtopics: ['Reproductive systems', 'Fertilization', 'Development'] },
+              { title: 'Reaching the Age of Adolescence', subtopics: ['Physical changes', 'Hormones', 'Reproductive health'] },
+              { title: 'Force and Pressure', subtopics: ['Types of forces', 'Pressure concepts', 'Applications'] },
+              { title: 'Friction', subtopics: ['Friction types', 'Factors affecting friction', 'Applications'] },
+              { title: 'Sound', subtopics: ['Sound production', 'Sound properties', 'Hearing mechanism'] },
+              { title: 'Chemical Effects of Electric Current', subtopics: ['Electrolysis', 'Electroplating', 'LED applications'] },
+              { title: 'Some Natural Phenomena', subtopics: ['Lightning', 'Earthquakes', 'Natural disasters'] },
+              { title: 'Light', subtopics: ['Reflection laws', 'Refraction', 'Human eye', 'Vision defects'] },
+              { title: 'Stars and The Solar System', subtopics: ['Celestial objects', 'Solar system', 'Constellations'] },
+              { title: 'Pollution of Air and Water', subtopics: ['Pollution causes', 'Effects', 'Prevention measures'] }
+            ]
+          }
+        }
+      },
       '9': {
         name: 'Class 9',
         age: '14-15 years',
@@ -431,6 +773,44 @@ const Academics = () => {
               { title: 'The Sky Above', subtopics: ['Sun, moon, stars', 'Day and night', 'Sky observations'] },
               { title: 'Good Habits', subtopics: ['Personal hygiene', 'Social habits', 'Environmental care'] },
               { title: 'Safety Rules', subtopics: ['Home safety', 'Road safety', 'Emergency procedures'] }
+            ]
+          }
+        }
+      },
+      '3': {
+        name: 'Class 3 (ICSE)',
+        age: '8-9 years',
+        subjects: {
+          mathematics:{
+            name: 'Mathematics',
+            icon: Calculator,
+            color: 'purple',
+            description: 'ICSE foundational mathematics',
+            topics: [
+              {title: 'Numbers'},
+              {title: 'Number Operations'},
+              {title: 'Geometry'},
+              {title: 'Measurements'},
+              {title: 'Data Handling'},
+              {title: 'Patterns'}
+            ]
+          },
+          science: {
+            name: 'Science',
+            icon: Microscope,
+            color: 'teal',
+            description: 'ICSE integrated science',
+            topics: [
+              {title: 'Living and Non-Living Things'},
+              {title: 'Parts of a Plant'},
+              {title: 'Birds and Their Nests'},
+              {title: 'Animals and Their Young Ones'},
+              {title: 'The Human Body'},
+              {title: 'Cleanliness and Good Habits'},
+              {title: 'Air and Water'},
+              {title: 'Rocks and Soil'},
+              {title: 'Our Earth and the Sun'},
+              {title: 'Safety Rules'}
             ]
           }
         }

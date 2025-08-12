@@ -33,5 +33,19 @@ function App() {
     </Router>
   );
 }
+// function App() {
+//   return (
+//     <Router>
+//       <ScrollToTop /> {/* 👈 always runs on route change */}
+//       <Navigation />
+//       <Routes>
+//         <Route path="/" element={<Home />} />
+//         <Route path="/academics" element={<Academics />} />
+//         <Route path="/team" element={<Team />} />
+//         <Route path="/contact" element={<Contact />} />
+//       </Routes>
+//     </Router>
+//   );
+// }
 
 export default App;
