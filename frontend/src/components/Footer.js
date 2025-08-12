@@ -50,10 +50,10 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 30}}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="space-y-4"
+            className="space-y-4 pt-0 md:pt-6"
           >
             <div className="flex items-center space-x-2 mb-6">
               <BookOpen className="w-8 h-8 text-red-500" />
@@ -97,7 +97,7 @@ const Footer = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="space-y-4"
+            className="space-y-4 pt-0 md:pt-6"
           >
             <h4 className="text-lg font-semibold flex items-center gap-2 mb-6">
               <Users className="w-5 h-5 text-red-500" />
@@ -123,7 +123,7 @@ const Footer = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="space-y-4"
+            className="space-y-4 pt-0 md:pt-6"
           >
             <h4 className="text-lg font-semibold flex items-center gap-2 mb-6">
               <GraduationCap className="w-5 h-5 text-red-500" />
@@ -148,7 +148,7 @@ const Footer = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="space-y-4"
+            className="space-y-4 pt-0 md:pt-6"
           >
             <h4 className="text-lg font-semibold flex items-center gap-2 mb-6">
               <Phone className="w-5 h-5 text-red-500" />

@@ -739,13 +739,13 @@ const Academics = () => {
     // ICSE Curriculum (Classes 2-12)
     'icse': {
       '2': {
-        name: 'Class 2 (ICSE)',
+        name: 'Class 2',
         age: '7-8 years',
         subjects: {
           mathematics: {
             name: 'Mathematics',
             icon: Calculator,
-            color: 'purple',
+            color: 'blue',
             description: 'ICSE foundational mathematics',
             topics: [
               { title: 'Numbers (100–200, 201–999)', subtopics: ['Number recognition', 'Number writing', 'Number comparison'] },
@@ -761,7 +761,7 @@ const Academics = () => {
           science: {
             name: 'Science',
             icon: Microscope,
-            color: 'teal',
+            color: 'green',
             description: 'ICSE integrated science',
             topics: [
               { title: 'Our Body', subtopics: ['Body parts', 'Sense organs', 'Health and hygiene'] },
@@ -778,7 +778,7 @@ const Academics = () => {
         }
       },
       '3': {
-        name: 'Class 3 (ICSE)',
+        name: 'Class 3',
         age: '8-9 years',
         subjects: {
           mathematics:{
@@ -815,8 +815,226 @@ const Academics = () => {
           }
         }
       },
+      '4': {
+        name: 'Class 4',
+        age: '9-10 years',
+        subjects: {
+          mathematics: {
+            name: 'Mathematics',
+            icon: Calculator,
+            color: 'blue',
+            description: 'ICSE foundational mathematics',
+            topics: [
+              {title: 'Numbers and Number Sense'},
+              {title: 'Addition, Subtraction, Multiplication, Division'},
+              {title: 'Factors and Multiples'},
+              {title: 'Mixed Operations'},
+              {title: 'Logical Reasoning'},
+              {title: 'Data and Graphs'},
+              {title: 'Patterns and Sequences'},
+              {title: 'Money, Time, Units of Measurement'},
+              {title: 'Fractions, Probability'},
+              {title: 'Geometry & Geometry Measurement'}
+            ]
+          },
+          science: {
+            name: 'Science',
+            icon: Microscope,
+            color: 'green',
+            description: 'ICSE integrated science',
+            topics: [
+              {title: 'Plant Life'},
+              {title: 'Adaptation in Plants'},
+              {title: 'Animal Life'},
+              {title: 'Animals: Adaptation and Classification'},
+              {title: 'The Human Body: Organ Systems'},
+              {title: 'Digestion and Teeth'},
+              {title: 'Clothes and Fibres'},
+              {title: 'Air, Water, and Weather'},
+              {title: 'The Earth and Its Neighbors'},
+              {title: 'Our Environment'}
+            ]
+          }
+        }
+      },
+      '5': {
+        name: 'Class 5',
+        age: '10-11 years',
+        subjects: {
+          mathematics: {
+            name: 'Mathematics',
+            icon: Calculator,
+            color: 'blue',
+            description: 'ICSE foundational mathematics',
+            topics: [
+              {title: 'Numbers'},
+              {title: 'Number Operations'},
+              {title: 'Fractions and Decimals'},
+              {title: 'Playing with Numbers (Factors & Multiples)'},
+              {title: 'Introduction to Negative Numbers'},
+              {title: 'Geometry'},
+              {title: 'Measurement'},
+              {title: 'Introduction to Percentage'},
+              {title: 'Data Handling'},
+              {title: 'Patterns'}
+            ]
+          },
+          science: {
+            name: 'Science',
+            icon: Microscope,
+            color: 'green',
+            description: 'ICSE integrated science',
+            topics: [
+              {title: 'Growing Plants'},
+              {title: 'Food and Health'},
+              {title: 'Safety and First Aid'},
+              {title: 'Solids, Liquids, and Gases'},
+              {title: 'Rocks and Minerals'},
+              {title: 'Soil Erosion and Conservation'},
+              {title: 'Air, Water, and Weather'},
+              {title: 'The Moon'},
+              {title: 'Our Environment'},
+              {title: 'Natural Calamities'}
+            ]
+          }
+        }
+      },
+      '6':{
+        name: 'Class 6',  
+        age: '11-12 years',
+        subjects: {
+          mathematics: {
+            name: 'Mathematics',
+            icon: Calculator,
+            color: 'blue',
+            description: 'ICSE foundational mathematics',
+            topics: [
+              {title: 'Number System (Natural & Integer Numbers, Fractions, Decimals)'},
+              {title: 'Exponents, Squares, Cubes, Roots, Factorization, HCF, LCM'},
+              {title: 'Algebra (Basic algebra, Linear equations)'},
+              {title: 'Arithmetic’s (Average, Ratio & Proportion, Percentage, Time, Distance, Work, Profit & Loss)'},
+              {title: 'Set Theory'},
+              {title: 'Geometry, Mensuration, Statistics'}
+            ]
+          },
+          science: {
+            name: 'Science',
+            icon: Microscope,
+            color: 'green',
+            description: 'ICSE integrated science',
+            topics: [
+              {title: 'Living & Non-Living Things'},
+              {title: 'The Cell'},
+              {title: 'The Leaf'},
+              {title: 'Flower & Fruit'},
+              {title: 'Human Body: The Digestive System'},
+              {title: 'Human Body: The Respiratory System'},
+              {title: 'Human Body: The Excretory System'},
+              {title: 'Classification of Animals'},
+              {title: 'Health and Hygiene'},
+              {title: 'Matter and its Composition'},
+              {title: 'Physical and Chemical Changes'},
+              {title: 'Elements, Compounds, and Mixtures'},
+              {title: 'Air and Atmosphere'},
+              {title: 'Magnetism'}
+            ]
+          }
+        }
+      },
+      '7':{
+        name: 'Class 7',
+        age: '12-13 years',
+        subjects: {
+          mathematics: {
+            name: 'Mathematics',
+            icon: Calculator,
+            color: 'blue',
+            description: 'ICSE foundational mathematics',
+            topics: [
+              {title: 'Integers'},
+              {title: 'Rational Numbers'},
+              {title: 'Fractions'},
+              {title: 'Decimals'},
+              {title: 'Exponents and Powers'},
+              {title: 'Sets'},
+              {title: 'Ratio, Proportion & Unitary Method'},
+              {title: 'Percentage, Profit & Loss, Simple Interest'},
+              {title: 'Algebra'},
+              {title: 'Geometry'},
+              {title: 'Perimeter & Area'},
+              {title: 'Data Handling, Probability'},
+              {title: 'Patterns'}
+            ]
+          },
+          science: {
+            name: 'Science',
+            icon: Microscope,
+            color: 'green',
+            description: 'ICSE integrated science',
+            topics: [
+              {title: 'Plant Life: Nutrition and Excretion'},
+              {title: 'Animal Life: Transport and Excretion'},
+              {title: 'Human Body: Circulatory and Excretory Systems'},
+              {title: 'Classification of Living Things'},
+              {title: 'Soil'},
+              {title: 'Health and Safety'},
+              {title: 'Acids, Bases, and Salts'},
+              {title: 'Elements, Compounds, and Mixtures'},
+              {title: 'Physical and Chemical Changes'},
+              {title: 'Heat and Temperature'}
+            ]
+          }
+        }
+      },
+      '8':{
+        name: 'Class 8',
+        age: '13-14 years',
+        subjects: {
+          mathematics: {
+            name: 'Mathematics',
+            icon: Calculator,
+            color: 'blue',
+            description: 'ICSE foundational mathematics',
+            topics: [
+              {title: 'Rational Numbers'},
+              {title: 'Exponents and Powers'},
+              {title: 'Playing with Numbers'},
+              {title: 'Sets'},
+              {title: 'Ratio and Proportion'},
+              {title: 'Algebraic Expressions, Linear Equations'},
+              {title: 'Factorization'},
+              {title: 'Geometry (Quadrilaterals, Polygons)'},
+              {title: 'Mensuration'},
+              {title: 'Data Handling, Statistics'},
+              {title: 'Patterns'}
+            ]
+          },
+          science: {
+            name: 'Science',
+            icon: Microscope,
+            color: 'green',
+            description: 'ICSE integrated science',
+            topics: [
+              {title: 'Human Body: The Circulatory and Excretory Systems'},
+              {title: 'Reproduction in Animals and Plants'},
+              {title: 'Ecosystems'},
+              {title: 'Pollution'},
+              {title: 'Matter'},
+              {title: 'Atomic Structure'},
+              {title: 'Chemical Reactions'},
+              {title: 'Metals and Non-metals'},
+              {title: 'Coal and Petroleum'},
+              {title: 'Force and Pressure'},
+              {title: 'Friction'},
+              {title: 'Light'},
+              {title: 'Sound'},
+              {title: 'Electricity'}
+            ]
+          }
+        }
+      },
       '9': {
-        name: 'Class 9 (ICSE)',
+        name: 'Class 9',
         age: '14-15 years',
         subjects: {
           mathematics: {
@@ -889,6 +1107,196 @@ const Academics = () => {
                   { title: 'Human Anatomy and Physiology', subtopics: ['Nutrition', 'Transportation in animals', 'Respiratory system'] },
                   { title: 'Hygiene', subtopics: ['Personal hygiene', 'Community hygiene', 'Environmental hygiene'] },
                   { title: 'Diseases: Causes and Prevention', subtopics: ['Types of diseases', 'Disease prevention', 'Health measures'] }
+                ]
+              }
+            }
+          }
+        }
+      },
+      '10':{
+        name: 'Class 10',
+        age: '14-15 years',
+        subjects: {
+          mathematics: {
+            name: 'Mathematics',
+            icon: Calculator,
+            color: 'blue',
+            description: 'ICSE advanced mathematics',
+            topics: [
+              { title: 'Commercial Mathematics'},
+              { title: 'Algebra'},
+              { title: 'Geometry'},
+              { title: 'Mensuration'},
+              { title: 'Trigonometry'},
+              { title: 'Statistics'}
+            ]
+          },
+          science: {
+            name: 'Science',
+            icon: Microscope,
+            color: 'teal',
+            description: 'ICSE science split into Physics, Chemistry, Biology',
+            subjects: {
+              physics: {
+                name: 'Physics',
+                icon: Atom,
+                color: 'red',
+                description: 'ICSE Class 9 Physics',
+                topics: [
+                  { title: 'Force, Work, Power, and Energy' },
+                  { title: 'Light' },
+                  { title: 'Sound' },
+                  { title: 'Electricity and Magnetism' },
+                  { title: 'Modern Physics (e.g., Radioactivity)' }
+                ]
+              },
+              chemistry: {
+                name: 'Chemistry',
+                icon: Microscope,
+                color: 'blue',
+                description: 'ICSE Class 9 Chemistry',
+                topics: [
+                  { title: 'Periodic Table' },
+                  { title: 'Chemical Bonding' },
+                  { title: 'Mole Concept and Stoichiometry' },
+                  { title: 'Acids, Bases, and Salts' },
+                  { title: 'Analytical Chemistry' },
+                  { title: 'Study of Compounds (Ammonia, Nitric Acid, Sulphuric Acid, Hydrogen Chloride)' },
+                  { title: 'Organic Chemistry' },
+                  { title: 'Metallurgy' }
+                ]
+              },
+              biology: {
+                name: 'Biology',
+                icon: BookOpen,
+                color: 'green',
+                description: 'ICSE Class 9 Biology',
+                topics: [
+                  { title: 'Basic Biology' },
+                  { title: 'Flowering Plants' },
+                  { title: 'Plant Physiology' },
+                  { title: 'Transpiration in Plants' },
+                  { title: 'Human Anatomy and Physiology (Digestive System, Circulatory System, Excretory System, Nervous and Sense Organs, Endocrine System)' },
+                  { title: 'Health and Hygiene' },
+                  { title: 'Pollution'},
+                  { title: 'Genetics and Evolution'},
+                  { title: 'Waste Generation and Management'}
+                ]
+              }
+            }
+          }
+        }
+      },
+      '11 & 12': {
+        name: 'Class 11 & 12',
+        age: '16-18 years',
+        subjects: {
+          mathematics: {
+            name: 'Mathematics',
+            icon: Calculator,
+            color: 'blue',
+            description: 'ICSE advanced mathematics',
+            topics: [
+              { title: 'Class 11: Sets, Relations, Functions' },
+              { title: 'Class 11: Complex Numbers' },
+              { title: 'Class 11: Quadratic Equations' },
+              { title: 'Class 11: Linear Inequalities' },
+              { title: 'Class 11: Permutations and Combinations' },
+              { title: 'Class 11: Binomial Theorem' },
+              { title: 'Class 11: Sequences and Series' },
+              { title: 'Class 11: Straight Lines, Conic Sections' },
+              { title: 'Class 11: Trigonometry' },
+              { title: 'Class 11: Limits and Derivatives' },
+              { title: 'Class 11: Mathematical Reasoning' },
+              { title: 'Class 11: Statistics and Probability' },
+              { title: 'Class 11: Boolean Algebra' },
+              { title: 'Class 12: Relations and Functions (including inverse trigonometric functions)' },
+              { title: 'Class 12: Algebra (Matrices & Determinants)' },
+              { title: 'Class 12: Calculus (Continuity, Differentiation, Integrals, Differential Equations)' },
+              { title: 'Class 12: Probability' },
+              { title: 'Class 12(Optional): Vectors' },
+              { title: 'Class 12(Optional): Three-Dimensional Geometry' },
+              { title: 'Class 12(Optional): Application of Integrals' },
+              { title: 'Class 12(Optional): Application of Calculus (in Economics & Commerce)' },
+              { title: 'Class 12(Optional): Linear Regression' },
+              { title: 'Class 12(Optional): Linear Programming' }
+            ]
+          },
+          science: {
+            name: 'Science',
+            icon: Microscope,
+            color: 'green',
+            description: 'ICSE science split into Physics, Chemistry, Biology',
+            subjects: {
+              physics: {
+                name: 'Physics',
+                icon: Atom,
+                color: 'red',
+                description: 'ICSE Class 9 Physics',
+                topics: [
+                  { title: 'Physical World and Measurement' },
+                  { title: 'Kinematics' },
+                  { title: 'Laws of Motion' },
+                  { title: 'Work, Energy and Power' },
+                  { title: 'Motion of System of Particles and Rigid Body' },
+                  { title: 'Gravitation' },
+                  { title: 'Properties of Bulk Matter' },
+                  { title: 'Thermodynamics' },
+                  { title: 'Oscillations and Waves' },
+                  { title: 'Electrostatics' },
+                  { title: 'Current Electricity' },
+                  { title: 'Magnetic Effects of Current & Magnetism' },
+                  { title: 'Electromagnetic Induction and Alternating Currents' },
+                  { title: 'Electromagnetic Waves' },
+                  { title: 'Optics' },
+                  { title: 'Dual Nature of Radiation and Matter' },
+                  { title: 'Atoms and Nuclei' },
+                  { title: 'Electronic Devices' },
+                  { title: 'Communication Systems' }
+                ]
+              },
+              chemistry: {
+                name: 'Chemistry',
+                icon: Microscope,
+                color: 'blue',
+                description: 'ICSE Class 9 Chemistry',
+                topics: [
+                  { title: 'Some Basic Concepts of Chemistry' },
+                  { title: 'Structure of Atom' },
+                  { title: 'Classification of Elements and Periodicity' },
+                  { title: 'Chemical Bonding and Molecular Structure' },
+                  { title: 'States of Matter: Gases and Liquids' },
+                  { title: 'Thermodynamics' },
+                  { title: 'Equilibrium' },
+                  { title: 'Redox Reactions' },
+                  { title: 'Hydrogen' },
+                  { title: 'The s-, p-, d- & f-Block Elements' },
+                  { title: 'Organic Chemistry: Principles and Techniques' },
+                  { title: 'Hydrocarbons' },
+                  { title: 'Haloalkanes and Haloarenes' },
+                  { title: 'Alcohols, Phenols and Ethers' },
+                  { title: 'Aldehydes, Ketones and Carboxylic Acids' },
+                  { title: 'Amines' },
+                  { title: 'Biomolecules' },
+                  { title: 'Polymers' },
+                  { title: 'Chemistry in Everyday Life' }
+                ]
+              },
+              biology: {
+                name: 'Biology',
+                icon: BookOpen,
+                color: 'green',
+                description: 'ICSE Class 9 Biology',
+                topics: [
+                  { title: 'Diversity of Living Organisms' },
+                  { title: 'Structural Organization in Animals and Plants' },
+                  { title: 'Cell Structure and Function' },
+                  { title: 'Plant & Human Physiology' },
+                  { title: 'Reproduction' },
+                  { title: 'Genetics and Evolution' },
+                  { title: 'Biology and Human Welfare' },
+                  { title: 'Biotechnology and Its Applications' },
+                  { title: 'Ecology and Environment' }
                 ]
               }
             }
@@ -1310,11 +1718,8 @@ const Academics = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {Object.entries(curriculum).map(([classKey, classData], index) => (
-            <motion.div
+            <div
               key={classKey}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
               onClick={() => handleClassSelect(curriculumKey, classKey)}
               className="bg-white rounded-xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 cursor-pointer transform hover:-translate-y-2 hover:border-red-300"
             >
@@ -1329,7 +1734,7 @@ const Academics = () => {
                   {Object.keys(classData.subjects || {}).length} Subject{Object.keys(classData.subjects || {}).length !== 1 ? 's' : ''}
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
@@ -1420,38 +1825,11 @@ const Academics = () => {
                   transition={{ delay: index * 0.05 }}
                   className="bg-gray-50 rounded-lg border border-gray-200 overflow-hidden"
                 >
-                  <div
-                    onClick={() => handleTopicExpand(index)}
-                    className="p-4 cursor-pointer hover:bg-gray-100 transition-colors flex justify-between items-center"
-                  >
+                  <div className="p-4">
                     <h4 className="font-semibold text-gray-900">{topic.title}</h4>
-                    <ChevronRight 
-                      className={`w-5 h-5 text-gray-500 transform transition-transform ${expandedTopic === index ? 'rotate-90' : ''}`}
-                    />
                   </div>
                   
-                  <AnimatePresence>
-                    {expandedTopic === index && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: 'auto', opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.3 }}
-                        className="bg-white border-t border-gray-200"
-                      >
-                        <div className="p-4">
-                          <ul className="space-y-2">
-                            {topic.subtopics.map((subtopic, subIndex) => (
-                              <li key={subIndex} className="flex items-start gap-2">
-                                <span className="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></span>
-                                <span className="text-gray-700">{subtopic}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+                  {/* Subtopics hidden as per user request */}
                 </motion.div>
               ))}
             </div>
@@ -1541,7 +1919,7 @@ const Academics = () => {
   return (
     <div className="pt-16">
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-red-50 via-white to-blue-50 overflow-hidden">
+      <section className="relative py-20 bg-gradient-to-br from-red-300 via-white to-blue-100 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-red-600/5 to-blue-600/5"></div>
         <div className="relative z-10 container mx-auto px-4 text-center">
           <motion.h1
