@@ -13,10 +13,10 @@ const Navigation = () => {
   const { isAdmin, logout } = useContext(AdminContext);
 
   const navItems = [
-    { name: 'Home', path: '/' },
-    { name: 'Academics', path: '/academics' },
-    { name: 'Our Team', path: '/team' },
-    { name: 'Contact Us', path: '/contact' }
+    { name: 'Home', path: '/', key: 'nav_home' },
+    { name: 'Academics', path: '/academics', key: 'nav_academics' },
+    { name: 'Our Team', path: '/team', key: 'nav_our_team' },
+    { name: 'Contact Us', path: '/contact', key: 'nav_contact_us' }
   ];
 
   return (
