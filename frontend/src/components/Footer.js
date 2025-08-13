@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useContext } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { 
@@ -12,8 +12,11 @@ import {
   BookOpen,
   Users,
   GraduationCap,
-  Globe
+  Globe,
+  User
 } from 'lucide-react';
+import { AdminContext } from '../contexts/AdminContext';
+import LoginModal from './LoginModal';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
