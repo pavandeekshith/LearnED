@@ -236,7 +236,16 @@ const Footer = () => {
             <div className="flex items-center gap-6 text-sm">
               <a href="#" className="text-gray-400 hover:text-red-400 transition-colors">Privacy Policy</a>
               <a href="#" className="text-gray-400 hover:text-red-400 transition-colors">Terms of Service</a>
-              <a href="#" className="text-gray-400 hover:text-red-400 transition-colors">Refund Policy</a>
+              <Link to="/refund-policy" className="text-gray-400 hover:text-red-400 transition-colors">Refund Policy</Link>
+              {!isAdmin && (
+                <button 
+                  onClick={() => setShowLogin(true)}
+                  className="text-gray-400 hover:text-red-400 transition-colors flex items-center gap-1"
+                >
+                  <User size={14} />
+                  Login
+                </button>
+              )}
             </div>
           </div>
         </motion.div>
