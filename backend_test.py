@@ -540,8 +540,9 @@ def run_comprehensive_tests():
     print("=" * 60)
     
     test_results = {}
+    jwt_token = None
     
-    # Run all tests
+    # Run basic API tests first
     test_results["server_health"] = test_server_health()
     test_results["root_endpoint"] = test_root_endpoint()
     test_results["cors"] = test_cors()
@@ -549,6 +550,30 @@ def run_comprehensive_tests():
     test_results["get_status"] = test_get_status_endpoint()
     test_results["database_operations"] = test_database_operations()
     test_results["error_handling"] = test_error_handling()
+    
+    # Run authentication tests
+    print("\n" + "=" * 60)
+    print("🔐 AUTHENTICATION & CONTENT MANAGEMENT TESTS")
+    print("=" * 60)
+    
+    # Test admin login success and get JWT token
+    login_success, jwt_token = test_admin_login_success()
+    test_results["admin_login_success"] = login_success
+    
+    # Test admin login failure
+    test_results["admin_login_failure"] = test_admin_login_failure()
+    
+    # Test content endpoints without authentication
+    test_results["content_without_auth"] = test_content_endpoints_without_auth()
+    
+    # Test content endpoints with authentication (only if login succeeded)
+    if jwt_token:
+        test_results["content_with_auth"] = test_content_endpoints_with_auth(jwt_token)
+        test_results["content_crud_operations"] = test_content_crud_operations(jwt_token)
+    else:
+        print("⚠️ Skipping authenticated content tests due to login failure")
+        test_results["content_with_auth"] = False
+        test_results["content_crud_operations"] = False
     
     # Summary
     print("\n" + "=" * 60)
@@ -558,17 +583,41 @@ def run_comprehensive_tests():
     passed = sum(test_results.values())
     total = len(test_results)
     
-    for test_name, result in test_results.items():
-        status = "✅ PASS" if result else "❌ FAIL"
-        print(f"{test_name.replace('_', ' ').title()}: {status}")
+    # Group results by category
+    basic_tests = ["server_health", "root_endpoint", "cors", "post_status", "get_status", "database_operations", "error_handling"]
+    auth_tests = ["admin_login_success", "admin_login_failure", "content_without_auth", "content_with_auth", "content_crud_operations"]
+    
+    print("📊 BASIC API TESTS:")
+    for test_name in basic_tests:
+        if test_name in test_results:
+            status = "✅ PASS" if test_results[test_name] else "❌ FAIL"
+            print(f"  {test_name.replace('_', ' ').title()}: {status}")
+    
+    print("\n🔐 AUTHENTICATION & CONTENT TESTS:")
+    for test_name in auth_tests:
+        if test_name in test_results:
+            status = "✅ PASS" if test_results[test_name] else "❌ FAIL"
+            print(f"  {test_name.replace('_', ' ').title()}: {status}")
     
     print(f"\nOverall Result: {passed}/{total} tests passed")
     
     if passed == total:
         print("🎉 All backend tests PASSED! The LearnED platform backend is working correctly.")
+        print("✅ Admin authentication system is functional")
+        print("✅ Content management system is operational")
         return True
     else:
         print(f"⚠️ {total - passed} test(s) FAILED. Backend needs attention.")
+        
+        # Identify which category failed
+        basic_passed = sum(test_results.get(test, False) for test in basic_tests)
+        auth_passed = sum(test_results.get(test, False) for test in auth_tests)
+        
+        if basic_passed < len(basic_tests):
+            print("❌ Basic API functionality issues detected")
+        if auth_passed < len(auth_tests):
+            print("❌ Authentication/Content management issues detected")
+            
         return False
 
 if __name__ == "__main__":
