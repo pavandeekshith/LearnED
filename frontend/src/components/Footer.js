@@ -20,6 +20,8 @@ import LoginModal from './LoginModal';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const [showLogin, setShowLogin] = useState(false);
+  const { isAdmin } = useContext(AdminContext);
 
   const quickLinks = [
     { name: 'Home', path: '/' },
