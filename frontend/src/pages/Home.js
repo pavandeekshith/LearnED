@@ -254,10 +254,18 @@ const Home = () => {
               transition={{ duration: 0.6 }}
               className="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-2xl border border-blue-200"
             >
-              <h3 className="text-2xl font-bold text-blue-800 mb-4">Vision</h3>
-              <p className="text-gray-700 leading-relaxed">
-                To redefine education by making learning truly meaningful and student-centered. Our vision is to build an inclusive community where students are encouraged to write, reflect, and visualize, fostering lifelong learners who are prepared to break boundaries and succeed in a rapidly changing world.
-              </p>
+              <EditableText
+                tag="h3"
+                defaultText="Vision"
+                className="text-2xl font-bold text-blue-800 mb-4"
+                contentKey="vision_heading"
+              />
+              <EditableText
+                tag="p"
+                defaultText="To redefine education by making learning truly meaningful and student-centered. Our vision is to build an inclusive community where students are encouraged to write, reflect, and visualize, fostering lifelong learners who are prepared to break boundaries and succeed in a rapidly changing world."
+                className="text-gray-700 leading-relaxed"
+                contentKey="vision_content"
+              />
             </motion.div>
           </div>
         </div>
