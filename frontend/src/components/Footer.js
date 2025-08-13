@@ -251,7 +251,8 @@ const Footer = () => {
         </motion.div>
       </div>
 
-
+      {/* Login Modal */}
+      {showLogin && <LoginModal onClose={() => setShowLogin(false)} />}
     </footer>
   );
 };
