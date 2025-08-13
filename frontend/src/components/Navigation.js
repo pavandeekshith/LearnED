@@ -69,7 +69,7 @@ const Navigation = () => {
                 Refund Policy
               </Link>
               
-              {isAdmin ? (
+              {isAdmin && (
                 <div className="flex items-center space-x-3">
                   <span className="text-xs bg-green-100 text-green-600 px-2 py-1 rounded-full font-medium">
                     Admin Mode
@@ -82,14 +82,6 @@ const Navigation = () => {
                     <span className="text-sm">Logout</span>
                   </button>
                 </div>
-              ) : (
-                <button
-                  onClick={() => setShowLogin(true)}
-                  className="flex items-center space-x-1 text-gray-700 hover:text-red-600 transition-colors"
-                >
-                  <User size={16} />
-                  <span className="text-sm">Login</span>
-                </button>
               )}
             </div>
           </div>
