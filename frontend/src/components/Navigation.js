@@ -1,11 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, User, LogOut } from 'lucide-react';
+import { AdminContext } from '../contexts/AdminContext';
+import LoginModal from './LoginModal';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [showLogin, setShowLogin] = useState(false);
   const location = useLocation();
+  const { isAdmin, logout } = useContext(AdminContext);
 
   const navItems = [
     { name: 'Home', path: '/' },
@@ -51,6 +55,43 @@ const Navigation = () => {
                 )}
               </Link>
             ))}
+            
+            {/* Right side links */}
+            <div className="flex items-center space-x-6">
+              <Link
+                to="/refund-policy"
+                className={`px-3 py-2 text-sm font-medium transition-colors duration-200 ${
+                  location.pathname === '/refund-policy'
+                    ? 'text-red-600'
+                    : 'text-gray-700 hover:text-red-600'
+                }`}
+              >
+                Refund Policy
+              </Link>
+              
+              {isAdmin ? (
+                <div className="flex items-center space-x-3">
+                  <span className="text-xs bg-green-100 text-green-600 px-2 py-1 rounded-full font-medium">
+                    Admin Mode
+                  </span>
+                  <button
+                    onClick={logout}
+                    className="flex items-center space-x-1 text-gray-700 hover:text-red-600 transition-colors"
+                  >
+                    <LogOut size={16} />
+                    <span className="text-sm">Logout</span>
+                  </button>
+                </div>
+              ) : (
+                <button
+                  onClick={() => setShowLogin(true)}
+                  className="flex items-center space-x-1 text-gray-700 hover:text-red-600 transition-colors"
+                >
+                  <User size={16} />
+                  <span className="text-sm">Login</span>
+                </button>
+              )}
+            </div>
           </div>
 
           {/* Mobile menu button */}
@@ -86,9 +127,52 @@ const Navigation = () => {
                 {item.name}
               </Link>
             ))}
+            
+            <Link
+              to="/refund-policy"
+              className={`block px-3 py-2 text-base font-medium transition-colors duration-200 ${
+                location.pathname === '/refund-policy'
+                  ? 'text-red-600 bg-red-50'
+                  : 'text-gray-700 hover:text-red-600 hover:bg-gray-50'
+              }`}
+              onClick={() => setIsOpen(false)}
+            >
+              Refund Policy
+            </Link>
+            
+            {isAdmin ? (
+              <div className="px-3 py-2">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs bg-green-100 text-green-600 px-2 py-1 rounded-full font-medium">
+                    Admin Mode
+                  </span>
+                  <button
+                    onClick={logout}
+                    className="flex items-center space-x-1 text-gray-700 hover:text-red-600 transition-colors"
+                  >
+                    <LogOut size={16} />
+                    <span className="text-sm">Logout</span>
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <button
+                onClick={() => {
+                  setShowLogin(true);
+                  setIsOpen(false);
+                }}
+                className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-red-600 hover:bg-gray-50 transition-colors w-full text-left"
+              >
+                <User size={16} className="inline mr-2" />
+                Login
+              </button>
+            )}
           </motion.div>
         )}
       </div>
+      
+      {/* Login Modal */}
+      {showLogin && <LoginModal onClose={() => setShowLogin(false)} />}
     </nav>
   );
 };
