@@ -17,6 +17,7 @@ import {
 } from 'lucide-react';
 import { AdminContext } from '../contexts/AdminContext';
 import LoginModal from './LoginModal';
+import EditableText from './EditableText';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
