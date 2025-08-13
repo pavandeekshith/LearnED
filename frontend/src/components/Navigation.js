@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Menu, X, User, LogOut } from 'lucide-react';
 import { AdminContext } from '../contexts/AdminContext';
 import LoginModal from './LoginModal';
+import EditableText from './EditableText';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
