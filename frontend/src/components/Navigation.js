@@ -50,7 +50,12 @@ const Navigation = () => {
                     : 'text-gray-700 hover:text-red-600'
                 }`}
               >
-                {item.name}
+                <EditableText
+                  tag="span"
+                  defaultText={item.name}
+                  className=""
+                  contentKey={item.key}
+                />
                 {location.pathname === item.path && (
                   <motion.div
                     layoutId="activeTab"
