@@ -462,11 +462,25 @@ const Home = () => {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
-              Why Choose <span className="bg-gradient-to-r from-red-600 to-red-700 bg-clip-text text-transparent">LearnED?</span>
+              <EditableText
+                tag="span"
+                defaultText="Why Choose "
+                className=""
+                contentKey="why_choose_title_1"
+              />
+              <EditableText
+                tag="span"
+                defaultText="LearnED?"
+                className="bg-gradient-to-r from-red-600 to-red-700 bg-clip-text text-transparent"
+                contentKey="why_choose_title_2"
+              />
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Our unique approach combines traditional excellence with modern innovation to deliver exceptional learning experiences
-            </p>
+            <EditableText
+              tag="p"
+              defaultText="Our unique approach combines traditional excellence with modern innovation to deliver exceptional learning experiences"
+              className="text-xl text-gray-600 max-w-3xl mx-auto"
+              contentKey="why_choose_subtitle"
+            />
           </motion.div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
