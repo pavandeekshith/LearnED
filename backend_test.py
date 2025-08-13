@@ -221,6 +221,293 @@ def test_error_handling():
         print(f"❌ Error handling test failed: {str(e)}")
         return False
 
+def test_admin_login_success():
+    """Test admin login with correct credentials"""
+    print("\n=== Testing Admin Login (Valid Credentials) ===")
+    try:
+        login_data = {
+            "email": "abcdef_pavan@gmail.com",
+            "password": "abcdef_pavan@gmail.com"
+        }
+        
+        response = requests.post(
+            f"{BACKEND_URL}/auth/login",
+            json=login_data,
+            headers={"Content-Type": "application/json"}
+        )
+        
+        print(f"Status Code: {response.status_code}")
+        print(f"Response: {response.json()}")
+        
+        if response.status_code == 200:
+            data = response.json()
+            if "token" in data and "message" in data:
+                token = data["token"]
+                if token and len(token) > 20:  # JWT tokens are typically long
+                    print("✅ Admin login successful with valid JWT token")
+                    return True, token
+                else:
+                    print("❌ Token appears invalid or empty")
+                    return False, None
+            else:
+                print("❌ Missing token or message in response")
+                return False, None
+        else:
+            print(f"❌ Admin login failed with status {response.status_code}")
+            return False, None
+    except Exception as e:
+        print(f"❌ Admin login test failed: {str(e)}")
+        return False, None
+
+def test_admin_login_failure():
+    """Test admin login with incorrect credentials"""
+    print("\n=== Testing Admin Login (Invalid Credentials) ===")
+    try:
+        # Test with wrong email
+        login_data = {
+            "email": "wrong@email.com",
+            "password": "abcdef_pavan@gmail.com"
+        }
+        
+        response = requests.post(
+            f"{BACKEND_URL}/auth/login",
+            json=login_data,
+            headers={"Content-Type": "application/json"}
+        )
+        
+        print(f"Wrong email - Status Code: {response.status_code}")
+        
+        if response.status_code == 401:
+            print("✅ Correctly rejected wrong email")
+        else:
+            print(f"❌ Expected 401 for wrong email, got {response.status_code}")
+            return False
+        
+        # Test with wrong password
+        login_data = {
+            "email": "abcdef_pavan@gmail.com",
+            "password": "wrongpassword"
+        }
+        
+        response = requests.post(
+            f"{BACKEND_URL}/auth/login",
+            json=login_data,
+            headers={"Content-Type": "application/json"}
+        )
+        
+        print(f"Wrong password - Status Code: {response.status_code}")
+        
+        if response.status_code == 401:
+            print("✅ Correctly rejected wrong password")
+            return True
+        else:
+            print(f"❌ Expected 401 for wrong password, got {response.status_code}")
+            return False
+            
+    except Exception as e:
+        print(f"❌ Admin login failure test failed: {str(e)}")
+        return False
+
+def test_content_endpoints_without_auth():
+    """Test content endpoints without authentication"""
+    print("\n=== Testing Content Endpoints Without Auth ===")
+    try:
+        # Test GET /api/content (should work without auth)
+        response = requests.get(f"{BACKEND_URL}/content")
+        print(f"GET /content without auth - Status: {response.status_code}")
+        
+        if response.status_code == 200:
+            print("✅ GET /content works without auth (as expected)")
+            get_content_success = True
+        else:
+            print("❌ GET /content failed without auth")
+            get_content_success = False
+        
+        # Test PUT /api/content/update (should fail without auth)
+        update_data = {
+            "key": "test_key",
+            "value": "test_value"
+        }
+        
+        response = requests.put(
+            f"{BACKEND_URL}/content/update",
+            json=update_data,
+            headers={"Content-Type": "application/json"}
+        )
+        
+        print(f"PUT /content/update without auth - Status: {response.status_code}")
+        
+        if response.status_code == 401:
+            print("✅ PUT /content/update correctly rejected without auth")
+            put_content_success = True
+        else:
+            print(f"❌ Expected 401 for PUT without auth, got {response.status_code}")
+            put_content_success = False
+        
+        # Test GET /api/content/{key} (should work without auth)
+        response = requests.get(f"{BACKEND_URL}/content/test_key")
+        print(f"GET /content/test_key without auth - Status: {response.status_code}")
+        
+        if response.status_code == 200:
+            print("✅ GET /content/{key} works without auth (as expected)")
+            get_key_success = True
+        else:
+            print("❌ GET /content/{key} failed without auth")
+            get_key_success = False
+        
+        return get_content_success and put_content_success and get_key_success
+        
+    except Exception as e:
+        print(f"❌ Content endpoints without auth test failed: {str(e)}")
+        return False
+
+def test_content_endpoints_with_auth(token):
+    """Test content endpoints with valid authentication"""
+    print("\n=== Testing Content Endpoints With Auth ===")
+    try:
+        headers = {
+            "Content-Type": "application/json",
+            "Authorization": f"Bearer {token}"
+        }
+        
+        # Test creating/updating content
+        update_data = {
+            "key": "platform_name",
+            "value": "LearnED Educational Platform"
+        }
+        
+        response = requests.put(
+            f"{BACKEND_URL}/content/update",
+            json=update_data,
+            headers=headers
+        )
+        
+        print(f"PUT /content/update with auth - Status: {response.status_code}")
+        print(f"Response: {response.json()}")
+        
+        if response.status_code == 200:
+            data = response.json()
+            if data.get("success") and "updated successfully" in data.get("message", ""):
+                print("✅ Content update successful with auth")
+                update_success = True
+            else:
+                print("❌ Content update response format incorrect")
+                update_success = False
+        else:
+            print(f"❌ Content update failed with status {response.status_code}")
+            update_success = False
+        
+        # Test retrieving all content
+        response = requests.get(f"{BACKEND_URL}/content")
+        print(f"GET /content - Status: {response.status_code}")
+        
+        if response.status_code == 200:
+            data = response.json()
+            if isinstance(data, dict) and "platform_name" in data:
+                print(f"✅ Content retrieval successful. Found: {data}")
+                get_all_success = True
+            else:
+                print("✅ Content retrieval successful (empty or different structure)")
+                get_all_success = True
+        else:
+            print(f"❌ Content retrieval failed with status {response.status_code}")
+            get_all_success = False
+        
+        # Test retrieving specific content by key
+        response = requests.get(f"{BACKEND_URL}/content/platform_name")
+        print(f"GET /content/platform_name - Status: {response.status_code}")
+        
+        if response.status_code == 200:
+            data = response.json()
+            if "key" in data and "value" in data:
+                print(f"✅ Content by key retrieval successful: {data}")
+                get_key_success = True
+            else:
+                print("❌ Content by key response format incorrect")
+                get_key_success = False
+        else:
+            print(f"❌ Content by key retrieval failed with status {response.status_code}")
+            get_key_success = False
+        
+        return update_success and get_all_success and get_key_success
+        
+    except Exception as e:
+        print(f"❌ Content endpoints with auth test failed: {str(e)}")
+        return False
+
+def test_content_crud_operations(token):
+    """Test complete CRUD operations for content management"""
+    print("\n=== Testing Content CRUD Operations ===")
+    try:
+        headers = {
+            "Content-Type": "application/json",
+            "Authorization": f"Bearer {token}"
+        }
+        
+        # CREATE: Add new content
+        create_data = {
+            "key": "test_announcement",
+            "value": "Welcome to LearnED! New features available."
+        }
+        
+        response = requests.put(
+            f"{BACKEND_URL}/content/update",
+            json=create_data,
+            headers=headers
+        )
+        
+        print(f"CREATE - Status: {response.status_code}")
+        create_success = response.status_code == 200
+        
+        # READ: Get the created content
+        response = requests.get(f"{BACKEND_URL}/content/test_announcement")
+        print(f"READ - Status: {response.status_code}")
+        
+        if response.status_code == 200:
+            data = response.json()
+            if data.get("value") == create_data["value"]:
+                print("✅ Content created and read successfully")
+                read_success = True
+            else:
+                print("❌ Content value mismatch after creation")
+                read_success = False
+        else:
+            read_success = False
+        
+        # UPDATE: Modify existing content
+        update_data = {
+            "key": "test_announcement",
+            "value": "Updated: LearnED platform with new quiz system!"
+        }
+        
+        response = requests.put(
+            f"{BACKEND_URL}/content/update",
+            json=update_data,
+            headers=headers
+        )
+        
+        print(f"UPDATE - Status: {response.status_code}")
+        update_success = response.status_code == 200
+        
+        # Verify update
+        response = requests.get(f"{BACKEND_URL}/content/test_announcement")
+        if response.status_code == 200:
+            data = response.json()
+            if data.get("value") == update_data["value"]:
+                print("✅ Content updated successfully")
+                verify_update_success = True
+            else:
+                print("❌ Content update verification failed")
+                verify_update_success = False
+        else:
+            verify_update_success = False
+        
+        return create_success and read_success and update_success and verify_update_success
+        
+    except Exception as e:
+        print(f"❌ Content CRUD operations test failed: {str(e)}")
+        return False
+
 def test_server_health():
     """Test overall server health and connectivity"""
     print("\n=== Testing Server Health ===")
