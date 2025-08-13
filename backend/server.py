@@ -27,6 +27,15 @@ app = FastAPI()
 # Create a router with the /api prefix
 api_router = APIRouter(prefix="/api")
 
+# Security
+security = HTTPBearer()
+SECRET_KEY = "learned_admin_secret_key_2024"  # In production, use environment variable
+ALGORITHM = "HS256"
+
+# Hardcoded admin credentials
+ADMIN_EMAIL = "abcdef_pavan@gmail.com"
+ADMIN_PASSWORD = "abcdef_pavan@gmail.com"
+
 
 # Define Models
 class StatusCheck(BaseModel):
