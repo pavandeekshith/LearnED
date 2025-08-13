@@ -64,7 +64,12 @@ const Footer = () => {
             <div className="flex items-center space-x-2 mb-6">
               <BookOpen className="w-8 h-8 text-red-500" />
               <h3 className="text-2xl font-bold bg-gradient-to-r from-red-400 to-red-500 bg-clip-text text-transparent">
-                LearnED
+                <EditableText
+                  tag="span"
+                  defaultText="LearnED"
+                  className=""
+                  contentKey="site_brand_name"
+                />
               </h3>
             </div>
             <p className="text-gray-300 leading-relaxed">
