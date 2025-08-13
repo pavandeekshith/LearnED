@@ -337,11 +337,11 @@ def test_content_endpoints_without_auth():
         
         print(f"PUT /content/update without auth - Status: {response.status_code}")
         
-        if response.status_code == 401:
+        if response.status_code in [401, 403]:  # FastAPI HTTPBearer returns 403 for missing auth
             print("✅ PUT /content/update correctly rejected without auth")
             put_content_success = True
         else:
-            print(f"❌ Expected 401 for PUT without auth, got {response.status_code}")
+            print(f"❌ Expected 401/403 for PUT without auth, got {response.status_code}")
             put_content_success = False
         
         # Test GET /api/content/{key} (should work without auth)
