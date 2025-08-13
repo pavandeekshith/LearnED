@@ -234,10 +234,18 @@ const Home = () => {
               transition={{ duration: 0.6 }}
               className="bg-gradient-to-br from-red-50 to-red-100 p-8 rounded-2xl border border-red-200"
             >
-              <h3 className="text-2xl font-bold text-red-800 mb-4">Mission</h3>
-              <p className="text-gray-700 leading-relaxed">
-                To empower every student to confidently think, analyze, and learn by blending the best of traditional teaching methods with interactive, conceptual learning. We strive to nurture critical thinking, encourage curiosity, and create a supportive environment where students are comfortable asking questions and exploring ideas, no matter the challenges they face.
-              </p>
+              <EditableText
+                tag="h3"
+                defaultText="Mission"
+                className="text-2xl font-bold text-red-800 mb-4"
+                contentKey="mission_heading"
+              />
+              <EditableText
+                tag="p"
+                defaultText="To empower every student to confidently think, analyze, and learn by blending the best of traditional teaching methods with interactive, conceptual learning. We strive to nurture critical thinking, encourage curiosity, and create a supportive environment where students are comfortable asking questions and exploring ideas, no matter the challenges they face."
+                className="text-gray-700 leading-relaxed"
+                contentKey="mission_content"
+              />
             </motion.div>
 
             <motion.div
