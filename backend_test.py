@@ -11,7 +11,7 @@ from datetime import datetime
 import uuid
 
 # Get backend URL from environment
-BACKEND_URL = "https://400d23f8-72f2-4c4e-b6e6-574c00102502.preview.emergentagent.com/api"
+BACKEND_URL = "https://quick-preview-17.preview.emergentagent.com/api"
 
 def test_root_endpoint():
     """Test GET /api/ root endpoint"""
