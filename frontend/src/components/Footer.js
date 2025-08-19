@@ -34,8 +34,7 @@ const Footer = () => {
   const subjects = [
     'Mathematics',
     'Science',
-    'English',
-    'CBSE Curriculum',
+    'NCERT Curriculum',
     'ICSE Curriculum',
     'IGCSE Curriculum'
   ];
