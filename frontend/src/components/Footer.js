@@ -39,15 +39,6 @@ const Footer = () => {
     'IGCSE Curriculum'
   ];
 
-  const globalLocations = [
-    'India (All Regions)',
-    'United Arab Emirates',
-    'Australia',
-    'Thailand',
-    'Canada',
-    'Brazil'
-  ];
-
   return (
     <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white">
       {/* Main Footer Content */}
