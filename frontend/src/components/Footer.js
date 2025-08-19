@@ -228,12 +228,7 @@ const Footer = () => {
         </motion.div>
 
         {/* Bottom Footer */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="mt-12 pt-8 border-t border-gray-700 text-center"
-        >
+        <div className="mt-12 pt-8 border-t border-gray-700 text-center">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-gray-400 text-sm">
               © {currentYear} LearnED. All rights reserved. Transforming education, one student at a time.
@@ -243,17 +238,20 @@ const Footer = () => {
               <a href="#" className="text-gray-400 hover:text-red-400 transition-colors">Terms of Service</a>
               <Link to="/refund-policy" className="text-gray-400 hover:text-red-400 transition-colors">Refund Policy</Link>
               {!isAdmin && (
-                <button 
+                <motion.button 
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 5, duration: 0.6, type: "spring", stiffness: 200 }}
                   onClick={() => setShowLogin(true)}
                   className="text-gray-400 hover:text-red-400 transition-colors flex items-center gap-1"
                 >
                   <User size={14} />
                   Login
-                </button>
+                </motion.button>
               )}
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
 
       {/* Login Modal */}
