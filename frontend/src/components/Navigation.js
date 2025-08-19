@@ -125,18 +125,6 @@ const Navigation = () => {
               </Link>
             ))}
             
-            <Link
-              to="/refund-policy"
-              className={`block px-3 py-2 text-base font-medium transition-colors duration-200 ${
-                location.pathname === '/refund-policy'
-                  ? 'text-red-600 bg-red-50'
-                  : 'text-gray-700 hover:text-red-600 hover:bg-gray-50'
-              }`}
-              onClick={() => setIsOpen(false)}
-            >
-              Refund Policy
-            </Link>
-            
             {isAdmin && (
               <div className="px-3 py-2">
                 <div className="flex items-center justify-between">
