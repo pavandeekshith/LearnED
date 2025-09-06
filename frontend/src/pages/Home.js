@@ -169,12 +169,7 @@ const Home = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-xl md:text-2xl mb-8 max-w-4xl mx-auto leading-relaxed"
           >
-            <EditableText
-              tag="span"
-              defaultText="Blending the best of traditional teaching methods with interactive, conceptual learning. We nurture critical thinking, encourage curiosity, and create a supportive environment where students thrive."
-              className=""
-              contentKey="hero_subtitle"
-            />
+            Blending the best of traditional teaching methods with interactive, conceptual learning. We nurture critical thinking, encourage curiosity, and create a supportive environment where students thrive.
           </motion.p>
           
           <motion.div
