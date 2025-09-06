@@ -22,12 +22,9 @@ const RefundPolicy = () => {
             <div className="inline-flex items-center justify-center w-16 h-16 bg-red-100 rounded-full mb-6">
               <Shield className="w-8 h-8 text-red-600" />
             </div>
-            <EditableText
-              tag="h1"
-              defaultText="Refund Policy"
-              className="text-4xl md:text-5xl font-bold mb-4 text-gray-900"
-              contentKey="refund_policy_title"
-            />
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
+              Refund Policy
+            </h1>
             <EditableText
               tag="p"
               defaultText="At LearnED, we are committed to providing exceptional educational services. Please review our refund policy to understand your options."
