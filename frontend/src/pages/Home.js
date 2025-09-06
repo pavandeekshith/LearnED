@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import { ChevronRight, Globe, Trophy, Users, BookOpen, Play, Star, GraduationCap, X, Send, Phone, Mail, User, MessageCircle } from 'lucide-react';
 import QuizComponent from '../components/QuizComponent';
 import FloatingDemoButton from '../components/FloatingDemoButton';
-import EditableText from '../components/EditableText';
 
 const Home = () => {
   const [showQuiz, setShowQuiz] = useState(false);
