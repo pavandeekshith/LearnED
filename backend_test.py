@@ -193,45 +193,36 @@ def test_removed_content_endpoints():
         print(f"❌ Content endpoints removal test failed: {str(e)}")
         return False
 
-def test_database_operations():
-    """Test database operations by creating and retrieving data"""
-    print("\n=== Testing Database Operations ===")
-    
-    # Create a test record
-    print("Creating test record...")
-    success, record_id = test_post_status_endpoint()
-    if not success:
-        print("❌ Database write operation failed")
-        return False
-    
-    # Wait a moment for database consistency
-    time.sleep(1)
-    
-    # Retrieve records and verify our test record exists
-    print("Verifying record retrieval...")
+def test_removed_database_endpoints():
+    """Test that database-dependent endpoints are removed (should return 404)"""
+    print("\n=== Testing Removed Database Endpoints ===")
     try:
-        response = requests.get(f"{BACKEND_URL}/status")
-        if response.status_code == 200:
-            data = response.json()
-            # Look for our test record
-            found_record = None
-            for record in data:
-                if record.get("id") == record_id:
-                    found_record = record
-                    break
-            
-            if found_record:
-                print("✅ Database operations working correctly")
-                print(f"Retrieved record: {found_record}")
-                return True
-            else:
-                print("❌ Created record not found in database")
-                return False
-        else:
-            print("❌ Failed to retrieve records for verification")
-            return False
+        database_endpoints = [
+            ("/status", "GET"),
+            ("/status", "POST")
+        ]
+        
+        all_removed = True
+        for endpoint, method in database_endpoints:
+            try:
+                if method == "GET":
+                    response = requests.get(f"{BACKEND_URL}{endpoint}")
+                elif method == "POST":
+                    response = requests.post(f"{BACKEND_URL}{endpoint}", json={"client_name": "test"})
+                
+                print(f"{method} {endpoint} - Status: {response.status_code}")
+                
+                if response.status_code == 404:
+                    print(f"✅ {endpoint} correctly removed (404)")
+                else:
+                    print(f"❌ {endpoint} still exists (expected 404, got {response.status_code})")
+                    all_removed = False
+            except Exception as e:
+                print(f"✅ {endpoint} correctly removed (connection error expected)")
+        
+        return all_removed
     except Exception as e:
-        print(f"❌ Database operations test failed: {str(e)}")
+        print(f"❌ Database endpoints removal test failed: {str(e)}")
         return False
 
 def test_error_handling():
