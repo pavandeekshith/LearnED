@@ -95,9 +95,7 @@ const Navigation = () => {
           </motion.div>
         )}
       </div>
-      
-      {/* Login Modal */}
-      {showLogin && <LoginModal onClose={() => setShowLogin(false)} />}
+
     </nav>
   );
 };
