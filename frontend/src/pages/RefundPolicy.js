@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Shield, Clock, CheckCircle, AlertTriangle } from 'lucide-react';
-import EditableText from '../components/EditableText';
+
 
 const RefundPolicy = () => {
   useEffect(() => {
