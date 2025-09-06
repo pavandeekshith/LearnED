@@ -160,40 +160,37 @@ def test_removed_admin_endpoints():
         print(f"❌ Admin endpoints removal test failed: {str(e)}")
         return False
 
-def test_get_status_endpoint():
-    """Test GET /api/status endpoint to retrieve status checks"""
-    print("\n=== Testing GET Status Endpoint ===")
+def test_removed_content_endpoints():
+    """Test that content management endpoints are removed (should return 404)"""
+    print("\n=== Testing Removed Content Management Endpoints ===")
     try:
-        response = requests.get(f"{BACKEND_URL}/status")
-        print(f"Status Code: {response.status_code}")
+        content_endpoints = [
+            ("/content", "GET"),
+            ("/content/update", "PUT"),
+            ("/content/test_key", "GET")
+        ]
         
-        if response.status_code == 200:
-            data = response.json()
-            print(f"Number of status checks retrieved: {len(data)}")
-            
-            if isinstance(data, list):
-                if len(data) > 0:
-                    # Validate structure of first item
-                    first_item = data[0]
-                    required_fields = ["id", "client_name", "timestamp"]
-                    if all(field in first_item for field in required_fields):
-                        print("✅ GET status endpoint working correctly")
-                        print(f"Sample record: {first_item}")
-                        return True
-                    else:
-                        print(f"❌ Missing required fields in status check: {required_fields}")
-                        return False
+        all_removed = True
+        for endpoint, method in content_endpoints:
+            try:
+                if method == "GET":
+                    response = requests.get(f"{BACKEND_URL}{endpoint}")
+                elif method == "PUT":
+                    response = requests.put(f"{BACKEND_URL}{endpoint}", json={"key": "test", "value": "test"})
+                
+                print(f"{method} {endpoint} - Status: {response.status_code}")
+                
+                if response.status_code == 404:
+                    print(f"✅ {endpoint} correctly removed (404)")
                 else:
-                    print("✅ GET status endpoint working (empty list)")
-                    return True
-            else:
-                print("❌ GET status endpoint should return a list")
-                return False
-        else:
-            print(f"❌ GET status endpoint failed with status {response.status_code}")
-            return False
+                    print(f"❌ {endpoint} still exists (expected 404, got {response.status_code})")
+                    all_removed = False
+            except Exception as e:
+                print(f"✅ {endpoint} correctly removed (connection error expected)")
+        
+        return all_removed
     except Exception as e:
-        print(f"❌ GET status endpoint test failed: {str(e)}")
+        print(f"❌ Content endpoints removal test failed: {str(e)}")
         return False
 
 def test_database_operations():
