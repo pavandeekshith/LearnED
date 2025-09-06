@@ -228,18 +228,6 @@ const Footer = () => {
               <a href="#" className="text-gray-400 hover:text-red-400 transition-colors">Privacy Policy</a>
               <a href="#" className="text-gray-400 hover:text-red-400 transition-colors">Terms of Service</a>
               <Link to="/refund-policy" className="text-gray-400 hover:text-red-400 transition-colors">Refund Policy</Link>
-              {!isAdmin && (
-                <motion.button 
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 5, duration: 0.6, type: "spring", stiffness: 200 }}
-                  onClick={() => setShowLogin(true)}
-                  className="text-gray-400 hover:text-red-400 transition-colors flex items-center gap-1"
-                >
-                  <User size={14} />
-                  Login
-                </motion.button>
-              )}
             </div>
           </div>
         </div>
