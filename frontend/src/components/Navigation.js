@@ -24,12 +24,7 @@ const Navigation = () => {
               whileHover={{ scale: 1.05 }}
               className="text-2xl font-bold text-red-600"
             >
-              <EditableText
-                tag="span"
-                defaultText="LearnED"
-                className=""
-                contentKey="site_brand_name"
-              />
+              LearnED
             </motion.div>
           </Link>
 
