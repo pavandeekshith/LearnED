@@ -106,7 +106,7 @@
 
 ## backend:
   - task: "Remove Admin Authentication System"
-    implemented: false
+    implemented: true
     working: "NA"
     file: "/app/backend/server.py"
     stuck_count: 0
@@ -115,10 +115,10 @@
     status_history:
         -working: "NA"
         -agent: "main"
-        -comment: "Need to remove admin authentication endpoints and JWT token functionality to make backend static-friendly"
+        -comment: "Removed JWT authentication, login endpoints, and all admin-related functionality from backend"
 
   - task: "Remove Content Management System"
-    implemented: false
+    implemented: true
     working: "NA"
     file: "/app/backend/server.py"
     stuck_count: 0
@@ -127,10 +127,10 @@
     status_history:
         -working: "NA"
         -agent: "main"
-        -comment: "Need to remove content management APIs and database dependencies for content"
+        -comment: "Removed content management APIs, MongoDB dependencies, and database operations for content"
 
   - task: "Simplify Backend to Basic API Only"
-    implemented: false
+    implemented: true
     working: "NA"
     file: "/app/backend/server.py"
     stuck_count: 0
@@ -139,7 +139,7 @@
     status_history:
         -working: "NA"
         -agent: "main"
-        -comment: "Keep minimal backend for basic functionality, remove MongoDB dependencies"
+        -comment: "Backend simplified to basic health check, contact form, and demo booking endpoints. MongoDB dependencies removed from requirements.txt"
 
 ## frontend:
   - task: "Remove Admin Context and Provider"
