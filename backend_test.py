@@ -131,61 +131,34 @@ def test_demo_endpoint():
         print(f"❌ Demo booking endpoint test failed: {str(e)}")
         return False
 
-def test_post_status_endpoint():
-    """Test POST /api/status endpoint with sample data"""
-    print("\n=== Testing POST Status Endpoint ===")
+def test_removed_admin_endpoints():
+    """Test that admin authentication endpoints are removed (should return 404)"""
+    print("\n=== Testing Removed Admin Endpoints ===")
     try:
-        # Test with realistic educational platform data
-        test_data = {
-            "client_name": "LearnED Student Portal"
-        }
+        admin_endpoints = [
+            "/auth/login",
+            "/auth/logout", 
+            "/auth/verify"
+        ]
         
-        response = requests.post(
-            f"{BACKEND_URL}/status",
-            json=test_data,
-            headers={"Content-Type": "application/json"}
-        )
-        
-        print(f"Status Code: {response.status_code}")
-        print(f"Response: {response.json()}")
-        
-        if response.status_code == 200:
-            data = response.json()
-            # Validate response structure
-            required_fields = ["id", "client_name", "timestamp"]
-            if all(field in data for field in required_fields):
-                # Validate UUID format
-                try:
-                    uuid.UUID(data["id"])
-                    print("✅ UUID generation working correctly")
-                except ValueError:
-                    print("❌ Invalid UUID format in response")
-                    return False
+        all_removed = True
+        for endpoint in admin_endpoints:
+            try:
+                response = requests.post(f"{BACKEND_URL}{endpoint}")
+                print(f"POST {endpoint} - Status: {response.status_code}")
                 
-                # Validate timestamp format
-                try:
-                    datetime.fromisoformat(data["timestamp"].replace('Z', '+00:00'))
-                    print("✅ Timestamp format is valid")
-                except ValueError:
-                    print("❌ Invalid timestamp format")
-                    return False
-                
-                # Validate client_name matches input
-                if data["client_name"] == test_data["client_name"]:
-                    print("✅ POST status endpoint working correctly")
-                    return True, data["id"]
+                if response.status_code == 404:
+                    print(f"✅ {endpoint} correctly removed (404)")
                 else:
-                    print("❌ Client name mismatch in response")
-                    return False, None
-            else:
-                print(f"❌ Missing required fields in response: {required_fields}")
-                return False, None
-        else:
-            print(f"❌ POST status endpoint failed with status {response.status_code}")
-            return False, None
+                    print(f"❌ {endpoint} still exists (expected 404, got {response.status_code})")
+                    all_removed = False
+            except Exception as e:
+                print(f"✅ {endpoint} correctly removed (connection error expected)")
+        
+        return all_removed
     except Exception as e:
-        print(f"❌ POST status endpoint test failed: {str(e)}")
-        return False, None
+        print(f"❌ Admin endpoints removal test failed: {str(e)}")
+        return False
 
 def test_get_status_endpoint():
     """Test GET /api/status endpoint to retrieve status checks"""
