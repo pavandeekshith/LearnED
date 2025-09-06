@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { X, User, Lock, Eye, EyeOff, LogIn } from 'lucide-react';
-import { useAdmin } from '../contexts/AdminContext';
 
 const LoginModal = ({ onClose }) => {
   const [email, setEmail] = useState('');
@@ -9,23 +8,23 @@ const LoginModal = ({ onClose }) => {
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
-  
-  const { login } = useAdmin();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
     setError('');
-
-    const result = await login(email, password);
     
-    if (result.success) {
+    try {
+      // Handle login logic here
+      console.log('Login attempt with:', { email });
+      // Simulate API call
+      await new Promise(resolve => setTimeout(resolve, 1000));
       onClose();
-    } else {
-      setError(result.error);
+    } catch (err) {
+      setError('Invalid email or password');
+    } finally {
+      setIsLoading(false);
     }
-    
-    setIsLoading(false);
   };
 
   return (
@@ -40,22 +39,22 @@ const LoginModal = ({ onClose }) => {
         initial={{ scale: 0.9, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0.9, opacity: 0 }}
-        className="bg-white rounded-2xl p-8 max-w-md w-full"
+        className="bg-white rounded-2xl p-6 max-w-md w-full relative"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="flex justify-between items-center mb-6">
-          <div>
-            <h3 className="text-2xl font-bold bg-gradient-to-r from-red-600 to-red-700 bg-clip-text text-transparent">
-              Admin Login
-            </h3>
-            <p className="text-gray-600 text-sm">Access content management system</p>
-          </div>
+        {/* Header with Close Button */}
+        <div className="relative text-center mb-6">
           <button
             onClick={onClose}
-            className="text-gray-500 hover:text-gray-700 transition-colors"
+            className="absolute -top-2 -right-2 bg-gray-200 hover:bg-gray-700 rounded-full p-1.5 transition-colors"
+            aria-label="Close"
           >
-            <X size={24} />
+            <X size={18} />
           </button>
+          <h3 className="text-2xl font-bold bg-gradient-to-r from-red-600 to-red-700 bg-clip-text text-transparent">
+            Admin Login
+          </h3>
+          <p className="text-gray-600 text-sm mt-1">Access content management system</p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -69,7 +68,7 @@ const LoginModal = ({ onClose }) => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-red-500 focus:outline-none transition-colors"
+              className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-red-500 focus:outline-none transition-colors text-black"
               placeholder="Enter admin email"
             />
           </div>
@@ -85,7 +84,7 @@ const LoginModal = ({ onClose }) => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                className="w-full px-4 py-3 pr-12 border-2 border-gray-200 rounded-lg focus:border-red-500 focus:outline-none transition-colors"
+                className="w-full px-4 py-3 pr-12 border-2 border-gray-200 rounded-lg focus:border-red-500 focus:outline-none transition-colors text-black"
                 placeholder="Enter admin password"
               />
               <button
@@ -135,13 +134,6 @@ const LoginModal = ({ onClose }) => {
           </button>
         </form>
 
-        <div className="mt-6 pt-4 border-t border-gray-200">
-          <div className="text-xs text-gray-500 space-y-1">
-            <p><strong>Demo Credentials:</strong></p>
-            <p>Email: abcdef_pavan@gmail.com</p>
-            <p>Password: abcdef_pavan@gmail.com</p>
-          </div>
-        </div>
       </motion.div>
     </motion.div>
   );

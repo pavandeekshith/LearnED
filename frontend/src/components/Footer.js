@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 import { 
   Phone, 
   Mail, 
@@ -13,11 +14,13 @@ import {
   Users,
   GraduationCap,
   Globe,
-  User
+  User,
+  LogIn
 } from 'lucide-react';
-
+import LoginModal from './LoginModal';
 
 const Footer = () => {
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const currentYear = new Date().getFullYear();
 
   const quickLinks = [
@@ -224,10 +227,24 @@ const Footer = () => {
             <p className="text-gray-400 text-sm">
               © {currentYear} LearnED. All rights reserved. Transforming education, one student at a time.
             </p>
-            <div className="flex items-center gap-6 text-sm">
+            <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6 text-sm">
               <a href="#" className="text-gray-400 hover:text-red-400 transition-colors">Privacy Policy</a>
               <a href="#" className="text-gray-400 hover:text-red-400 transition-colors">Terms of Service</a>
               <Link to="/refund-policy" className="text-gray-400 hover:text-red-400 transition-colors">Refund Policy</Link>
+              
+              {/* Admin Login Button */}
+              <button 
+                onClick={() => setIsLoginModalOpen(true)}
+                className="flex items-center gap-1 text-gray-400 hover:text-red-400 transition-colors"
+              >
+                <LogIn className="w-4 h-4" />
+                <span>Admin Login</span>
+              </button>
+              
+              {/* Login Modal */}
+              {isLoginModalOpen && (
+                <LoginModal onClose={() => setIsLoginModalOpen(false)} />
+              )}
             </div>
           </div>
         </div>
