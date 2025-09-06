@@ -321,67 +321,50 @@ def test_server_health():
         print(f"❌ Server health test failed: {str(e)}")
         return False
 
-def run_comprehensive_tests():
-    """Run all backend tests and provide summary"""
-    print("🚀 Starting Comprehensive Backend Testing for LearnED Platform")
-    print("=" * 60)
+def run_static_backend_tests():
+    """Run all static backend tests and provide summary"""
+    print("🚀 Starting Static Backend Testing for LearnED Platform")
+    print("Testing simplified backend after admin functionality removal")
+    print("=" * 70)
     
     test_results = {}
-    jwt_token = None
     
-    # Run basic API tests first
+    # Test existing static endpoints
+    print("\n📊 STATIC API ENDPOINT TESTS:")
     test_results["server_health"] = test_server_health()
     test_results["root_endpoint"] = test_root_endpoint()
+    test_results["health_endpoint"] = test_health_endpoint()
+    test_results["contact_endpoint"] = test_contact_endpoint()
+    test_results["demo_endpoint"] = test_demo_endpoint()
     test_results["cors"] = test_cors()
-    test_results["post_status"] = test_post_status_endpoint()[0] if test_post_status_endpoint() else False
-    test_results["get_status"] = test_get_status_endpoint()
-    test_results["database_operations"] = test_database_operations()
     test_results["error_handling"] = test_error_handling()
     
-    # Run authentication tests
-    print("\n" + "=" * 60)
-    print("🔐 AUTHENTICATION & CONTENT MANAGEMENT TESTS")
-    print("=" * 60)
-    
-    # Test admin login success and get JWT token
-    login_success, jwt_token = test_admin_login_success()
-    test_results["admin_login_success"] = login_success
-    
-    # Test admin login failure
-    test_results["admin_login_failure"] = test_admin_login_failure()
-    
-    # Test content endpoints without authentication
-    test_results["content_without_auth"] = test_content_endpoints_without_auth()
-    
-    # Test content endpoints with authentication (only if login succeeded)
-    if jwt_token:
-        test_results["content_with_auth"] = test_content_endpoints_with_auth(jwt_token)
-        test_results["content_crud_operations"] = test_content_crud_operations(jwt_token)
-    else:
-        print("⚠️ Skipping authenticated content tests due to login failure")
-        test_results["content_with_auth"] = False
-        test_results["content_crud_operations"] = False
+    # Test that removed endpoints are actually gone
+    print("\n🗑️ REMOVED FUNCTIONALITY VERIFICATION:")
+    test_results["admin_endpoints_removed"] = test_removed_admin_endpoints()
+    test_results["content_endpoints_removed"] = test_removed_content_endpoints()
+    test_results["database_endpoints_removed"] = test_removed_database_endpoints()
     
     # Summary
-    print("\n" + "=" * 60)
-    print("🏁 TEST SUMMARY")
-    print("=" * 60)
+    print("\n" + "=" * 70)
+    print("🏁 STATIC BACKEND TEST SUMMARY")
+    print("=" * 70)
     
     passed = sum(test_results.values())
     total = len(test_results)
     
     # Group results by category
-    basic_tests = ["server_health", "root_endpoint", "cors", "post_status", "get_status", "database_operations", "error_handling"]
-    auth_tests = ["admin_login_success", "admin_login_failure", "content_without_auth", "content_with_auth", "content_crud_operations"]
+    static_tests = ["server_health", "root_endpoint", "health_endpoint", "contact_endpoint", "demo_endpoint", "cors", "error_handling"]
+    removal_tests = ["admin_endpoints_removed", "content_endpoints_removed", "database_endpoints_removed"]
     
-    print("📊 BASIC API TESTS:")
-    for test_name in basic_tests:
+    print("📊 STATIC API FUNCTIONALITY:")
+    for test_name in static_tests:
         if test_name in test_results:
             status = "✅ PASS" if test_results[test_name] else "❌ FAIL"
             print(f"  {test_name.replace('_', ' ').title()}: {status}")
     
-    print("\n🔐 AUTHENTICATION & CONTENT TESTS:")
-    for test_name in auth_tests:
+    print("\n🗑️ ADMIN FUNCTIONALITY REMOVAL:")
+    for test_name in removal_tests:
         if test_name in test_results:
             status = "✅ PASS" if test_results[test_name] else "❌ FAIL"
             print(f"  {test_name.replace('_', ' ').title()}: {status}")
@@ -389,21 +372,22 @@ def run_comprehensive_tests():
     print(f"\nOverall Result: {passed}/{total} tests passed")
     
     if passed == total:
-        print("🎉 All backend tests PASSED! The LearnED platform backend is working correctly.")
-        print("✅ Admin authentication system is functional")
-        print("✅ Content management system is operational")
+        print("🎉 All static backend tests PASSED!")
+        print("✅ Static API endpoints are functional")
+        print("✅ Admin functionality successfully removed")
+        print("✅ Backend is now static-friendly without MongoDB dependencies")
         return True
     else:
         print(f"⚠️ {total - passed} test(s) FAILED. Backend needs attention.")
         
         # Identify which category failed
-        basic_passed = sum(test_results.get(test, False) for test in basic_tests)
-        auth_passed = sum(test_results.get(test, False) for test in auth_tests)
+        static_passed = sum(test_results.get(test, False) for test in static_tests)
+        removal_passed = sum(test_results.get(test, False) for test in removal_tests)
         
-        if basic_passed < len(basic_tests):
-            print("❌ Basic API functionality issues detected")
-        if auth_passed < len(auth_tests):
-            print("❌ Authentication/Content management issues detected")
+        if static_passed < len(static_tests):
+            print("❌ Static API functionality issues detected")
+        if removal_passed < len(removal_tests):
+            print("❌ Admin functionality removal incomplete")
             
         return False
 
