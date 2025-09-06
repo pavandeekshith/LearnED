@@ -392,5 +392,5 @@ def run_static_backend_tests():
         return False
 
 if __name__ == "__main__":
-    success = run_comprehensive_tests()
+    success = run_static_backend_tests()
     exit(0 if success else 1)
