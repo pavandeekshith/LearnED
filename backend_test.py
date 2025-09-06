@@ -229,21 +229,39 @@ def test_error_handling():
     """Test error handling for invalid requests"""
     print("\n=== Testing Error Handling ===")
     try:
-        # Test POST with missing required field
+        # Test POST contact with missing required fields
         response = requests.post(
-            f"{BACKEND_URL}/status",
+            f"{BACKEND_URL}/contact",
             json={},  # Empty payload
             headers={"Content-Type": "application/json"}
         )
         
-        print(f"Invalid request status: {response.status_code}")
+        print(f"Invalid contact request status: {response.status_code}")
         
         if response.status_code in [400, 422]:  # FastAPI returns 422 for validation errors
-            print("✅ Error handling working correctly")
-            return True
+            print("✅ Contact form error handling working correctly")
+            contact_error_ok = True
         else:
-            print(f"❌ Expected 400/422 error, got {response.status_code}")
-            return False
+            print(f"❌ Expected 400/422 error for contact, got {response.status_code}")
+            contact_error_ok = False
+        
+        # Test POST demo with missing required fields
+        response = requests.post(
+            f"{BACKEND_URL}/demo",
+            json={},  # Empty payload
+            headers={"Content-Type": "application/json"}
+        )
+        
+        print(f"Invalid demo request status: {response.status_code}")
+        
+        if response.status_code in [400, 422]:  # FastAPI returns 422 for validation errors
+            print("✅ Demo booking error handling working correctly")
+            demo_error_ok = True
+        else:
+            print(f"❌ Expected 400/422 error for demo, got {response.status_code}")
+            demo_error_ok = False
+        
+        return contact_error_ok and demo_error_ok
     except Exception as e:
         print(f"❌ Error handling test failed: {str(e)}")
         return False
