@@ -105,65 +105,41 @@
 ## user_problem_statement: "Convert LearnED platform to fully static website by removing admin functionality: Remove admin authentication system, admin panel, content management system, and convert all editable content to static content. Keep all existing features (quiz system, syllabus, team info, etc.) but make them fully static without database dependencies."
 
 ## backend:
-  - task: "Basic API endpoints (status check)"
-    implemented: true
-    working: true
+  - task: "Remove Admin Authentication System"
+    implemented: false
+    working: "NA"
     file: "/app/backend/server.py"
     stuck_count: 0
     priority: "high"
-    needs_retesting: false
+    needs_retesting: true
     status_history:
-        -working: true
+        -working: "NA"
         -agent: "main"
-        -comment: "Backend testing complete - All 7/7 tests passed successfully. API endpoints functional, CORS working, MongoDB operations with UUID generation working perfectly"
+        -comment: "Need to remove admin authentication endpoints and JWT token functionality to make backend static-friendly"
 
-  - task: "Admin Authentication System"
-    implemented: true
-    working: true
+  - task: "Remove Content Management System"
+    implemented: false
+    working: "NA"
     file: "/app/backend/server.py"
     stuck_count: 0
     priority: "high"
-    needs_retesting: false
+    needs_retesting: true
     status_history:
-        -working: true
-        -agent: "testing"
-        -comment: "All 12/12 comprehensive backend tests passed. Admin login with JWT tokens, credential validation, and authentication enforcement all working perfectly"
+        -working: "NA"
+        -agent: "main"
+        -comment: "Need to remove content management APIs and database dependencies for content"
 
-  - task: "Content Management API"
-    implemented: true  
-    working: true
+  - task: "Simplify Backend to Basic API Only"
+    implemented: false
+    working: "NA"
     file: "/app/backend/server.py"
     stuck_count: 0
-    priority: "high"
-    needs_retesting: false
+    priority: "medium"
+    needs_retesting: true
     status_history:
-        -working: true
-        -agent: "testing"
-        -comment: "Content CRUD operations fully functional. GET /api/content, PUT /api/content/update, GET /api/content/{key} all working with proper JWT authentication enforcement"
-
-  - task: "Admin Authentication System"
-    implemented: true
-    working: true
-    file: "/app/backend/server.py"
-    stuck_count: 0
-    priority: "high"
-    needs_retesting: false
-    status_history:
-        -working: true
-        -agent: "testing"
-        -comment: "Admin authentication system fully functional. Login endpoint /api/auth/login working with hardcoded credentials (abcdef_pavan@gmail.com). JWT token generation and validation working correctly. Proper rejection of invalid credentials (401 status). All authentication tests passed."
-
-  - task: "Content Management System"
-    implemented: true
-    working: true
-    file: "/app/backend/server.py"
-    stuck_count: 0
-    priority: "high"
-    needs_retesting: false
-    status_history:
-        -working: true
-        -agent: "testing"
-        -comment: "Content management system fully operational. All endpoints working: GET /api/content (public access), PUT /api/content/update (requires JWT auth), GET /api/content/{key} (public access). CRUD operations tested successfully. Proper authentication enforcement - protected endpoints reject requests without valid JWT (403 status). Content creation, reading, updating all functional."
+        -working: "NA"
+        -agent: "main"
+        -comment: "Keep minimal backend for basic functionality, remove MongoDB dependencies"
 
 ## frontend:
   - task: "Enhanced Quiz System (Classes 2-8)"
