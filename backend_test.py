@@ -57,33 +57,78 @@ def test_health_endpoint():
         print(f"❌ Health endpoint test failed: {str(e)}")
         return False
 
-def test_cors():
-    """Test CORS functionality"""
-    print("\n=== Testing CORS ===")
+def test_contact_endpoint():
+    """Test POST /api/contact endpoint"""
+    print("\n=== Testing Contact Form Endpoint ===")
     try:
-        headers = {
-            'Origin': 'https://example.com',
-            'Access-Control-Request-Method': 'POST',
-            'Access-Control-Request-Headers': 'Content-Type'
+        # Test with realistic contact form data
+        contact_data = {
+            "name": "Sarah Johnson",
+            "email": "sarah.johnson@email.com",
+            "phone": "+1-555-0123",
+            "message": "I'm interested in learning more about your educational programs for my daughter."
         }
-        response = requests.options(f"{BACKEND_URL}/status", headers=headers)
-        print(f"CORS preflight status: {response.status_code}")
         
-        cors_headers = {
-            'Access-Control-Allow-Origin': response.headers.get('Access-Control-Allow-Origin'),
-            'Access-Control-Allow-Methods': response.headers.get('Access-Control-Allow-Methods'),
-            'Access-Control-Allow-Headers': response.headers.get('Access-Control-Allow-Headers')
-        }
-        print(f"CORS headers: {cors_headers}")
+        response = requests.post(
+            f"{BACKEND_URL}/contact",
+            json=contact_data,
+            headers={"Content-Type": "application/json"}
+        )
         
-        if response.status_code in [200, 204] and cors_headers['Access-Control-Allow-Origin']:
-            print("✅ CORS is properly configured")
-            return True
+        print(f"Status Code: {response.status_code}")
+        print(f"Response: {response.json()}")
+        
+        if response.status_code == 200:
+            data = response.json()
+            if data.get("success") and "submitted successfully" in data.get("message", ""):
+                print("✅ Contact form endpoint working correctly")
+                return True
+            else:
+                print("❌ Contact form response format incorrect")
+                return False
         else:
-            print("❌ CORS configuration issues detected")
+            print(f"❌ Contact form endpoint failed with status {response.status_code}")
             return False
     except Exception as e:
-        print(f"❌ CORS test failed: {str(e)}")
+        print(f"❌ Contact form endpoint test failed: {str(e)}")
+        return False
+
+def test_demo_endpoint():
+    """Test POST /api/demo endpoint"""
+    print("\n=== Testing Demo Booking Endpoint ===")
+    try:
+        # Test with realistic demo booking data
+        demo_data = {
+            "name": "Michael Chen",
+            "email": "michael.chen@email.com",
+            "phone": "+1-555-0456",
+            "preferred_time": "weekday_afternoon",
+            "student_grade": "grade_5",
+            "message": "Would like to schedule a demo for our homeschool curriculum."
+        }
+        
+        response = requests.post(
+            f"{BACKEND_URL}/demo",
+            json=demo_data,
+            headers={"Content-Type": "application/json"}
+        )
+        
+        print(f"Status Code: {response.status_code}")
+        print(f"Response: {response.json()}")
+        
+        if response.status_code == 200:
+            data = response.json()
+            if data.get("success") and "submitted successfully" in data.get("message", ""):
+                print("✅ Demo booking endpoint working correctly")
+                return True
+            else:
+                print("❌ Demo booking response format incorrect")
+                return False
+        else:
+            print(f"❌ Demo booking endpoint failed with status {response.status_code}")
+            return False
+    except Exception as e:
+        print(f"❌ Demo booking endpoint test failed: {str(e)}")
         return False
 
 def test_post_status_endpoint():
