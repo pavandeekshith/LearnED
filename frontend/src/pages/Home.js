@@ -157,12 +157,10 @@ const Home = () => {
             transition={{ duration: 0.8 }}
             className="text-5xl md:text-7xl font-bold mb-6"
           >
-            <EditableText
-              tag="div"
-              defaultText="Empowering Every Student to<span class='block text-red-200'>Think, Analyze, and Learn</span>"
-              className=""
-              contentKey="hero_main_title"
-            />
+            <div>
+              Empowering Every Student to
+              <span className='block text-red-200'>Think, Analyze, and Learn</span>
+            </div>
           </motion.h1>
           
           <motion.p
