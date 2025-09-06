@@ -1,10 +1,7 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Menu, X, User, LogOut } from 'lucide-react';
-import { AdminContext } from '../contexts/AdminContext';
-import LoginModal from './LoginModal';
-import EditableText from './EditableText';
+import { Menu, X } from 'lucide-react';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
