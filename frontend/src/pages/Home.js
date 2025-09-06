@@ -204,18 +204,7 @@ const Home = () => {
               transition={{ duration: 0.6 }}
               className="text-4xl md:text-5xl font-bold mb-8 text-gray-900"
             >
-              <EditableText
-                tag="span"
-                defaultText="Our "
-                className=""
-                contentKey="mission_vision_title_1"
-              />
-              <EditableText
-                tag="span"
-                defaultText="Mission & Vision"
-                className="bg-gradient-to-r from-red-600 to-red-700 bg-clip-text text-transparent"
-                contentKey="mission_vision_title_2"
-              />
+              Our <span className="bg-gradient-to-r from-red-600 to-red-700 bg-clip-text text-transparent">Mission & Vision</span>
             </motion.h2>
           </div>
 
