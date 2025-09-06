@@ -1,14 +1,12 @@
 #!/usr/bin/env python3
 """
-Comprehensive Backend Testing for LearnED Platform
-Tests all API endpoints, database operations, and server health
+Static Backend Testing for LearnED Platform
+Tests simplified API endpoints after admin functionality removal
 """
 
 import requests
 import json
-import time
 from datetime import datetime
-import uuid
 
 # Get backend URL from environment
 BACKEND_URL = "https://no-db-static.preview.emergentagent.com/api"
@@ -23,8 +21,8 @@ def test_root_endpoint():
         
         if response.status_code == 200:
             data = response.json()
-            if "message" in data and data["message"] == "Hello World":
-                print("✅ Root endpoint working correctly")
+            if "message" in data and "Admin functionality removed" in data["message"]:
+                print("✅ Root endpoint working correctly - admin functionality confirmed removed")
                 return True
             else:
                 print("❌ Root endpoint returned unexpected response")
@@ -34,6 +32,29 @@ def test_root_endpoint():
             return False
     except Exception as e:
         print(f"❌ Root endpoint test failed: {str(e)}")
+        return False
+
+def test_health_endpoint():
+    """Test GET /api/health endpoint"""
+    print("\n=== Testing Health Endpoint ===")
+    try:
+        response = requests.get(f"{BACKEND_URL}/health")
+        print(f"Status Code: {response.status_code}")
+        print(f"Response: {response.json()}")
+        
+        if response.status_code == 200:
+            data = response.json()
+            if "status" in data and data["status"] == "healthy":
+                print("✅ Health endpoint working correctly")
+                return True
+            else:
+                print("❌ Health endpoint returned unexpected response")
+                return False
+        else:
+            print(f"❌ Health endpoint failed with status {response.status_code}")
+            return False
+    except Exception as e:
+        print(f"❌ Health endpoint test failed: {str(e)}")
         return False
 
 def test_cors():
