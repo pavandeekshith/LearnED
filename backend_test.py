@@ -292,7 +292,7 @@ def test_cors():
             print("❌ CORS configuration issues detected")
             return False
     except Exception as e:
-        print(f"❌ CORS test failed: {str(e}}")
+        print(f"❌ CORS test failed: {str(e)}")
         return False
 
 def test_server_health():
