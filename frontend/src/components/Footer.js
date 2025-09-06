@@ -233,8 +233,7 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Login Modal */}
-      {showLogin && <LoginModal onClose={() => setShowLogin(false)} />}
+
     </footer>
   );
 };
