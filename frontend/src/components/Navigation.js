@@ -5,9 +5,7 @@ import { Menu, X } from 'lucide-react';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [showLogin, setShowLogin] = useState(false);
   const location = useLocation();
-  const { isAdmin, logout } = useContext(AdminContext);
 
   const navItems = [
     { name: 'Home', path: '/', key: 'nav_home' },
