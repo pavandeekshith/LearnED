@@ -57,22 +57,9 @@ const Navigation = () => {
               </Link>
             ))}
             
-            {/* Right side links - removed Refund Policy */}
+            {/* Right side space for future additions */}
             <div className="flex items-center space-x-6">
-              {isAdmin && (
-                <div className="flex items-center space-x-3">
-                  <span className="text-xs bg-green-100 text-green-600 px-2 py-1 rounded-full font-medium">
-                    Admin Mode
-                  </span>
-                  <button
-                    onClick={logout}
-                    className="flex items-center space-x-1 text-gray-700 hover:text-red-600 transition-colors"
-                  >
-                    <LogOut size={16} />
-                    <span className="text-sm">Logout</span>
-                  </button>
-                </div>
-              )}
+              {/* Placeholder for future features */}
             </div>
           </div>
 
