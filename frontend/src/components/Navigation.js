@@ -88,12 +88,7 @@ const Navigation = () => {
                 }`}
                 onClick={() => setIsOpen(false)}
               >
-                <EditableText
-                  tag="span"
-                  defaultText={item.name}
-                  className=""
-                  contentKey={item.key}
-                />
+                {item.name}
               </Link>
             ))}
             
