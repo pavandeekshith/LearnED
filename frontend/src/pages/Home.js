@@ -427,18 +427,7 @@ const Home = () => {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
-              <EditableText
-                tag="span"
-                defaultText="Why Choose "
-                className=""
-                contentKey="why_choose_title_1"
-              />
-              <EditableText
-                tag="span"
-                defaultText="LearnED?"
-                className="bg-gradient-to-r from-red-600 to-red-700 bg-clip-text text-transparent"
-                contentKey="why_choose_title_2"
-              />
+              Why Choose <span className="bg-gradient-to-r from-red-600 to-red-700 bg-clip-text text-transparent">LearnED?</span>
             </h2>
             <EditableText
               tag="p"
