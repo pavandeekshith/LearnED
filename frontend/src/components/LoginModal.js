@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { X, User, Lock, Eye, EyeOff, LogIn } from 'lucide-react';
+import { useAuth } from '../contexts/AuthContext';
+import { useNavigate } from 'react-router-dom';
+import { checkSupabaseConnection } from '../utils/debug';
 
 const LoginModal = ({ onClose }) => {
   const [email, setEmail] = useState('');
@@ -8,20 +11,42 @@ const LoginModal = ({ onClose }) => {
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
+  const [connectionStatus, setConnectionStatus] = useState('');
+  const { login } = useAuth();
+  const navigate = useNavigate();
+
+  const testConnection = async () => {
+    setConnectionStatus('Testing connection...');
+    try {
+      const result = await checkSupabaseConnection();
+      setConnectionStatus(result.connected 
+        ? '✅ Connected to Supabase!' 
+        : `❌ Connection failed: ${result.error}`);
+    } catch (err) {
+      setConnectionStatus(`❌ Error: ${err.message}`);
+    }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!email || !password) {
+      setError('Please enter both email and password');
+      return;
+    }
+    
     setIsLoading(true);
     setError('');
     
     try {
-      // Handle login logic here
-      console.log('Login attempt with:', { email });
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      onClose();
+  await login(email, password);
+  // If login is successful, these lines will execute
+  console.log('Login successful, navigating to /admin/dashboard');
+  navigate('/admin/dashboard');
+  onClose();
     } catch (err) {
-      setError('Invalid email or password');
+      console.error('Login error:', err);
+      // Show the actual error message from the auth system
+      setError(err.message || 'An error occurred during login. Please try again.');
     } finally {
       setIsLoading(false);
     }
@@ -111,6 +136,26 @@ const LoginModal = ({ onClose }) => {
             <p className="text-blue-800 text-sm">
               🔐 <strong>Admin Access:</strong> Login to enable content editing mode and manage all website content in real-time.
             </p>
+            <p className="text-red-500 text-sm mt-2">{error}</p>
+            
+            {/* Debug Section */}
+            <div className="mt-4 pt-4 border-t border-gray-200">
+              <div className="flex justify-between items-center">
+                <span className="text-sm text-gray-600">Connection Status:</span>
+                <button
+                  type="button"
+                  onClick={testConnection}
+                  className="text-xs bg-blue-100 hover:bg-blue-200 text-blue-800 px-2 py-1 rounded"
+                >
+                  Test Connection
+                </button>
+              </div>
+              {connectionStatus && (
+                <div className="text-xs mt-2 p-2 bg-gray-100 rounded">
+                  {connectionStatus}
+                </div>
+              )}
+            </div>
           </div>
 
           <button
