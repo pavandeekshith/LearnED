@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext, useEffect } from 'react';
+import React, { createContext, useState, useContext } from 'react';
 import { supabase } from '../lib/supabaseClient';
 
 const AdminContext = createContext();
@@ -12,10 +12,6 @@ export const useAdmin = () => {
 };
 
 export const AdminProvider = ({ children }) => {
-  const [isAdmin, setIsAdmin] = useState(false);
-  const [isEditMode, setIsEditMode] = useState(false);
-  const [authToken, setAuthToken] = useState(null);
-  
   // Admin data state
   const [adminData, setAdminData] = useState({
     classrooms: [],
@@ -38,27 +34,26 @@ export const AdminProvider = ({ children }) => {
     
     try {
       setDataLoading(true);
-      console.log('Loading admin data...');
 
       // Fetch all data in parallel
       const [classroomsResult, teachersResult, studentsResult, activityResult] = await Promise.all([
-        // Fetch classrooms with pricing and teacher info
+        // Fetch classrooms with pricing and teacher info - try to get ALL including inactive
         supabase
           .from('classrooms')
           .select(`
             *, 
             classroom_pricing(price, payment_plan_id, id, payment_plans(id, name, billing_cycle)),
             teachers(user_id, users(first_name, last_name))
-          `),
+          `)
+          .order('created_at', { ascending: false }), // Add explicit ordering to help with RLS
         
-        // Fetch teachers with user details
+        // Fetch teachers with user details - GET ALL TEACHERS (active and inactive)
         supabase
           .from('teachers')
           .select(`
             *,
             users(first_name, last_name, email, phone)
-          `)
-          .eq('status', 'active'),
+          `),
         
         // Fetch students with user details
         supabase
@@ -90,6 +85,7 @@ export const AdminProvider = ({ children }) => {
       const students = studentsResult.data || [];
       const recentActivity = activityResult.data || [];
 
+      // Log errors only
       if (classroomsResult.error) console.error('Error fetching classrooms:', classroomsResult.error);
       if (teachersResult.error) console.error('Error fetching teachers:', teachersResult.error);
       if (studentsResult.error) console.error('Error fetching students:', studentsResult.error);
@@ -98,7 +94,7 @@ export const AdminProvider = ({ children }) => {
       // Calculate stats
       const stats = {
         totalClassrooms: classrooms.filter(c => c.is_active).length,
-        totalTeachers: teachers.length,
+        totalTeachers: teachers.filter(t => t.status === 'active').length,
         totalStudents: students.length,
         activeSessions: 0 // We'll implement this later
       };
@@ -113,7 +109,6 @@ export const AdminProvider = ({ children }) => {
       });
 
       setDataLoaded(true);
-      console.log('Admin data loaded successfully');
 
     } catch (error) {
       console.error('Error loading admin data:', error);
@@ -125,7 +120,6 @@ export const AdminProvider = ({ children }) => {
   // Refresh specific data type
   const refreshData = async (dataType) => {
     try {
-      console.log(`Refreshing ${dataType} data...`);
       
       switch (dataType) {
         case 'classrooms':
@@ -163,102 +157,7 @@ export const AdminProvider = ({ children }) => {
     }
   };
 
-  // Check for existing auth on mount
-  useEffect(() => {
-    const token = localStorage.getItem('admin_token');
-    const adminStatus = localStorage.getItem('is_admin') === 'true';
-    
-    if (token && adminStatus) {
-      setAuthToken(token);
-      setIsAdmin(true);
-    }
-  }, []);
-
-  const login = async (email, password) => {
-    try {
-      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/auth/login`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email, password }),
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-        
-        setAuthToken(data.token);
-        setIsAdmin(true);
-        
-        // Store in localStorage
-        localStorage.setItem('admin_token', data.token);
-        localStorage.setItem('is_admin', 'true');
-        
-        return { success: true };
-      } else {
-        return { success: false, error: 'Invalid credentials' };
-      }
-    } catch (error) {
-      return { success: false, error: 'Login failed. Please try again.' };
-    }
-  };
-
-  const logout = () => {
-    setIsAdmin(false);
-    setIsEditMode(false);
-    setAuthToken(null);
-    
-    // Clear localStorage
-    localStorage.removeItem('admin_token');
-    localStorage.removeItem('is_admin');
-  };
-
-  const toggleEditMode = () => {
-    setIsEditMode(!isEditMode);
-  };
-
-  const updateContent = async (key, value) => {
-    if (!authToken) return false;
-
-    try {
-      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/content/update`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${authToken}`,
-        },
-        body: JSON.stringify({ key, value }),
-      });
-
-      return response.ok;
-    } catch (error) {
-      console.error('Failed to update content:', error);
-      return false;
-    }
-  };
-
-  const getContent = async () => {
-    try {
-      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/content`);
-      if (response.ok) {
-        return await response.json();
-      }
-      return {};
-    } catch (error) {
-      console.error('Failed to fetch content:', error);
-      return {};
-    }
-  };
-
   const value = {
-    isAdmin,
-    isEditMode,
-    authToken,
-    login,
-    logout,
-    toggleEditMode,
-    updateContent,
-    getContent,
     // Admin data management
     adminData,
     dataLoading,

@@ -2,62 +2,18 @@ import React from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { useAdmin } from '../contexts/AdminContext';
 import { useNavigate } from 'react-router-dom';
+import RecentActivity from '../components/RecentActivity';
 
 const AdminDashboard = () => {
   const { user, logout } = useAuth();
   const { adminData } = useAdmin();
   const navigate = useNavigate();
 
-  const { stats, recentActivity } = adminData;
+  const { stats } = adminData;
 
   const handleLogout = async () => {
     await logout();
-    navigate('/');
-  };
-
-  const formatActivityDescription = (activity) => {
-    if (activity.description) {
-      return activity.description;
-    }
-    
-    // Generate user-friendly descriptions based on action_type and table_name
-    const userName = activity.users ? `${activity.users.first_name} ${activity.users.last_name}` : 'Someone';
-    
-    switch (activity.action_type) {
-      case 'INSERT':
-        if (activity.table_name === 'students') return `New student registered: ${userName}`;
-        if (activity.table_name === 'teachers') return `New teacher added: ${userName}`;
-        if (activity.table_name === 'classrooms') return `New classroom created`;
-        break;
-      case 'UPDATE':
-        if (activity.table_name === 'students') return `Student updated: ${userName}`;
-        if (activity.table_name === 'teachers') return `Teacher updated: ${userName}`;
-        if (activity.table_name === 'classrooms') return `Classroom updated`;
-        break;
-      case 'DELETE':
-        if (activity.table_name === 'students') return `Student removed: ${userName}`;
-        if (activity.table_name === 'teachers') return `Teacher removed: ${userName}`;
-        if (activity.table_name === 'classrooms') return `Classroom deleted`;
-        break;
-      default:
-        return `${activity.action_type} on ${activity.table_name}`;
-    }
-    
-    return `${activity.action_type} on ${activity.table_name}`;
-  };
-
-  const formatTimeAgo = (dateString) => {
-    const now = new Date();
-    const activityDate = new Date(dateString);
-    const diffInHours = Math.floor((now - activityDate) / (1000 * 60 * 60));
-    
-    if (diffInHours < 1) return 'Less than an hour ago';
-    if (diffInHours < 24) return `${diffInHours} hour${diffInHours > 1 ? 's' : ''} ago`;
-    
-    const diffInDays = Math.floor(diffInHours / 24);
-    if (diffInDays < 7) return `${diffInDays} day${diffInDays > 1 ? 's' : ''} ago`;
-    
-    return activityDate.toLocaleDateString();
+    window.location.href = '/'; // Redirect to main website
   };
 
   return (
@@ -65,7 +21,7 @@ const AdminDashboard = () => {
       <header className="bg-white shadow">
         <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center">
-            <h1 className="text-3xl font-bold text-gray-900">Admin Dashboard</h1>
+            <h1 className="text-3xl font-bold text-gray-900">LearnED Admin Dashboard</h1>
             <div className="flex items-center space-x-4">
               <span className="text-gray-700">Welcome, {user?.email}</span>
               <button
@@ -81,25 +37,25 @@ const AdminDashboard = () => {
           <nav className="mt-6">
             <div className="flex space-x-8">
               <button
-                onClick={() => navigate('/admin/dashboard')}
+                onClick={() => navigate('/')}
                 className="border-b-2 border-blue-500 text-blue-600 px-3 py-2 font-medium text-sm"
               >
                 Dashboard
               </button>
               <button
-                onClick={() => navigate('/admin/classrooms')}
+                onClick={() => navigate('/classrooms')}
                 className="text-gray-500 hover:text-gray-700 px-3 py-2 font-medium text-sm"
               >
                 Classrooms
               </button>
               <button
-                onClick={() => navigate('/admin/teachers')}
+                onClick={() => navigate('/teachers')}
                 className="text-gray-500 hover:text-gray-700 px-3 py-2 font-medium text-sm"
               >
                 Teachers
               </button>
               <button
-                onClick={() => navigate('/admin/students')}
+                onClick={() => navigate('/students')}
                 className="text-gray-500 hover:text-gray-700 px-3 py-2 font-medium text-sm"
               >
                 Students
@@ -153,7 +109,7 @@ const AdminDashboard = () => {
               <h3 className="text-xl font-semibold mb-4">Quick Actions</h3>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 <button
-                  onClick={() => navigate('/admin/classrooms')}
+                  onClick={() => navigate('/classrooms')}
                   className="bg-blue-500 hover:bg-blue-600 text-white p-4 rounded-lg text-center"
                 >
                   <div className="text-lg font-semibold">Manage</div>
@@ -161,7 +117,7 @@ const AdminDashboard = () => {
                 </button>
                 
                 <button
-                  onClick={() => navigate('/admin/teachers')}
+                  onClick={() => navigate('/teachers')}
                   className="bg-green-500 hover:bg-green-600 text-white p-4 rounded-lg text-center"
                 >
                   <div className="text-lg font-semibold">Manage</div>
@@ -169,7 +125,7 @@ const AdminDashboard = () => {
                 </button>
                 
                 <button
-                  onClick={() => navigate('/admin/students')}
+                  onClick={() => navigate('/students')}
                   className="bg-purple-500 hover:bg-purple-600 text-white p-4 rounded-lg text-center"
                 >
                   <div className="text-lg font-semibold">Manage</div>
@@ -183,28 +139,8 @@ const AdminDashboard = () => {
               </div>
             </div>
 
-            {/* Recent Activity */}
-            <div>
-              <h3 className="text-xl font-semibold mb-4">Recent Activity</h3>
-              <div className="bg-gray-50 p-4 rounded-lg">
-                {recentActivity.length > 0 ? (
-                  <div className="space-y-3">
-                    {recentActivity.map((activity) => (
-                      <div key={activity.id} className="flex items-center justify-between">
-                        <span className="text-sm text-gray-600">
-                          {formatActivityDescription(activity)}
-                        </span>
-                        <span className="text-xs text-gray-400">
-                          {formatTimeAgo(activity.created_at)}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                ) : (
-                  <div className="text-center text-gray-500">No recent activity</div>
-                )}
-              </div>
-            </div>
+            {/* Recent Activity - New Component */}
+            <RecentActivity />
           </div>
         </div>
       </main>

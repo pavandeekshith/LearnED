@@ -1253,7 +1253,7 @@ CREATE POLICY "Anyone can view active classrooms" ON public.classrooms
     FOR SELECT USING (is_active = true);
 
 -- Classroom pricing policies (public read access)
-CREATE POLICY "Anyone can view classroom pricing" ON public.classroom_
+CREATE POLICY "Anyone can view classroom pricing" ON public.classroom_pricing
     FOR SELECT USING (true);
 
 -- Payment plans policies (public read access)

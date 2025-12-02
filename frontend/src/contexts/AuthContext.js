@@ -22,10 +22,14 @@ export const AuthProvider = ({ children }) => {
           .eq('id', user.id)
           .single();
         
+        // Only set user if they're admin (for admin panel)
+        // Teachers will be handled by TeacherOnboarding page
         if (data?.user_type === 'admin') {
           setUser({ ...user, ...data });
         } else {
-          await supabase.auth.signOut();
+          // Don't sign out - might be a teacher in onboarding
+          // Just don't set the user in this context
+          setUser(null);
         }
       }
     } catch (error) {

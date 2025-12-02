@@ -1,11 +1,10 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useAdmin } from '../contexts/AdminContext';
 import { supabase } from '../lib/supabaseClient';
 
-const ClassroomList = () => {
-  const [classrooms, setClassrooms] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [loaded, setLoaded] = useState(false);
+const ClassroomList = ({ boardFilter: externalBoardFilter, gradeFilter: externalGradeFilter }) => {
+  const { adminData } = useAdmin();
   const [editId, setEditId] = useState(null);
   const [editData, setEditData] = useState({});
   const [boards, setBoards] = useState([]);
@@ -13,26 +12,21 @@ const ClassroomList = () => {
   const [boardFilter, setBoardFilter] = useState('');
   const [gradeFilter, setGradeFilter] = useState('');
 
-  const fetchClassrooms = async () => {
-    setLoading(true);
-    let query = supabase.from('classrooms').select(`
-      *, 
-      classroom_pricing(price, payment_plan_id, id, payment_plans(id, name, billing_cycle)),
-      teachers(user_id, users(first_name, last_name))
-    `);
-    const { data, error } = await query;
-    if (!error && data) {
-      console.log('Fetched classrooms data:', data); // Debug log
-      setClassrooms(data);
-      // Populate dropdowns
-      setBoards([...new Set(data.map(c => c.board).filter(Boolean))]);
-      setGrades([...new Set(data.map(c => c.grade_level).filter(Boolean))]);
-    } else {
-      console.error('Error fetching classrooms:', error);
+  const classrooms = adminData.classrooms || [];
+
+  // Update internal filters when external filters change
+  useEffect(() => {
+    if (externalBoardFilter !== undefined) setBoardFilter(externalBoardFilter);
+    if (externalGradeFilter !== undefined) setGradeFilter(externalGradeFilter);
+  }, [externalBoardFilter, externalGradeFilter]);
+
+  // Update filter options when classrooms data changes
+  useEffect(() => {
+    if (classrooms.length > 0) {
+      setBoards([...new Set(classrooms.map(c => c.board).filter(Boolean))]);
+      setGrades([...new Set(classrooms.map(c => c.grade_level).filter(Boolean))]);
     }
-    setLoading(false);
-    setLoaded(true);
-  };
+  }, [classrooms]);
 
   // Filter classrooms client-side
   const filteredClassrooms = classrooms.filter(cls => {
@@ -126,11 +120,9 @@ const ClassroomList = () => {
   return (
     <div>
       <h4 className="font-semibold mb-2">Existing Classrooms</h4>
-      {!loaded && (
-        <button onClick={fetchClassrooms} className="bg-blue-500 text-white px-3 py-1 rounded mb-2">Load Classrooms</button>
-      )}
-      {loading && <div>Loading...</div>}
-      {loaded && (
+      {classrooms.length === 0 ? (
+        <div className="text-center py-4 text-gray-500">No classrooms found</div>
+      ) : (
         <>
           {/* Debug section - remove this after testing */}
           {/* <div className="mb-4 p-2 bg-gray-100 text-xs">
