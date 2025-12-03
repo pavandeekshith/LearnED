@@ -17,6 +17,7 @@ export const AdminProvider = ({ children }) => {
     classrooms: [],
     teachers: [],
     students: [],
+    studentsWithClassrooms: [], // Detailed student data with enrollments
     recentActivity: [],
     stats: {
       totalClassrooms: 0,
@@ -28,15 +29,16 @@ export const AdminProvider = ({ children }) => {
   const [dataLoading, setDataLoading] = useState(false);
   const [dataLoaded, setDataLoaded] = useState(false);
 
-  // Load all admin data
-  const loadAdminData = async () => {
-    if (dataLoaded || dataLoading) return; // Prevent duplicate calls
+  // Load all admin data with caching
+  const loadAdminData = async (force = false) => {
+    // Skip if already loaded and not forcing refresh
+    if (!force && (dataLoaded || dataLoading)) return;
     
     try {
       setDataLoading(true);
 
       // Fetch all data in parallel
-      const [classroomsResult, teachersResult, studentsResult, activityResult] = await Promise.all([
+      const [classroomsResult, teachersResult, studentsResult, studentsDetailedResult, activityResult] = await Promise.all([
         // Fetch classrooms with pricing and teacher info - try to get ALL including inactive
         supabase
           .from('classrooms')
@@ -55,7 +57,7 @@ export const AdminProvider = ({ children }) => {
             users(first_name, last_name, email, phone)
           `),
         
-        // Fetch students with user details
+        // Fetch students with user details (basic data)
         supabase
           .from('students')
           .select(`
@@ -63,6 +65,9 @@ export const AdminProvider = ({ children }) => {
             users(first_name, last_name, email, phone)
           `)
           .eq('status', 'active'),
+        
+        // Fetch detailed students with classroom enrollments (for Students page)
+        supabase.rpc('admin_get_students_with_classrooms'),
         
         // Fetch recent activity
         supabase
@@ -83,12 +88,14 @@ export const AdminProvider = ({ children }) => {
       const classrooms = classroomsResult.data || [];
       const teachers = teachersResult.data || [];
       const students = studentsResult.data || [];
+      const studentsWithClassrooms = studentsDetailedResult.data || [];
       const recentActivity = activityResult.data || [];
 
       // Log errors only
       if (classroomsResult.error) console.error('Error fetching classrooms:', classroomsResult.error);
       if (teachersResult.error) console.error('Error fetching teachers:', teachersResult.error);
       if (studentsResult.error) console.error('Error fetching students:', studentsResult.error);
+      if (studentsDetailedResult.error) console.error('Error fetching detailed students:', studentsDetailedResult.error);
       if (activityResult.error) console.error('Error fetching activity:', activityResult.error);
 
       // Calculate stats
@@ -104,6 +111,7 @@ export const AdminProvider = ({ children }) => {
         classrooms,
         teachers,
         students,
+        studentsWithClassrooms,
         recentActivity,
         stats
       });
@@ -142,15 +150,22 @@ export const AdminProvider = ({ children }) => {
           break;
           
         case 'students':
-          const { data: students } = await supabase
-            .from('students')
-            .select(`*, users(first_name, last_name, email, phone)`)
-            .eq('status', 'active');
-          setAdminData(prev => ({ ...prev, students: students || [] }));
+          const [studentsBasic, studentsDetailed] = await Promise.all([
+            supabase
+              .from('students')
+              .select(`*, users(first_name, last_name, email, phone)`)
+              .eq('status', 'active'),
+            supabase.rpc('admin_get_students_with_classrooms')
+          ]);
+          setAdminData(prev => ({ 
+            ...prev, 
+            students: studentsBasic.data || [],
+            studentsWithClassrooms: studentsDetailed.data || []
+          }));
           break;
           
         default:
-          await loadAdminData();
+          await loadAdminData(true); // Force refresh by bypassing cache check
       }
     } catch (error) {
       console.error(`Error refreshing ${dataType}:`, error);

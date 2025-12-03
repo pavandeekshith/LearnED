@@ -1,54 +1,59 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { useAuth } from '../contexts/AuthContext';
+import { useAdmin } from '../contexts/AdminContext';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '../lib/supabaseClient';
 
 const AdminStudents = () => {
   const { user, logout } = useAuth();
+  const { adminData, refreshData } = useAdmin();
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState('');
   const [gradeFilter, setGradeFilter] = useState('');
   const [boardFilter, setBoardFilter] = useState('');
-  const [studentsData, setStudentsData] = useState([]);
-  const [loading, setLoading] = useState(true);
   const [showEnrollModal, setShowEnrollModal] = useState(false);
   const [selectedStudent, setSelectedStudent] = useState(null);
-  const [classrooms, setClassrooms] = useState([]);
   const [paymentPlans, setPaymentPlans] = useState([]);
 
+  // Use cached data from AdminContext (instant loading!)
+  const studentsData = useMemo(() => 
+    adminData.studentsWithClassrooms || [],
+    [adminData.studentsWithClassrooms]
+  );
+
+  const classrooms = useMemo(() => 
+    adminData.classrooms?.filter(c => c.is_active) || [],
+    [adminData.classrooms]
+  );
+
+  const loading = !adminData.studentsWithClassrooms || adminData.studentsWithClassrooms.length === 0;
+
+  // Fetch payment plans only once on mount (lightweight data)
   useEffect(() => {
-    fetchStudentsWithClassrooms();
-    fetchClassrooms();
-    fetchPaymentPlans();
-  }, []);
+    let isMounted = true;
 
-  const fetchClassrooms = async () => {
-    const { data } = await supabase.from('classrooms').select('id, name, subject, grade_level').eq('is_active', true);
-    setClassrooms(data || []);
-  };
+    const fetchPaymentPlans = async () => {
+      const { data } = await supabase
+        .from('payment_plans')
+        .select('id, name, billing_cycle')
+        .eq('is_active', true);
+      if (isMounted) setPaymentPlans(data || []);
+    };
 
-  const fetchPaymentPlans = async () => {
-    const { data } = await supabase.from('payment_plans').select('id, name, billing_cycle').eq('is_active', true);
-    setPaymentPlans(data || []);
-  };
-
-  const fetchStudentsWithClassrooms = async () => {
-    setLoading(true);
-    const { data, error } = await supabase.rpc('admin_get_students_with_classrooms');
-    if (error) {
-      console.error('Error fetching students:', error);
-    } else {
-      setStudentsData(data || []);
+    if (paymentPlans.length === 0) {
+      fetchPaymentPlans();
     }
-    setLoading(false);
-  };
+
+    return () => { isMounted = false; };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []); // Only run once on mount
 
   const updateStudentStatus = async (studentId, newStatus) => {
     if (!window.confirm(`Are you sure you want to set this student to ${newStatus}? ${newStatus === 'inactive' ? 'This will remove them from all classrooms.' : ''}`)) {
       return;
     }
     
-    const { data, error } = await supabase.rpc('admin_update_student_status', {
+    const { error } = await supabase.rpc('admin_update_student_status', {
       p_student_id: studentId,
       p_status: newStatus
     });
@@ -56,11 +61,9 @@ const AdminStudents = () => {
     if (error) {
       console.error('Error updating status:', error);
       alert('Failed to update student status');
-    } else if (data.success) {
-      alert(data.message);
-      fetchStudentsWithClassrooms();
     } else {
-      alert(data.error || 'Failed to update status');
+      alert('Student status updated successfully');
+      await refreshData(); // Refresh all data (affects classrooms counts)
     }
   };
 
@@ -77,7 +80,7 @@ const AdminStudents = () => {
       alert('Failed to remove student from classroom');
     } else if (data.success) {
       alert(data.message);
-      fetchStudentsWithClassrooms();
+      await refreshData(); // Refresh all data (affects classrooms counts)
     } else {
       alert(data.error);
     }
@@ -96,7 +99,7 @@ const AdminStudents = () => {
       alert('Failed to reactivate enrollment');
     } else if (data.success) {
       alert(data.message);
-      fetchStudentsWithClassrooms();
+      await refreshData(); // Refresh all data (affects classrooms counts)
     } else {
       alert(data.error);
     }
@@ -124,7 +127,7 @@ const AdminStudents = () => {
     } else if (data.success) {
       alert(data.message);
       setShowEnrollModal(false);
-      fetchStudentsWithClassrooms();
+      await refreshData(); // Refresh all data (affects classrooms counts)
     } else {
       alert(data.error);
     }
