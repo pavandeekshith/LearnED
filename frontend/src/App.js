@@ -22,10 +22,11 @@ import './App.css';
 function AppContent() {
   const location = useLocation();
   const isAdminRoute = location.pathname.startsWith('/admin');
+  const isTeacherOnboarding = location.pathname === '/teacher/onboard';
 
   return (
     <div className="App">
-      {!isAdminRoute && <Navigation />}
+      {!isAdminRoute && !isTeacherOnboarding && <Navigation />}
       <motion.main
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -89,8 +90,8 @@ function AppContent() {
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </motion.main>
-      {!isAdminRoute && <Footer />}
-      {!isAdminRoute && <FloatingDemoButton />}
+      {!isAdminRoute && !isTeacherOnboarding && <Footer />}
+      {!isAdminRoute && !isTeacherOnboarding && <FloatingDemoButton />}
     </div>
   );
 }

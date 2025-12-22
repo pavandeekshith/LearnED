@@ -51,6 +51,24 @@ const TeacherOnboarding = () => {
                 // Check for valid invitation
                 try {
                     console.log('🔍 Checking for invitation...');
+                    console.log('📧 Looking for email:', user.email);
+                    console.log('📅 Current time:', new Date().toISOString());
+                    
+                    // First, check all invitations for this email (debug)
+                    const { data: allInvites, error: allInvitesError } = await supabase
+                        .from('teacher_invitations')
+                        .select('*')
+                        .eq('email', user.email);
+                    
+                    if (allInvitesError) {
+                        console.error('❌ RLS ERROR - Cannot read teacher_invitations table:', allInvitesError);
+                        setError('Database access error. Please contact admin. Error: ' + allInvitesError.message);
+                        setAuthLoading(false);
+                        return;
+                    }
+                    
+                    console.log('📋 All invitations for this email:', allInvites);
+                    
                     const { data: invitations, error: inviteError } = await supabase
                         .from('teacher_invitations')
                         .select('*')
@@ -59,7 +77,8 @@ const TeacherOnboarding = () => {
                         .gt('expires_at', new Date().toISOString())
                         .limit(1);
                     
-                    console.log('📨 Invitation query result:', invitations);
+                    console.log('📨 Valid invitation query result:', invitations);
+                    console.log('📨 Invitation query error (if any):', inviteError);
                     
                     if (inviteError) {
                         console.error('❌ Invitation query error:', inviteError);
@@ -67,7 +86,7 @@ const TeacherOnboarding = () => {
                         setAuthLoading(false);  // CRITICAL: Set loading to false even on error
                     } else if (!invitations || invitations.length === 0) {
                         console.warn('⚠️ No valid invitation found');
-                        setError('No valid invitation found for ' + user.email);
+                        setError('No valid invitation found for ' + user.email + '. Please check your email or contact admin.');
                         setAuthLoading(false);  // CRITICAL: Set loading to false
                     } else {
                         console.log('✅ Valid invitation found:', invitations[0]);
@@ -133,13 +152,33 @@ const TeacherOnboarding = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (formData.password !== formData.confirmPassword) {
-            setError('Passwords do not match.');
+        setError('');
+
+        // Validation checks
+        if (!formData.password || formData.password.trim() === '') {
+            setError('Password is required.');
             return;
         }
 
+        if (formData.password.length < 8) {
+            setError('Password must be at least 8 characters long.');
+            return;
+        }
+
+        if (formData.password !== formData.confirmPassword) {
+            setError('Passwords do not match. Please re-enter.');
+            return;
+        }
+
+        if (formData.phoneNumber && formData.phoneNumber.trim() !== '') {
+            const digitsOnly = formData.phoneNumber.replace(/\D/g, '');
+            if (digitsOnly.length < 7 || digitsOnly.length > 15) {
+                setError('Please enter a valid phone number (7-15 digits).');
+                return;
+            }
+        }
+
         setLoading(true);
-        setError('');
 
         try {
             console.log('📝 Starting teacher onboarding submission...');
@@ -257,7 +296,7 @@ const TeacherOnboarding = () => {
                     </div>
                     <div className="mb-4">
                         <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
-                            Password
+                            Password (min 8 characters) <span className="text-red-500">*</span>
                         </label>
                         <input
                             type="password"
@@ -271,7 +310,7 @@ const TeacherOnboarding = () => {
                     </div>
                     <div className="mb-6">
                         <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="confirmPassword">
-                            Confirm Password
+                            Confirm Password <span className="text-red-500">*</span>
                         </label>
                         <input
                             type="password"
@@ -285,7 +324,7 @@ const TeacherOnboarding = () => {
                     </div>
                      <div className="mb-4">
                         <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="phoneNumber">
-                            Phone Number
+                            Phone Number <span className="text-red-500">*</span>
                         </label>
                         <input
                             type="tel"
@@ -293,7 +332,9 @@ const TeacherOnboarding = () => {
                             id="phoneNumber"
                             value={formData.phoneNumber}
                             onChange={handleChange}
+                            placeholder="Enter your phone number"
                             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                            required
                         />
                     </div>
                      <div className="mb-4">
