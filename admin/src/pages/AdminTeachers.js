@@ -16,6 +16,7 @@ const AdminTeachers = () => {
   const [showInviteModal, setShowInviteModal] = useState(false);
   const [showAssignModal, setShowAssignModal] = useState(false);
   const [showAllClassroomsModal, setShowAllClassroomsModal] = useState(false);
+  const [showTeacherIdModal, setShowTeacherIdModal] = useState(false);
   const [selectedTeacher, setSelectedTeacher] = useState(null);
   const [invitationData, setInvitationData] = useState({
     first_name: '',
@@ -416,8 +417,8 @@ const AdminTeachers = () => {
 
       // Step 2: Send magic link email using Supabase Auth (automatically sends email)
       console.log('📧 Sending magic link email...');
-      // Use localhost:3000 for local development, or the production URL
-      const frontendUrl = process.env.REACT_APP_FRONTEND_URL || 'http://localhost:3000';
+      // Use production URL as default, can be overridden by environment variable
+      const frontendUrl = process.env.REACT_APP_FRONTEND_URL || 'https://learnedtech.in';
       const redirectUrl = `${frontendUrl}/teacher/onboard`;
       console.log('📍 Redirect URL:', redirectUrl);
       console.log('📦 Email data:', {
@@ -540,6 +541,18 @@ const AdminTeachers = () => {
                 className="text-gray-500 hover:text-gray-700 px-3 py-2 font-medium text-sm"
               >
                 Students
+              </button>
+              <button
+                onClick={() => navigate('/payment-approvals')}
+                className="text-gray-500 hover:text-gray-700 px-3 py-2 font-medium text-sm"
+              >
+                Payment Approvals
+              </button>
+              <button
+                onClick={() => navigate('/grade-pricing')}
+                className="text-gray-500 hover:text-gray-700 px-3 py-2 font-medium text-sm"
+              >
+                Grade Pricing
               </button>
             </div>
           </nav>
@@ -674,6 +687,9 @@ const AdminTeachers = () => {
                           Status
                         </th>
                         <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                          View ID
+                        </th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                           Actions
                         </th>
                       </tr>
@@ -720,6 +736,17 @@ const AdminTeachers = () => {
                             }`}>
                               {teacher.status === 'active' ? 'Active' : teacher.status === 'inactive' ? 'Inactive' : 'Not Set'}
                             </span>
+                          </td>
+                          <td className="px-6 py-4 whitespace-nowrap text-sm">
+                            <button
+                              onClick={() => {
+                                setSelectedTeacher(teacher);
+                                setShowTeacherIdModal(true);
+                              }}
+                              className="inline-flex items-center px-3 py-1 rounded-md text-sm font-medium bg-purple-50 text-purple-700 hover:bg-purple-100"
+                            >
+                              View ID
+                            </button>
                           </td>
                           <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
                             <div className="flex items-center space-x-2">
@@ -1201,6 +1228,47 @@ const AdminTeachers = () => {
                   Close
                 </button>
               </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Teacher ID Modal */}
+      {showTeacherIdModal && selectedTeacher && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-lg shadow-xl max-w-md w-full">
+            <div className="bg-gradient-to-r from-purple-500 to-purple-600 px-6 py-4 flex justify-between items-center rounded-t-lg">
+              <h2 className="text-xl font-bold text-white">Teacher ID</h2>
+              <button
+                onClick={() => setShowTeacherIdModal(false)}
+                className="text-white hover:text-gray-100"
+              >
+                ✕
+              </button>
+            </div>
+
+            <div className="p-6 space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  {selectedTeacher.users?.first_name} {selectedTeacher.users?.last_name}
+                </label>
+                <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                  <p className="text-sm font-mono text-gray-900 break-all text-center">{selectedTeacher.id}</p>
+                </div>
+              </div>
+
+              <p className="text-xs text-gray-600 text-center">
+                User ID: {selectedTeacher.user_id}
+              </p>
+            </div>
+
+            <div className="bg-gray-50 border-t border-gray-200 px-6 py-4 flex justify-end rounded-b-lg">
+              <button
+                onClick={() => setShowTeacherIdModal(false)}
+                className="px-4 py-2 bg-purple-600 rounded-lg text-sm font-medium text-white hover:bg-purple-700"
+              >
+                Close
+              </button>
             </div>
           </div>
         </div>

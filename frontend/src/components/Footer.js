@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { 
   Phone, 
@@ -8,12 +7,10 @@ import {
   Facebook, 
   Instagram, 
   Linkedin,
-  MessageCircle,
   BookOpen,
   Users,
   GraduationCap,
-  Globe,
-  User
+  Globe
 } from 'lucide-react';
 
 const Footer = () => {
@@ -40,16 +37,11 @@ const Footer = () => {
       <div className="container mx-auto px-4 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
-          <motion.div
-            initial={{ opacity: 0, y: 30}}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="space-y-4 pt-0 md:pt-6"
-          >
+          <div className="space-y-4 pt-0 md:pt-6">
             <div className="flex items-center space-x-2 mb-6">
               <BookOpen className="w-8 h-8 text-red-500" />
-              <h3 className="text-2xl font-bold bg-gradient-to-r from-red-400 to-red-500 bg-clip-text text-transparent">
-                LearnED
+              <h3 className="text-2xl font-bold">
+                <span className="text-white">Learn</span><span className="text-red-500">ED</span>
               </h3>
             </div>
             <p className="text-gray-300 leading-relaxed">
@@ -81,15 +73,10 @@ const Footer = () => {
                 <Linkedin size={18} />
               </a>
             </div>
-          </motion.div>
+          </div>
 
           {/* Quick Links */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="space-y-4 pt-0 md:pt-6"
-          >
+          <div className="space-y-4 pt-0 md:pt-6">
             <h4 className="text-lg font-semibold flex items-center gap-2 mb-6">
               <Users className="w-5 h-5 text-red-500" />
               Quick Links
@@ -107,15 +94,10 @@ const Footer = () => {
                 </li>
               ))}
             </ul>
-          </motion.div>
+          </div>
 
           {/* Subjects & Curriculum */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="space-y-4 pt-0 md:pt-6"
-          >
+          <div className="space-y-4 pt-0 md:pt-6">
             <h4 className="text-lg font-semibold flex items-center gap-2 mb-6">
               <GraduationCap className="w-5 h-5 text-red-500" />
               What We Teach
@@ -132,15 +114,10 @@ const Footer = () => {
               <p className="text-red-200 text-sm font-medium">Classes 2 - 12</p>
               <p className="text-red-300 text-xs">Comprehensive curriculum coverage</p>
             </div>
-          </motion.div>
+          </div>
 
           {/* Contact Info */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="space-y-4 pt-0 md:pt-6"
-          >
+          <div className="space-y-4 pt-0 md:pt-6">
             <h4 className="text-lg font-semibold flex items-center gap-2 mb-6">
               <Phone className="w-5 h-5 text-red-500" />
               Get In Touch
@@ -160,12 +137,8 @@ const Footer = () => {
               <div className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-red-500 flex-shrink-0" />
                 <div>
-                  <a href="tel:+919773197838" className="text-gray-300 hover:text-red-400 transition-colors">
-                    +91-9773197838
-                  </a>
-                  <br />
-                  <a href="tel:+916385904860" className="text-gray-300 hover:text-red-400 transition-colors">
-                    +91-6385904860
+                  <a href="tel:+919019120669" className="text-gray-300 hover:text-red-400 transition-colors">
+                    +91-9019120669
                   </a>
                 </div>
               </div>
@@ -180,16 +153,11 @@ const Footer = () => {
                 </a>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
 
         {/* Mobile App Download */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-12 pt-8 border-t border-gray-700"
-        >
+        <div className="mt-12 pt-8 border-t border-gray-700">
           <div className="text-center mb-6">
             <h4 className="text-lg font-semibold flex items-center justify-center gap-2 mb-4">
               <Globe className="w-5 h-5 text-red-500" />
@@ -215,7 +183,7 @@ const Footer = () => {
               </div>
             </a>
           </div>
-        </motion.div>
+        </div>
 
         {/* Bottom Footer */}
         <div className="mt-12 pt-8 border-t border-gray-700 text-center">
@@ -231,8 +199,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-
-
     </footer>
   );
 };

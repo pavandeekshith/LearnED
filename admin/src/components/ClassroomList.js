@@ -339,8 +339,8 @@ const ClassroomList = () => {
 
       // Step 2: Send magic link email using Supabase Auth (automatically sends email)
       console.log('Sending magic link email...');
-      // Use localhost:3000 for local development, or the production URL
-      const frontendUrl = process.env.REACT_APP_FRONTEND_URL || 'http://localhost:3000';
+      // Use production URL as default, can be overridden by environment variable
+      const frontendUrl = process.env.REACT_APP_FRONTEND_URL || 'https://learnedtech.in';
       const redirectUrl = `${frontendUrl}/teacher/onboard`;
       console.log('Redirect URL:', redirectUrl);
       
@@ -426,6 +426,36 @@ const ClassroomList = () => {
 
   const handleNewClassroomChange = (e) => {
     const { name, value } = e.target;
+    
+    // If grade_level changed, auto-fill pricing from grade_subject_pricing table
+    if (name === 'grade_level' && value) {
+      const gradePricing = {
+        '2': { monthly: 1400, quarterly: 3780, yearly: 13860 }, // Grades 2-4: 1400/mo
+        '3': { monthly: 1400, quarterly: 3780, yearly: 13860 },
+        '4': { monthly: 1400, quarterly: 3780, yearly: 13860 },
+        '5': { monthly: 1500, quarterly: 4050, yearly: 15000 }, // Grades 5-6: 1500/mo
+        '6': { monthly: 1500, quarterly: 4050, yearly: 15000 },
+        '7': { monthly: 1600, quarterly: 4320, yearly: 16000 }, // Grades 7-8: 1600/mo
+        '8': { monthly: 1600, quarterly: 4320, yearly: 16000 },
+        '9': { monthly: 1800, quarterly: 4860, yearly: 18000 }, // Grades 9-10: 1800/mo
+        '10': { monthly: 1800, quarterly: 4860, yearly: 18000 },
+        '11': { monthly: 2500, quarterly: 6750, yearly: 25000 }, // Grades 11-12: 2500/mo
+        '12': { monthly: 2500, quarterly: 6750, yearly: 25000 }
+      };
+      
+      const pricing = gradePricing[value];
+      if (pricing) {
+        setNewClassroomData(prev => ({
+          ...prev,
+          [name]: value,
+          monthly_price: pricing.monthly,
+          quarterly_price: pricing.quarterly,
+          yearly_price: pricing.yearly
+        }));
+        return;
+      }
+    }
+    
     setNewClassroomData(prev => ({
       ...prev,
       [name]: value

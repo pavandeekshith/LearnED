@@ -25,9 +25,21 @@ const FloatingDemoButton = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
     try {
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      await fetch('https://script.google.com/macros/s/AKfycbxrs3LPaLa_u5nr2E-WzK0Gcwl8thjBSyRi9R22ffn3KyDEB7FlQVUkapKjFlIlc33Fuw/exec', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          phone: formData.phone,
+          email: formData.email,
+          message: formData.message
+        })
+      });
+      
       setSubmitStatus('success');
       setFormData({ name: '', phone: '', email: '', message: '' });
       setTimeout(() => {
@@ -35,6 +47,7 @@ const FloatingDemoButton = () => {
         setSubmitStatus(null);
       }, 3000);
     } catch (error) {
+      console.error('Error submitting form:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
@@ -57,7 +70,7 @@ const FloatingDemoButton = () => {
         transition={{ delay: 1, duration: 0.5 }}
       >
         <BookOpen size={24} className="group-hover:rotate-12 transition-transform duration-300" />
-        <div className="absolute -top-2 -left-2 bg-green-500 text-white text-xs px-2 py-1 rounded-full font-bold animate-pulse">
+        <div className="absolute -top-2 -left-2 bg-green-500 text-red-600 text-xs px-2 py-1 rounded-full font-bold animate-pulse">
           FREE
         </div>
         <div className="absolute bottom-full right-0 mb-2 bg-gray-900 text-white text-sm px-3 py-1 rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300">

@@ -22,9 +22,9 @@ const Navigation = () => {
           <Link to="/" className="flex items-center space-x-2">
             <motion.div
               whileHover={{ scale: 1.05 }}
-              className="text-2xl font-bold text-red-600"
+              className="text-2xl font-bold"
             >
-              LearnED
+              <span className="text-black">Learn</span><span className="text-red-600">ED</span>
             </motion.div>
           </Link>
 

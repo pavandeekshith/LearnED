@@ -7,6 +7,9 @@ import AdminDashboard from './pages/AdminDashboard';
 import AdminClassrooms from './pages/AdminClassrooms';
 import AdminTeachers from './pages/AdminTeachers';
 import AdminStudents from './pages/AdminStudents';
+import PaymentApprovals from './pages/PaymentApprovals';
+// import AdminTeacherSalary from './pages/AdminTeacherSalary'; // Temporarily disabled
+import GradePricingManager from './pages/GradePricingManager';
 
 function App() {
   return (
@@ -44,6 +47,31 @@ function App() {
                 element={
                   <ProtectedRoute>
                     <AdminStudents />
+                  </ProtectedRoute>
+                } 
+              />
+              <Route 
+                path="/payment-approvals" 
+                element={
+                  <ProtectedRoute>
+                    <PaymentApprovals />
+                  </ProtectedRoute>
+                } 
+              />
+              {/* Teacher Salary - Temporarily disabled */}
+              {/* <Route 
+                path="/teacher-salary" 
+                element={
+                  <ProtectedRoute>
+                    <AdminTeacherSalary />
+                  </ProtectedRoute>
+                } 
+              /> */}
+              <Route 
+                path="/grade-pricing" 
+                element={
+                  <ProtectedRoute>
+                    <GradePricingManager />
                   </ProtectedRoute>
                 } 
               />

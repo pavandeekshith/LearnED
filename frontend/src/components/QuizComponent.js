@@ -1,6 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Clock, CheckCircle, XCircle, Trophy, Star, BookOpen } from 'lucide-react';
+import allQuestions from '../api/quizquestions.json';
+
+// Function to shuffle array and pick n random items
+const getRandomQuestions = (questionsArray, count = 10) => {
+  const shuffled = [...questionsArray].sort(() => Math.random() - 0.5);
+  return shuffled.slice(0, count).map(q => ({
+    subject: 'Mixed',
+    question: q.question,
+    options: q.options,
+    correct: q.answer
+  }));
+};
 
 const QuizComponent = ({ onClose }) => {
   const [selectedClass, setSelectedClass] = useState('');
@@ -10,7 +22,24 @@ const QuizComponent = ({ onClose }) => {
   const [showResult, setShowResult] = useState(false);
   const [timeLeft, setTimeLeft] = useState(300); // 5 minutes
   const [quizStarted, setQuizStarted] = useState(false);
+  const [randomizedQuestions, setRandomizedQuestions] = useState([]);
 
+  // Available classes from 2 to 12
+  const availableClasses = ['2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'];
+
+  // Get 10 random questions when quiz starts
+  const startQuiz = () => {
+    if (selectedClass && allQuestions[selectedClass]) {
+      const randomQuestions = getRandomQuestions(allQuestions[selectedClass], 10);
+      setRandomizedQuestions(randomQuestions);
+      setQuizStarted(true);
+      setCurrentQuestion(0);
+      setScore(0);
+      setTimeLeft(300);
+    }
+  };
+
+  // Legacy questions object kept for fallback (empty now since we use JSON)
   const questions = {
     '2': [
       {
@@ -506,25 +535,18 @@ const QuizComponent = ({ onClose }) => {
     return () => clearInterval(timer);
   }, [quizStarted, timeLeft, showResult]);
 
-  const startQuiz = () => {
-    if (selectedClass) {
-      setQuizStarted(true);
-      setCurrentQuestion(0);
-      setScore(0);
-      setTimeLeft(300);
-    }
-  };
+
 
   const handleAnswerSelect = (answer) => {
     setSelectedAnswer(answer);
   };
 
   const nextQuestion = () => {
-    if (selectedAnswer === questions[selectedClass][currentQuestion].correct) {
+    if (selectedAnswer === randomizedQuestions[currentQuestion].correct) {
       setScore(score + 1);
     }
     
-    if (currentQuestion + 1 < questions[selectedClass].length) {
+    if (currentQuestion + 1 < randomizedQuestions.length) {
       setCurrentQuestion(currentQuestion + 1);
       setSelectedAnswer('');
     } else {
@@ -540,6 +562,7 @@ const QuizComponent = ({ onClose }) => {
     setShowResult(false);
     setTimeLeft(300);
     setQuizStarted(false);
+    setRandomizedQuestions([]);
   };
 
   const formatTime = (seconds) => {
@@ -548,8 +571,7 @@ const QuizComponent = ({ onClose }) => {
     return `${mins}:${secs.toString().padStart(2, '0')}`;
   };
 
-  const availableClasses = ['2', '3', '4', '5', '6', '7', '8'];
-  const scoreMessage = showResult ? getScoreMessage(score, questions[selectedClass]?.length || 10) : null;
+  const scoreMessage = showResult ? getScoreMessage(score, randomizedQuestions.length || 10) : null;
 
   return (
     <AnimatePresence>
@@ -617,7 +639,7 @@ const QuizComponent = ({ onClose }) => {
             <div>
               <div className="flex justify-between items-center mb-6">
                 <div className="text-sm text-gray-600">
-                  Question {currentQuestion + 1} of {questions[selectedClass].length}
+                  Question {currentQuestion + 1} of {randomizedQuestions.length}
                 </div>
                 <div className="flex items-center gap-2 text-red-600">
                   <Clock size={16} />
@@ -627,15 +649,15 @@ const QuizComponent = ({ onClose }) => {
 
               <div className="mb-4">
                 <span className="inline-block bg-gradient-to-r from-red-100 to-red-200 text-red-700 px-3 py-1 rounded-full text-sm font-medium mb-4">
-                  {questions[selectedClass][currentQuestion].subject}
+                  {randomizedQuestions[currentQuestion].subject}
                 </span>
                 <h3 className="text-xl font-semibold text-gray-900 mb-6">
-                  {questions[selectedClass][currentQuestion].question}
+                  {randomizedQuestions[currentQuestion].question}
                 </h3>
               </div>
 
               <div className="space-y-3 mb-8">
-                {questions[selectedClass][currentQuestion].options.map((option, index) => (
+                {randomizedQuestions[currentQuestion].options.map((option, index) => (
                   <button
                     key={index}
                     onClick={() => handleAnswerSelect(option)}
@@ -657,7 +679,7 @@ const QuizComponent = ({ onClose }) => {
                   !selectedAnswer ? 'opacity-50 cursor-not-allowed' : 'hover:from-red-700 hover:to-red-800 transform hover:scale-105'
                 }`}
               >
-                {currentQuestion === questions[selectedClass].length - 1 ? 'Complete Assessment' : 'Next Question'}
+                {currentQuestion === randomizedQuestions.length - 1 ? 'Complete Assessment' : 'Next Question'}
               </button>
             </div>
           )}
@@ -672,10 +694,10 @@ const QuizComponent = ({ onClose }) => {
                 <div className={`${scoreMessage.bgColor} rounded-2xl p-6 mb-6`}>
                   <p className={`text-lg ${scoreMessage.color} mb-4`}>
                     You scored <span className="font-bold text-2xl">{score}</span> out of{' '}
-                    <span className="font-bold text-2xl">{questions[selectedClass].length}</span>
+                    <span className="font-bold text-2xl">{randomizedQuestions.length}</span>
                   </p>
                   <div className={`text-4xl font-bold mb-4 ${scoreMessage.color}`}>
-                    {Math.round((score / questions[selectedClass].length) * 100)}%
+                    {Math.round((score / randomizedQuestions.length) * 100)}%
                   </div>
                   <p className={`${scoreMessage.color} leading-relaxed`}>
                     {scoreMessage.message}

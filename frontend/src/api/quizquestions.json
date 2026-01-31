@@ -1,0 +1,1124 @@
+{
+  "2": [
+    {
+      "question": "What is 6 + 3?",
+      "options": ["8", "9", "10", "11"],
+      "answer": "9"
+    },
+    {
+      "question": "Which number comes after 49?",
+      "options": ["48", "50", "51", "52"],
+      "answer": "50"
+    },
+    {
+      "question": "How many tens are there in 80?",
+      "options": ["6", "7", "8", "9"],
+      "answer": "8"
+    },
+    {
+      "question": "Which shape has 3 sides?",
+      "options": ["Square", "Triangle", "Circle", "Rectangle"],
+      "answer": "Triangle"
+    },
+    {
+      "question": "If you have 2 chocolates and get 3 more, how many do you have?",
+      "options": ["4", "5", "6", "7"],
+      "answer": "5"
+    },
+    {
+      "question": "Which is greater: 45 or 54?",
+      "options": ["45", "54", "Equal", "Cannot say"],
+      "answer": "54"
+    },
+    {
+      "question": "What is double of 12?",
+      "options": ["22", "24", "26", "28"],
+      "answer": "24"
+    },
+    {
+      "question": "Which number is even?",
+      "options": ["13", "15", "18", "21"],
+      "answer": "18"
+    },
+    {
+      "question": "If 1 week = 7 days, how many days are in 2 weeks?",
+      "options": ["12", "13", "14", "15"],
+      "answer": "14"
+    },
+    {
+      "question": "Which number is smallest: 32, 23, 43, 34?",
+      "options": ["32", "23", "43", "34"],
+      "answer": "23"
+    },
+    {
+      "question": "Which part of the body helps us see?",
+      "options": ["Nose", "Eyes", "Ears", "Hands"],
+      "answer": "Eyes"
+    },
+    {
+      "question": "Which animal gives us milk?",
+      "options": ["Dog", "Cow", "Cat", "Tiger"],
+      "answer": "Cow"
+    },
+    {
+      "question": "Which is the fastest land animal?",
+      "options": ["Lion", "Tiger", "Cheetah", "Horse"],
+      "answer": "Cheetah"
+    },
+    {
+      "question": "Which planet do we live on?",
+      "options": ["Mars", "Earth", "Venus", "Jupiter"],
+      "answer": "Earth"
+    },
+    {
+      "question": "Which sense organ helps us hear?",
+      "options": ["Nose", "Eyes", "Ears", "Tongue"],
+      "answer": "Ears"
+    },
+    {
+      "question": "Which gas do we breathe in to live?",
+      "options": ["Oxygen", "Carbon dioxide", "Nitrogen", "Hydrogen"],
+      "answer": "Oxygen"
+    },
+    {
+      "question": "Which part of the plant is green and makes food?",
+      "options": ["Root", "Stem", "Leaf", "Flower"],
+      "answer": "Leaf"
+    },
+    {
+      "question": "Which star gives us light and heat?",
+      "options": ["Moon", "Sun", "Earth", "Mars"],
+      "answer": "Sun"
+    },
+    {
+      "question": "Which animal is called the “ship of the desert”?",
+      "options": ["Horse", "Camel", "Elephant", "Donkey"],
+      "answer": "Camel"
+    },
+    {
+      "question": "Which organ pumps blood in our body?",
+      "options": ["Brain", "Heart", "Lungs", "Stomach"],
+      "answer": "Heart"
+    }
+  ],
+  "3": [
+    {
+      "question": "What is 12 – 5?",
+      "options": ["6", "7", "8", "9"],
+      "answer": "7"
+    },
+    {
+      "question": "Which is greater: 245 or 254?",
+      "options": ["245", "254", "Equal", "Cannot say"],
+      "answer": "254"
+    },
+    {
+      "question": "How many sides does a rectangle have?",
+      "options": ["2", "3", "4", "5"],
+      "answer": "4"
+    },
+    {
+      "question": "What is the place value of 7 in 372?",
+      "options": ["7", "70", "700", "7000"],
+      "answer": "70"
+    },
+    {
+      "question": "Which fraction is greater: 1/2 or 1/3?",
+      "options": ["1/2", "1/3", "Equal", "Cannot say"],
+      "answer": "1/2"
+    },
+    {
+      "question": "What is the perimeter of a square with side 5 cm?",
+      "options": ["15 cm", "20 cm", "25 cm", "30 cm"],
+      "answer": "20 cm"
+    },
+    {
+      "question": "If 1 dozen = 12, how many are in 2 dozen?",
+      "options": ["20", "22", "24", "26"],
+      "answer": "24"
+    },
+    {
+      "question": "Which number is a multiple of 9?",
+      "options": ["18", "20", "22", "25"],
+      "answer": "18"
+    },
+    {
+      "question": "What is the sum of angles in a triangle?",
+      "options": ["90°", "180°", "270°", "360°"],
+      "answer": "180°"
+    },
+    {
+      "question": "If 5 × 6 = 30, what is 30 ÷ 5?",
+      "options": ["5", "6", "7", "8"],
+      "answer": "6"
+    },
+    {
+      "question": "Which part of the plant grows under the soil?",
+      "options": ["Stem", "Root", "Leaf", "Flower"],
+      "answer": "Root"
+    },
+    {
+      "question": "Which animal is called the king of the jungle?",
+      "options": ["Tiger", "Lion", "Elephant", "Bear"],
+      "answer": "Lion"
+    },
+    {
+      "question": "Which planet is closest to the Sun?",
+      "options": ["Mercury", "Venus", "Earth", "Mars"],
+      "answer": "Mercury"
+    },
+    {
+      "question": "Which organ helps us breathe?",
+      "options": ["Heart", "Lungs", "Brain", "Stomach"],
+      "answer": "Lungs"
+    },
+    {
+      "question": "Which part of the plant makes seeds?",
+      "options": ["Leaf", "Stem", "Flower", "Root"],
+      "answer": "Flower"
+    },
+    {
+      "question": "Which gas do plants release during photosynthesis?",
+      "options": ["Oxygen", "Carbon dioxide", "Nitrogen", "Hydrogen"],
+      "answer": "Oxygen"
+    },
+    {
+      "question": "Which force pulls objects towards Earth?",
+      "options": ["Magnetism", "Gravity", "Friction", "Push"],
+      "answer": "Gravity"
+    },
+    {
+      "question": "Which organ controls our body?",
+      "options": ["Heart", "Brain", "Lungs", "Kidney"],
+      "answer": "Brain"
+    },
+    {
+      "question": "Which part of the plant carries water?",
+      "options": ["Phloem", "Xylem", "Leaf", "Flower"],
+      "answer": "Xylem"
+    },
+    {
+      "question": "Which planet is known as the “Blue Planet”?",
+      "options": ["Mars", "Earth", "Neptune", "Venus"],
+      "answer": "Earth"
+    }
+  ],
+  "4": [
+    {
+      "question": "What is 25 + 15?",
+      "options": ["30", "35", "40", "45"],
+      "answer": "40"
+    },
+    {
+      "question": "Which number is greater: 348 or 384?",
+      "options": ["348", "384", "Equal", "Cannot say"],
+      "answer": "384"
+    },
+    {
+      "question": "How many sides does a pentagon have?",
+      "options": ["4", "5", "6", "7"],
+      "answer": "5"
+    },
+    {
+      "question": "What is the place value of 9 in 3,945?",
+      "options": ["9", "90", "900", "9000"],
+      "answer": "900"
+    },
+    {
+      "question": "Which fraction is greater: 3/4 or 2/3?",
+      "options": ["3/4", "2/3", "Equal", "Cannot say"],
+      "answer": "3/4"
+    },
+    {
+      "question": "What is the perimeter of a rectangle with length 8 cm and breadth 5 cm?",
+      "options": ["26 cm", "30 cm", "28 cm", "32 cm"],
+      "answer": "26 cm"
+    },
+    {
+      "question": "If 1 dozen = 12, how many are in 3 dozen?",
+      "options": ["24", "30", "36", "40"],
+      "answer": "36"
+    },
+    {
+      "question": "Which number is a multiple of 12?",
+      "options": ["20", "24", "25", "26"],
+      "answer": "24"
+    },
+    {
+      "question": "What is the sum of angles in a quadrilateral?",
+      "options": ["180°", "270°", "360°", "400°"],
+      "answer": "360°"
+    },
+    {
+      "question": "If 7 × 8 = 56, what is 56 ÷ 7?",
+      "options": ["6", "7", "8", "9"],
+      "answer": "8"
+    },
+    {
+      "question": "Which part of the plant makes food?",
+      "options": ["Root", "Stem", "Leaf", "Flower"],
+      "answer": "Leaf"
+    },
+    {
+      "question": "Which animal is called the king of the jungle?",
+      "options": ["Tiger", "Lion", "Elephant", "Bear"],
+      "answer": "Lion"
+    },
+    {
+      "question": "Which planet is closest to the Sun?",
+      "options": ["Mercury", "Venus", "Earth", "Mars"],
+      "answer": "Mercury"
+    },
+    {
+      "question": "Which organ pumps blood?",
+      "options": ["Brain", "Heart", "Lungs", "Stomach"],
+      "answer": "Heart"
+    },
+    {
+      "question": "Which part of the plant makes seeds?",
+      "options": ["Leaf", "Stem", "Flower", "Root"],
+      "answer": "Flower"
+    },
+    {
+      "question": "Which gas do plants release during photosynthesis?",
+      "options": ["Oxygen", "Carbon dioxide", "Nitrogen", "Hydrogen"],
+      "answer": "Oxygen"
+    },
+    {
+      "question": "Which force pulls objects towards Earth?",
+      "options": ["Magnetism", "Gravity", "Friction", "Push"],
+      "answer": "Gravity"
+    },
+    {
+      "question": "Which organ controls our body?",
+      "options": ["Heart", "Brain", "Lungs", "Kidney"],
+      "answer": "Brain"
+    },
+    {
+      "question": "Which part of the plant carries food?",
+      "options": ["Phloem", "Xylem", "Leaf", "Flower"],
+      "answer": "Phloem"
+    },
+    {
+      "question": "Which planet is known as the “Blue Planet”?",
+      "options": ["Mars", "Earth", "Neptune", "Venus"],
+      "answer": "Earth"
+    }
+  ],
+  "5": [
+    {
+      "question": "What is 45 – 18?",
+      "options": ["26", "27", "28", "29"],
+      "answer": "27"
+    },
+    {
+      "question": "Which is greater: 1/2 or 3/8?",
+      "options": ["1/2", "3/8", "Equal", "Cannot say"],
+      "answer": "1/2"
+    },
+    {
+      "question": "How many sides does a hexagon have?",
+      "options": ["5", "6", "7", "8"],
+      "answer": "6"
+    },
+    {
+      "question": "What is the place value of 6 in 6,432?",
+      "options": ["6", "60", "600", "6000"],
+      "answer": "6000"
+    },
+    {
+      "question": "Which fraction is greater: 5/6 or 4/5?",
+      "options": ["5/6", "4/5", "Equal", "Cannot say"],
+      "answer": "5/6"
+    },
+    {
+      "question": "What is the perimeter of a square with side 9 cm?",
+      "options": ["36 cm", "40 cm", "45 cm", "50 cm"],
+      "answer": "36 cm"
+    },
+    {
+      "question": "If 1 kg = 1000 g, how many grams are in 3.5 kg?",
+      "options": ["2500 g", "3000 g", "3500 g", "4000 g"],
+      "answer": "3500 g"
+    },
+    {
+      "question": "Which number is a multiple of 15?",
+      "options": ["25", "30", "35", "40"],
+      "answer": "30"
+    },
+    {
+      "question": "What is the sum of angles in a pentagon?",
+      "options": ["360°", "540°", "720°", "900°"],
+      "answer": "540°"
+    },
+    {
+      "question": "If 9 × 7 = 63, what is 63 ÷ 9?",
+      "options": ["6", "7", "8", "9"],
+      "answer": "7"
+    },
+    {
+      "question": "Which part of the plant grows under the soil?",
+      "options": ["Stem", "Root", "Leaf", "Flower"],
+      "answer": "Root"
+    },
+    {
+      "question": "Which animal is called the “ship of the desert”?",
+      "options": ["Horse", "Camel", "Elephant", "Donkey"],
+      "answer": "Camel"
+    },
+    {
+      "question": "Which planet is second from the Sun?",
+      "options": ["Mercury", "Venus", "Earth", "Mars"],
+      "answer": "Venus"
+    },
+    {
+      "question": "Which organ helps us breathe?",
+      "options": ["Heart", "Lungs", "Brain", "Stomach"],
+      "answer": "Lungs"
+    },
+    {
+      "question": "Which part of the plant makes fruits?",
+      "options": ["Leaf", "Stem", "Flower", "Root"],
+      "answer": "Flower"
+    },
+    {
+      "question": "Which gas do humans exhale?",
+      "options": ["Oxygen", "Carbon dioxide", "Nitrogen", "Hydrogen"],
+      "answer": "Carbon dioxide"
+    },
+    {
+      "question": "Which force slows down moving objects?",
+      "options": ["Magnetism", "Gravity", "Friction", "Push"],
+      "answer": "Friction"
+    },
+    {
+      "question": "Which organ controls our body?",
+      "options": ["Heart", "Brain", "Lungs", "Kidney"],
+      "answer": "Brain"
+    },
+    {
+      "question": "Which part of the plant carries water?",
+      "options": ["Phloem", "Xylem", "Leaf", "Flower"],
+      "answer": "Xylem"
+    },
+    {
+      "question": "Which planet is known as the “Gas Giant”?",
+      "options": ["Mars", "Jupiter", "Saturn", "Neptune"],
+      "answer": "Jupiter"
+    }
+  ],
+  "6": [
+    {
+      "question": "What is 12 × 5?",
+      "options": ["50", "55", "60", "65"],
+      "answer": "60"
+    },
+    {
+      "question": "Which is greater: 2/3 or 3/5?",
+      "options": ["2/3", "3/5", "Equal", "Cannot say"],
+      "answer": "2/3"
+    },
+    {
+      "question": "What is the perimeter of a square with side 6 cm?",
+      "options": ["18 cm", "24 cm", "30 cm", "36 cm"],
+      "answer": "24 cm"
+    },
+    {
+      "question": "Solve: 3x = 21. What is x?",
+      "options": ["5", "6", "7", "8"],
+      "answer": "7"
+    },
+    {
+      "question": "The sum of angles in a triangle is?",
+      "options": ["90°", "180°", "270°", "360°"],
+      "answer": "180°"
+    },
+    {
+      "question": "Which number is prime?",
+      "options": ["21", "23", "25", "27"],
+      "answer": "23"
+    },
+    {
+      "question": "If radius = 7 cm, what is circumference? (π=22/7)",
+      "options": ["44 cm", "46 cm", "48 cm", "50 cm"],
+      "answer": "44 cm"
+    },
+    {
+      "question": "Which is a factor of 72?",
+      "options": ["5", "6", "7", "8"],
+      "answer": "6"
+    },
+    {
+      "question": "If average of 4 numbers is 25, what is their sum?",
+      "options": ["100", "110", "120", "125"],
+      "answer": "100"
+    },
+    {
+      "question": "Angles of a triangle are in ratio 2:3:4. Find largest angle.",
+      "options": ["40°", "60°", "80°", "120°"],
+      "answer": "120°"
+    },
+    {
+      "question": "Which gas do we inhale?",
+      "options": ["Oxygen", "Carbon dioxide", "Nitrogen", "Hydrogen"],
+      "answer": "Oxygen"
+    },
+    {
+      "question": "Which organ pumps blood?",
+      "options": ["Brain", "Heart", "Lungs", "Kidney"],
+      "answer": "Heart"
+    },
+    {
+      "question": "Which planet is known as the Red Planet?",
+      "options": ["Venus", "Mars", "Jupiter", "Saturn"],
+      "answer": "Mars"
+    },
+    {
+      "question": "Which organelle is the powerhouse of the cell?",
+      "options": ["Nucleus", "Mitochondria", "Ribosome", "Chloroplast"],
+      "answer": "Mitochondria"
+    },
+    {
+      "question": "Which force pulls objects to Earth?",
+      "options": ["Magnetism", "Gravity", "Friction", "Push"],
+      "answer": "Gravity"
+    },
+    {
+      "question": "Which part of plant carries water?",
+      "options": ["Phloem", "Xylem", "Leaf", "Flower"],
+      "answer": "Xylem"
+    },
+    {
+      "question": "Which simple machine is a see-saw?",
+      "options": ["Pulley", "Lever", "Wheel", "Inclined plane"],
+      "answer": "Lever"
+    },
+    {
+      "question": "Which gas is released in photosynthesis?",
+      "options": ["Oxygen", "Carbon dioxide", "Nitrogen", "Hydrogen"],
+      "answer": "Oxygen"
+    },
+    {
+      "question": "Which organ controls balance?",
+      "options": ["Cerebrum", "Cerebellum", "Medulla", "Pons"],
+      "answer": "Cerebellum"
+    },
+    {
+      "question": "Law: Energy cannot be created or destroyed.",
+      "options": ["Newton’s Law", "Conservation of Energy", "Gravitation", "Motion"],
+      "answer": "Conservation of Energy"
+    }
+  ],
+  "7": [
+    {
+      "question": "What is 15 × 12?",
+      "options": ["160", "170", "180", "190"],
+      "answer": "180"
+    },
+    {
+      "question": "Simplify: 56 ÷ 7.",
+      "options": ["6", "7", "8", "9"],
+      "answer": "8"
+    },
+    {
+      "question": "Find HCF of 24 and 36.",
+      "options": ["6", "12", "18", "24"],
+      "answer": "12"
+    },
+    {
+      "question": "Solve: 2x + 5 = 15.",
+      "options": ["4", "5", "6", "7"],
+      "answer": "5"
+    },
+    {
+      "question": "Area of rectangle with length 12 cm and breadth 8 cm?",
+      "options": ["80 cm²", "96 cm²", "100 cm²", "120 cm²"],
+      "answer": "96 cm²"
+    },
+    {
+      "question": "Which is a prime number?",
+      "options": ["29", "30", "31", "32"],
+      "answer": "29"
+    },
+    {
+      "question": "If perimeter of square = 48 cm, find side.",
+      "options": ["10 cm", "11 cm", "12 cm", "13 cm"],
+      "answer": "12 cm"
+    },
+    {
+      "question": "Value of 3² + 4²?",
+      "options": ["24", "25", "26", "27"],
+      "answer": "25"
+    },
+    {
+      "question": "Angles of quadrilateral are in ratio 2:3:4:5. Largest angle?",
+      "options": ["120°", "150°", "180°", "200°"],
+      "answer": "150°"
+    },
+    {
+      "question": "Solve: If 5 pencils cost ₹50, what is cost of 12 pencils?",
+      "options": ["₹100", "₹110", "₹120", "₹130"],
+      "answer": "₹120"
+    },
+    {
+      "question": "Which organ helps in respiration?",
+      "options": ["Heart", "Lungs", "Brain", "Kidney"],
+      "answer": "Lungs"
+    },
+    {
+      "question": "Which planet is largest in solar system?",
+      "options": ["Earth", "Jupiter", "Saturn", "Neptune"],
+      "answer": "Jupiter"
+    },
+    {
+      "question": "Which blood cells fight diseases?",
+      "options": ["RBC", "WBC", "Platelets", "Plasma"],
+      "answer": "WBC"
+    },
+    {
+      "question": "Which gas is needed for burning?",
+      "options": ["Oxygen", "Carbon dioxide", "Nitrogen", "Hydrogen"],
+      "answer": "Oxygen"
+    },
+    {
+      "question": "Which organ controls body functions?",
+      "options": ["Heart", "Brain", "Lungs", "Stomach"],
+      "answer": "Brain"
+    },
+    {
+      "question": "Which part of plant carries food?",
+      "options": ["Phloem", "Xylem", "Leaf", "Stem"],
+      "answer": "Phloem"
+    },
+    {
+      "question": "Which force slows motion between surfaces?",
+      "options": ["Gravity", "Friction", "Magnetism", "Push"],
+      "answer": "Friction"
+    },
+    {
+      "question": "Which organ filters blood?",
+      "options": ["Heart", "Kidney", "Lungs", "Brain"],
+      "answer": "Kidney"
+    },
+    {
+      "question": "Which planet has rings?",
+      "options": ["Mars", "Saturn", "Earth", "Venus"],
+      "answer": "Saturn"
+    },
+    {
+      "question": "Which law states: Action = Reaction?",
+      "options": ["Newton’s First", "Newton’s Second", "Newton’s Third", "Gravitation"],
+      "answer": "Newton’s Third"
+    }
+  ],
+  "8": [
+    {
+      "question": "What is 25 × 16?",
+      "options": ["400", "410", "420", "430"],
+      "answer": "400"
+    },
+    {
+      "question": "Simplify: 144 ÷ 12.",
+      "options": ["10", "11", "12", "13"],
+      "answer": "12"
+    },
+    {
+      "question": "Find LCM of 12 and 18.",
+      "options": ["24", "36", "48", "54"],
+      "answer": "36"
+    },
+    {
+      "question": "Solve: 5x – 10 = 20.",
+      "options": ["5", "6", "7", "8"],
+      "answer": "6"
+    },
+    {
+      "question": "Area of triangle with base 10 cm and height 12 cm?",
+      "options": ["50 cm²", "60 cm²", "70 cm²", "80 cm²"],
+      "answer": "60 cm²"
+    },
+    {
+      "question": "Which is a prime number?",
+      "options": ["41", "42", "44", "45"],
+      "answer": "41"
+    },
+    {
+      "question": "If circumference of circle = 44 cm, find radius (π=22/7).",
+      "options": ["6 cm", "7 cm", "8 cm", "9 cm"],
+      "answer": "7 cm"
+    },
+    {
+      "question": "Value of (5² – 3²).",
+      "options": ["14", "15", "16", "17"],
+      "answer": "16"
+    },
+    {
+      "question": "Angles of triangle are 60°, 60°, 60°. Type of triangle?",
+      "options": ["Scalene", "Isosceles", "Equilateral", "Right"],
+      "answer": "Equilateral"
+    },
+    {
+      "question": "Solve: If 8 books cost ₹240, what is cost of 5 books?",
+      "options": ["₹140", "₹150", "₹160", "₹170"],
+      "answer": "₹150"
+    },
+    {
+      "question": "Which organ helps in digestion?",
+      "options": ["Heart", "Stomach", "Lungs", "Brain"],
+      "answer": "Stomach"
+    },
+    {
+      "question": "Which planet is farthest from Sun?",
+      "options": ["Neptune", "Uranus", "Saturn", "Jupiter"],
+      "answer": "Neptune"
+    },
+    {
+      "question": "Which blood cells carry oxygen?",
+      "options": ["RBC", "WBC", "Platelets", "Plasma"],
+      "answer": "RBC"
+    },
+    {
+      "question": "Which gas is used by plants in photosynthesis?",
+      "options": ["Oxygen", "Carbon dioxide", "Nitrogen", "Hydrogen"],
+      "answer": "Carbon dioxide"
+    },
+    {
+      "question": "Which organ controls voluntary actions?",
+      "options": ["Cerebrum", "Cerebellum", "Medulla", "Pons"],
+      "answer": "Cerebrum"
+    },
+    {
+      "question": "Which part of plant absorbs water?",
+      "options": ["Root", "Stem", "Leaf", "Flower"],
+      "answer": "Root"
+    },
+    {
+      "question": "Which force keeps planets in orbit?",
+      "options": ["Gravity", "Friction", "Magnetism", "Push"],
+      "answer": "Gravity"
+    },
+    {
+      "question": "Which organ filters waste from blood?",
+      "options": ["Kidney", "Heart", "Lungs", "Brain"],
+      "answer": "Kidney"
+    },
+    {
+      "question": "Which planet is called Earth’s twin?",
+      "options": ["Venus", "Mars", "Jupiter", "Saturn"],
+      "answer": "Venus"
+    },
+    {
+      "question": "Which law explains inertia?",
+      "options": ["Newton’s First", "Newton’s Second", "Newton’s Third", "Gravitation"],
+      "answer": "Newton’s First"
+    }
+  ],
+  "9": [
+    {
+      "question": "What is (–5) + (–8)?",
+      "options": ["–12", "–13", "–14", "–15"],
+      "answer": "–13"
+    },
+    {
+      "question": "Simplify: (x/2) + (x/3).",
+      "options": ["5x/6", "6x/5", "x/5", "x/6"],
+      "answer": "5x/6"
+    },
+    {
+      "question": "Find square of 15.",
+      "options": ["200", "210", "225", "230"],
+      "answer": "225"
+    },
+    {
+      "question": "Solve: 2x – 7 = 13.",
+      "options": ["8", "9", "10", "11"],
+      "answer": "10"
+    },
+    {
+      "question": "Area of circle with radius 7 cm (π=22/7).",
+      "options": ["144 cm²", "154 cm²", "164 cm²", "174 cm²"],
+      "answer": "154 cm²"
+    },
+    {
+      "question": "Which is a Pythagorean triplet?",
+      "options": ["(3,4,5)", "(5,6,7)", "(7,8,9)", "(2,3,4)"],
+      "answer": "(3,4,5)"
+    },
+    {
+      "question": "If sum of angles of polygon = 1080°, how many sides?",
+      "options": ["6", "7", "8", "9"],
+      "answer": "8"
+    },
+    {
+      "question": "Value of (a+b)² when a=2, b=3.",
+      "options": ["24", "25", "26", "27"],
+      "answer": "25"
+    },
+    {
+      "question": "Solve: If speed = 60 km/h, distance = 180 km, time = ?",
+      "options": ["2 h", "3 h", "4 h", "5 h"],
+      "answer": "3 h"
+    },
+    {
+      "question": "Roots of x² – 5x + 6 = 0?",
+      "options": ["2 and 3", "3 and 4", "4 and 5", "5 and 6"],
+      "answer": "2 and 3"
+    },
+    {
+      "question": "Which organelle is called the control center of the cell?",
+      "options": ["Nucleus", "Mitochondria", "Ribosome", "Chloroplast"],
+      "answer": "Nucleus"
+    },
+    {
+      "question": "Which gas is produced in respiration?",
+      "options": ["Oxygen", "Carbon dioxide", "Nitrogen", "Hydrogen"],
+      "answer": "Carbon dioxide"
+    },
+    {
+      "question": "Which planet is known as the “Blue Planet”?",
+      "options": ["Earth", "Mars", "Venus", "Neptune"],
+      "answer": "Earth"
+    },
+    {
+      "question": "Which law explains force = mass × acceleration?",
+      "options": ["Newton’s First", "Newton’s Second", "Newton’s Third", "Gravitation"],
+      "answer": "Newton’s Second"
+    },
+    {
+      "question": "Which blood cells help in clotting?",
+      "options": ["RBC", "WBC", "Platelets", "Plasma"],
+      "answer": "Platelets"
+    },
+    {
+      "question": "Which organ helps in excretion?",
+      "options": ["Kidney", "Heart", "Lungs", "Brain"],
+      "answer": "Kidney"
+    },
+    {
+      "question": "Which part of plant carries food?",
+      "options": ["Phloem", "Xylem", "Leaf", "Stem"],
+      "answer": "Phloem"
+    },
+    {
+      "question": "Which energy source is renewable?",
+      "options": ["Coal", "Solar", "Petroleum", "Natural gas"],
+      "answer": "Solar"
+    },
+    {
+      "question": "Which planet has the Great Red Spot?",
+      "options": ["Jupiter", "Saturn", "Mars", "Neptune"],
+      "answer": "Jupiter"
+    },
+    {
+      "question": "Which law states: Every action has equal and opposite reaction?",
+      "options": ["Newton’s First", "Newton’s Second", "Newton’s Third", "Gravitation"],
+      "answer": "Newton’s Third"
+    }
+  ],
+  "10": [
+    {
+      "question": "Solve: x² – 9 = 0.",
+      "options": ["±2", "±3", "±4", "±5"],
+      "answer": "±3"
+    },
+    {
+      "question": "Simplify: (x² – y²).",
+      "options": ["(x – y)(x + y)", "(x + y)(x + y)", "(x – y)(x – y)", "None"],
+      "answer": "(x – y)(x + y)"
+    },
+    {
+      "question": "Find value of (–2)³.",
+      "options": ["–6", "–8", "–10", "–12"],
+      "answer": "–8"
+    },
+    {
+      "question": "Solve: 3x + 7 = 19.",
+      "options": ["3", "4", "5", "6"],
+      "answer": "4"
+    },
+    {
+      "question": "Area of triangle with sides 6, 8, 10 cm (Heron’s formula).",
+      "options": ["24 cm²", "25 cm²", "26 cm²", "27 cm²"],
+      "answer": "24 cm²"
+    },
+    {
+      "question": "Which is a quadratic equation?",
+      "options": ["2x + 3 = 0", "x² + 5x + 6 = 0", "3x – 7 = 0", "None"],
+      "answer": "x² + 5x + 6 = 0"
+    },
+    {
+      "question": "If speed = 40 km/h, time = 3 h, distance = ?",
+      "options": ["100 km", "120 km", "140 km", "160 km"],
+      "answer": "120 km"
+    },
+    {
+      "question": "Value of sin²θ + cos²θ.",
+      "options": ["0", "1", "2", "None"],
+      "answer": "1"
+    },
+    {
+      "question": "Solve: If principal = ₹1000, rate = 10% per annum, time = 2 years, SI = ?",
+      "options": ["₹100", "₹200", "₹300", "₹400"],
+      "answer": "₹200"
+    },
+    {
+      "question": "Solve: If roots of x² – 4x + 4 = 0 are?",
+      "options": ["2,2", "3,3", "4,4", "5,5"],
+      "answer": "2,2"
+    },
+    {
+      "question": "Which organelle is called the powerhouse of the cell?",
+      "options": ["Nucleus", "Mitochondria", "Ribosome", "Chloroplast"],
+      "answer": "Mitochondria"
+    },
+    {
+      "question": "Which gas is released in photosynthesis?",
+      "options": ["Oxygen", "Carbon dioxide", "Nitrogen", "Hydrogen"],
+      "answer": "Oxygen"
+    },
+    {
+      "question": "Which planet is known as the Red Planet?",
+      "options": ["Mars", "Venus", "Earth", "Jupiter"],
+      "answer": "Mars"
+    },
+    {
+      "question": "Which law explains inertia?",
+      "options": ["Newton’s First", "Newton’s Second", "Newton’s Third", "Gravitation"],
+      "answer": "Newton’s First"
+    },
+    {
+      "question": "Which blood cells carry oxygen?",
+      "options": ["RBC", "WBC", "Platelets", "Plasma"],
+      "answer": "RBC"
+    },
+    {
+      "question": "Which organ filters waste from blood?",
+      "options": ["Kidney", "Heart", "Lungs", "Brain"],
+      "answer": "Kidney"
+    },
+    {
+      "question": "Which part of plant carries water?",
+      "options": ["Phloem", "Xylem", "Leaf", "Stem"],
+      "answer": "Xylem"
+    },
+    {
+      "question": "Which energy source is non-renewable?",
+      "options": ["Solar", "Wind", "Coal", "Hydro"],
+      "answer": "Coal"
+    },
+    {
+      "question": "Which planet has rings?",
+      "options": ["Mars", "Saturn", "Earth", "Venus"],
+      "answer": "Saturn"
+    },
+    {
+      "question": "Which law states: Force = mass × acceleration?",
+      "options": ["Newton’s First", "Newton’s Second", "Newton’s Third", "Gravitation"],
+      "answer": "Newton’s Second"
+    }
+  ],
+  "11": [
+    {
+      "question": "Solve: If sinθ = 1/2, find θ.",
+      "options": ["15°", "30°", "45°", "60°"],
+      "answer": "30°"
+    },
+    {
+      "question": "Simplify: (x² – y²).",
+      "options": ["(x – y)(x + y)", "(x + y)(x + y)", "(x – y)(x – y)", "None"],
+      "answer": "(x – y)(x + y)"
+    },
+    {
+      "question": "Find derivative of x².",
+      "options": ["1", "2x", "x", "x²"],
+      "answer": "2x"
+    },
+    {
+      "question": "Evaluate: ∫ x dx.",
+      "options": ["x²/2", "x²", "2x", "ln(x)"],
+      "answer": "x²/2"
+    },
+    {
+      "question": "Solve: log₁₀(100).",
+      "options": ["1", "2", "3", "4"],
+      "answer": "2"
+    },
+    {
+      "question": "Find slope of line y = 3x + 2.",
+      "options": ["2", "3", "–3", "0"],
+      "answer": "3"
+    },
+    {
+      "question": "Solve: If a GP has first term 2 and ratio 3, find 3rd term.",
+      "options": ["6", "18", "12", "24"],
+      "answer": "18"
+    },
+    {
+      "question": "Find value of tan45°.",
+      "options": ["0", "1", "√3", "∞"],
+      "answer": "1"
+    },
+    {
+      "question": "Solve: If determinant = 0, matrix is?",
+      "options": ["Singular", "Non-singular", "Identity", "Null"],
+      "answer": "Singular"
+    },
+    {
+      "question": "Solve: If mean of 5 numbers is 12, sum = ?",
+      "options": ["50", "60", "70", "80"],
+      "answer": "60"
+    },
+    {
+      "question": "Which organelle is called the powerhouse of the cell?",
+      "options": ["Nucleus", "Mitochondria", "Ribosome", "Chloroplast"],
+      "answer": "Mitochondria"
+    },
+    {
+      "question": "Which gas is released in photosynthesis?",
+      "options": ["Oxygen", "Carbon dioxide", "Nitrogen", "Hydrogen"],
+      "answer": "Oxygen"
+    },
+    {
+      "question": "Which planet is known as the Red Planet?",
+      "options": ["Mars", "Venus", "Earth", "Jupiter"],
+      "answer": "Mars"
+    },
+    {
+      "question": "Which law explains inertia?",
+      "options": ["Newton’s First", "Newton’s Second", "Newton’s Third", "Gravitation"],
+      "answer": "Newton’s First"
+    },
+    {
+      "question": "Which blood cells carry oxygen?",
+      "options": ["RBC", "WBC", "Platelets", "Plasma"],
+      "answer": "RBC"
+    },
+    {
+      "question": "Which organ filters waste from blood?",
+      "options": ["Kidney", "Heart", "Lungs", "Brain"],
+      "answer": "Kidney"
+    },
+    {
+      "question": "Which part of plant carries water?",
+      "options": ["Phloem", "Xylem", "Leaf", "Stem"],
+      "answer": "Xylem"
+    },
+    {
+      "question": "Which energy source is non-renewable?",
+      "options": ["Solar", "Wind", "Coal", "Hydro"],
+      "answer": "Coal"
+    },
+    {
+      "question": "Which planet has rings?",
+      "options": ["Mars", "Saturn", "Earth", "Venus"],
+      "answer": "Saturn"
+    },
+    {
+      "question": "Which law states: Force = mass × acceleration?",
+      "options": ["Newton’s First", "Newton’s Second", "Newton’s Third", "Gravitation"],
+      "answer": "Newton’s Second"
+    }
+  ],
+  "12": [
+    {
+      "question": "Differentiate sinx.",
+      "options": ["cosx", "–cosx", "–sinx", "tanx"],
+      "answer": "cosx"
+    },
+    {
+      "question": "Integrate cosx dx.",
+      "options": ["sinx", "–sinx", "cosx", "–cosx"],
+      "answer": "sinx"
+    },
+    {
+      "question": "Solve: If A = {1,2}, B = {a,b}, number of relations from A to B?",
+      "options": ["4", "16", "8", "12"],
+      "answer": "16"
+    },
+    {
+      "question": "Find derivative of eˣ.",
+      "options": ["eˣ", "ln(x)", "1/x", "x"],
+      "answer": "eˣ"
+    },
+    {
+      "question": "Solve: ∫ 1/x dx.",
+      "options": ["ln|x|", "x", "1/x", "None"],
+      "answer": "ln|x|"
+    },
+    {
+      "question": "Find slope of tangent to y = x² at x = 2.",
+      "options": ["2", "4", "6", "8"],
+      "answer": "4"
+    },
+    {
+      "question": "Solve: If mean of 10 numbers = 15, sum = ?",
+      "options": ["100", "150", "200", "250"],
+      "answer": "150"
+    },
+    {
+      "question": "Find value of cos²θ + sin²θ.",
+      "options": ["0", "1", "2", "None"],
+      "answer": "1"
+    },
+    {
+      "question": "Solve: If roots of x² – 6x + 9 = 0 are?",
+      "options": ["2,2", "3,3", "4,4", "5,5"],
+      "answer": "3,3"
+    },
+    {
+      "question": "Solve: If probability of event = 0.25, odds against event = ?",
+      "options": ["1:3", "2:3", "3:1", "3:2"],
+      "answer": "1:3"
+    },
+    {
+      "question": "Which organelle is site of protein synthesis?",
+      "options": ["Ribosome", "Nucleus", "Mitochondria", "Chloroplast"],
+      "answer": "Ribosome"
+    },
+    {
+      "question": "Which gas is released in respiration?",
+      "options": ["Oxygen", "Carbon dioxide", "Nitrogen", "Hydrogen"],
+      "answer": "Carbon dioxide"
+    },
+    {
+      "question": "Which planet is farthest from Sun?",
+      "options": ["Neptune", "Uranus", "Saturn", "Jupiter"],
+      "answer": "Neptune"
+    },
+    {
+      "question": "Which law explains conservation of energy?",
+      "options": ["Newton’s First", "Conservation Law", "Newton’s Third", "Gravitation"],
+      "answer": "Conservation Law"
+    },
+    {
+      "question": "Which blood cells fight infection?",
+      "options": ["RBC", "WBC", "Platelets", "Plasma"],
+      "answer": "WBC"
+    },
+    {
+      "question": "Which organ filters urea from blood?",
+      "options": ["Kidney", "Heart", "Lungs", "Brain"],
+      "answer": "Kidney"
+    },
+    {
+      "question": "Which part of plant carries food?",
+      "options": ["Phloem", "Xylem", "Leaf", "Stem"],
+      "answer": "Phloem"
+    },
+    {
+      "question": "Which energy source is renewable?",
+      "options": ["Solar", "Coal", "Petroleum", "Natural gas"],
+      "answer": "Solar"
+    },
+    {
+      "question": "Which planet has the Great Red Spot?",
+      "options": ["Jupiter", "Saturn", "Mars", "Neptune"],
+      "answer": "Jupiter"
+    },
+    {
+      "question": "Which law states: Every action has equal and opposite reaction?",
+      "options": ["Newton’s First", "Newton’s Second", "Newton’s Third", "Gravitation"],
+      "answer": "Newton’s Third"
+    }
+  ]
+}

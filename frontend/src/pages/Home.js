@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, memo } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronRight, Globe, Trophy, Users, BookOpen, Play, Star, GraduationCap, X, Send, Phone, Mail, User, MessageCircle } from 'lucide-react';
 import QuizComponent from '../components/QuizComponent';
@@ -33,7 +33,20 @@ const Home = () => {
     setIsDemoSubmitting(true);
     
     try {
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      const response = await fetch('https://script.google.com/macros/s/AKfycbxrs3LPaLa_u5nr2E-WzK0Gcwl8thjBSyRi9R22ffn3KyDEB7FlQVUkapKjFlIlc33Fuw/exec', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: demoFormData.name,
+          phone: demoFormData.phone,
+          email: demoFormData.email,
+          message: demoFormData.message
+        })
+      });
+      
       setDemoSubmitStatus('success');
       setDemoFormData({ name: '', phone: '', email: '', message: '' });
       setTimeout(() => {
@@ -41,6 +54,7 @@ const Home = () => {
         setDemoSubmitStatus(null);
       }, 3000);
     } catch (error) {
+      console.error('Error submitting demo form:', error);
       setDemoSubmitStatus('error');
     } finally {
       setIsDemoSubmitting(false);
@@ -71,13 +85,13 @@ const Home = () => {
     },
     {
       name: "Sangeetha",
-      student: "My Child",
+      student: "Smitha",
       text: "Thank you to the amazing teachers at LearnED for supporting, educating, and inspiring my child. Your knowledge and care are shaping my kid's future. It's great talking to the tutors.",
       rating: 5,
       image: "https://images.pexels.com/photos/1858175/pexels-photo-1858175.jpeg"
     },
     {
-      name: "Smitha's Parent",
+      name: "Bhuvan",
       student: "Smitha",
       text: "Really happy to see the hard work of LearnED tutors in making Smitha a more confident child every day. I am absolutely satisfied with Smitha's learning through LearnED.",
       rating: 5,
@@ -134,6 +148,16 @@ const Home = () => {
       title: "Personalized & Affordable",
       description: "Each tutor invests in understanding students personally while offering quality education at accessible, sensible fees for every family.",
       icon: "💰"
+    },
+    {
+      title: "Smaller Batches",
+      description: "Helping learners receive undivided attention in every class.",
+      icon: "👥"
+    },
+    {
+      title: "Structured Study Plans",
+      description: "Personalized weekly study plans that keep every learner on-track with clear goals, practice schedules, and measurable progress.",
+      icon: "📝"
     }
   ];
 
@@ -186,7 +210,7 @@ const Home = () => {
             </button>
             <button 
               onClick={() => setShowDemoForm(true)}
-              className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-white hover:text-red-600 transition-all duration-300 flex items-center gap-2"
+              className="bg-gradient-to-r from-red-600 to-red-700 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:from-red-700 hover:to-red-800 transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center gap-2"
             >
               Book Free Demo <ChevronRight size={20} />
             </button>
@@ -217,7 +241,7 @@ const Home = () => {
             >
               <h3 className="text-2xl font-bold text-red-800 mb-4">Mission</h3>
               <p className="text-gray-700 leading-relaxed">
-                To empower every student to confidently think, analyze, and learn by blending the best of traditional teaching methods with interactive, conceptual learning. We strive to nurture critical thinking, encourage curiosity, and create a supportive environment where students are comfortable asking questions and exploring ideas, no matter the challenges they face.
+                Our mission is to empower every student to think, analyze, and learn with confidence by blending the strengths of traditional teaching with the innovation of interactive, conceptual learning. We are dedicated to nurturing critical thinking, sparking curiosity, and fostering a supportive environment where students are encouraged to ask questions, explore ideas, and appreciate the importance of problem-solving.
               </p>
             </motion.div>
 
@@ -229,7 +253,7 @@ const Home = () => {
             >
               <h3 className="text-2xl font-bold text-blue-800 mb-4">Vision</h3>
               <p className="text-gray-700 leading-relaxed">
-                To redefine education by making learning truly meaningful and student-centered. Our vision is to build an inclusive community where students are encouraged to write, reflect, and visualize, fostering lifelong learners who are prepared to break boundaries and succeed in a rapidly changing world.
+                Our vision is to redefine education by making learning truly meaningful and student-centered. We aim to build an inclusive community where students are empowered to write, reflect, and visualize—cultivating lifelong learners who are ready to break boundaries and thrive in a rapidly changing world.
               </p>
             </motion.div>
           </div>
@@ -418,37 +442,39 @@ const Home = () => {
       </section> */}
 
       {/* USPs Section */}
-      <section className="section-padding bg-gradient-to-br from-white to-gray-50">
+      <section className="section-padding bg-gradient-to-br from-gray-50 via-white to-red-50">
         <div className="container mx-auto px-4">
-          <motion.div
-            // initial={{ opacity: 0, y: 30 }}
-            // whileInView={{ opacity: 1, y: 0 }}
-            // transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
+          <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
-              Why Choose <span className="bg-gradient-to-r from-red-600 to-red-700 bg-clip-text text-transparent">LearnED?</span>
+              <span className="text-red-600">Why Choose</span> <span className="text-black">Learn</span><span className="text-red-600">ED</span>?
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Our unique approach combines traditional excellence with modern innovation to deliver exceptional learning experiences
             </p>
-          </motion.div>
+          </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
             {usps.map((usp, index) => (
-              <motion.div
+              <div
                 key={index}
-                // initial={{ opacity: 0, y: 30 }}
-                // whileInView={{ opacity: 1, y: 0 }}
-                // transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="group bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
+                className="group bg-white rounded-2xl p-6 shadow-md border border-gray-100 hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 relative overflow-hidden"
               >
-                <div className="text-4xl mb-4">{usp.icon}</div>
-                <h3 className="text-lg font-bold text-gray-900 mb-3">{usp.title}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                {/* Gradient accent on top */}
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-red-500 via-red-600 to-red-700 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+                
+                {/* Icon with background */}
+                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-red-50 to-red-100 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-red-100 group-hover:to-red-200 transition-all duration-300">
+                  <span className="text-3xl">{usp.icon}</span>
+                </div>
+                
+                <h3 className="text-lg font-bold text-gray-900 mb-3 group-hover:text-red-600 transition-colors duration-300">{usp.title}</h3>
+                <p className="text-gray-600 text-sm leading-relaxed text-justify">
                   {usp.description}
                 </p>
-              </motion.div>
+                
+                {/* Subtle background pattern on hover */}
+                <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-gradient-to-br from-red-100/0 to-red-100/50 rounded-full transform scale-0 group-hover:scale-100 transition-transform duration-500 -z-10"></div>
+              </div>
             ))}
           </div>
         </div>
@@ -457,39 +483,24 @@ const Home = () => {
       {/* Student Testimonials */}
       <section className="section-padding bg-gradient-to-br from-gray-50 to-white">
         <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
+          <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
               What Our <span className="bg-gradient-to-r from-red-600 to-red-700 bg-clip-text text-transparent">Parents Say</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               Real feedback from parents who have seen their children transform through our educational approach
             </p>
-          </motion.div>
+          </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
-              <motion.div
+              <div
                 key={index}
-                // initial={{ opacity: 0, y: 30 }}
-                // whileInView={{ opacity: 1, y: 0 }}
-                // transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
               >
-                <div className="flex items-center mb-4">
-                  <img
-                    src={testimonial.image}
-                    alt={testimonial.name}
-                    className="w-12 h-12 rounded-full object-cover mr-4"
-                  />
-                  <div>
-                    <h4 className="font-semibold text-gray-900">{testimonial.name}</h4>
-                    <p className="text-sm text-gray-600">Parent of {testimonial.student}</p>
-                  </div>
+                <div className="mb-4">
+                  <h4 className="font-semibold text-gray-900">{testimonial.name}</h4>
+                  <p className="text-sm text-gray-600">Parent of {testimonial.student}</p>
                 </div>
                 
                 <div className="flex mb-4">
@@ -499,7 +510,7 @@ const Home = () => {
                 </div>
                 
                 <p className="text-gray-700 leading-relaxed text-sm">{testimonial.text}</p>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -563,7 +574,7 @@ const Home = () => {
               </button>
               <button 
                 onClick={() => setShowDemoForm(true)}
-                className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-white hover:text-red-600 transition-colors"
+                className="bg-white text-red-600 px-8 py-4 rounded-xl font-semibold text-lg hover:bg-gray-100 transition-colors shadow-lg"
               >
                 Book Free Demo
               </button>
@@ -575,4 +586,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default memo(Home);

@@ -21,15 +21,15 @@ In the **Redirect URLs** field, add these URLs (one per line):
 ```
 http://localhost:3000/teacher/onboard
 http://localhost:3000/*
-https://your-production-domain.com/teacher/onboard
-https://your-production-domain.com/*
+https://learnedtech.in/teacher/onboard
+https://learnedtech.in/*
 ```
 
-### 4. Set Site URL (if not already set)
+### 4. Set Site URL
 
-**Site URL**: `http://localhost:3000` (for local development)
+**Site URL**: `https://learnedtech.in` (for production)
 
-Or your production URL when deployed.
+Or `http://localhost:3000` for local development.
 
 ### 5. Save Changes
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, memo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { BookOpen, Calculator, Microscope, Atom, ChevronDown, ChevronRight, Download, Eye, Users, GraduationCap } from 'lucide-react';
 
@@ -8,7 +8,7 @@ const Academics = () => {
   const [selectedCurriculum, setSelectedCurriculum] = useState(null);
   const [expandedTopic, setExpandedTopic] = useState(null);
 
-  React.useEffect(() => {
+  useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
@@ -784,7 +784,7 @@ const Academics = () => {
           mathematics:{
             name: 'Mathematics',
             icon: Calculator,
-            color: 'purple',
+            color: 'blue',
             description: 'ICSE foundational mathematics',
             topics: [
               {title: 'Numbers'},
@@ -798,7 +798,7 @@ const Academics = () => {
           science: {
             name: 'Science',
             icon: Microscope,
-            color: 'teal',
+            color: 'green',
             description: 'ICSE integrated science',
             topics: [
               {title: 'Living and Non-Living Things'},
@@ -1040,7 +1040,7 @@ const Academics = () => {
           mathematics: {
             name: 'Mathematics',
             icon: Calculator,
-            color: 'purple',
+            color: 'blue',
             description: 'ICSE advanced mathematics',
             topics: [
               { title: 'Pure Arithmetic (Rational & Irrational Numbers)', subtopics: ['Number system', 'Operations', 'Properties'] },
@@ -1056,7 +1056,7 @@ const Academics = () => {
           science: {
             name: 'Science',
             icon: Microscope,
-            color: 'teal',
+            color: 'green',
             description: 'ICSE science split into Physics, Chemistry, Biology',
             subjects: {
               physics: {
@@ -1134,7 +1134,7 @@ const Academics = () => {
           science: {
             name: 'Science',
             icon: Microscope,
-            color: 'teal',
+            color: 'green',
             description: 'ICSE science split into Physics, Chemistry, Biology',
             subjects: {
               physics: {
@@ -1176,7 +1176,7 @@ const Academics = () => {
                   { title: 'Flowering Plants' },
                   { title: 'Plant Physiology' },
                   { title: 'Transpiration in Plants' },
-                  { title: 'Human Anatomy and Physiology (Digestive System, Circulatory System, Excretory System, Nervous and Sense Organs, Endocrine System)' },
+                  { title: 'Human Anatomy and Physiology(Digestive System, Circulatory System, Excretory System, Nervous and Sense Organs, Endocrine System)' },
                   { title: 'Health and Hygiene' },
                   { title: 'Pollution'},
                   { title: 'Genetics and Evolution'},
@@ -1919,26 +1919,16 @@ const Academics = () => {
   return (
     <div className="pt-16">
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-red-300 via-white to-blue-100 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-red-600/5 to-blue-600/5"></div>
+      <section className="relative py-20 bg-gradient-to-br from-red-600 via-red-700 to-black text-white overflow-hidden">
+        <div className="absolute inset-0 bg-black opacity-20"></div>
         <div className="relative z-10 container mx-auto px-4 text-center">
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-5xl md:text-6xl font-bold mb-6 text-gray-900"
-          >
-            Academic <span className="bg-gradient-to-r from-red-600 to-red-700 bg-clip-text text-transparent">Excellence</span>
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto text-gray-700"
-          >
+          <h1 className="text-5xl md:text-6xl font-bold mb-6">
+            Academic <span className="text-red-200">Excellence</span>
+          </h1>
+          <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
             Comprehensive curriculum coverage for NCERT, ICSE, and IGCSE boards. 
             Explore detailed syllabuses designed for academic success.
-          </motion.p>
+          </p>
         </div>
       </section>
 
@@ -2018,4 +2008,4 @@ const Academics = () => {
   );
 };
 
-export default Academics;
+export default memo(Academics);

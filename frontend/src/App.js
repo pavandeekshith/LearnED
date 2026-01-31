@@ -1,22 +1,35 @@
-import React from 'react';
+import React, { useEffect, lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
-import { motion } from 'framer-motion';
 import { AuthProvider } from './contexts/AuthContext';
 import { AdminProvider } from './contexts/AdminContext';
 import { AdminRoute, ProtectedRoute } from './components/ProtectedRoute';
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
 import FloatingDemoButton from './components/FloatingDemoButton';
-import Home from './pages/Home';
-import Team from './pages/Team';
-import Academics from './pages/Academics';
-import Contact from './pages/Contact';
-import RefundPolicy from './pages/RefundPolicy';
-import AdminDashboard from './pages/AdminDashboard';
-import AdminClassrooms from './pages/AdminClassrooms';
-import AdminTeachers from './pages/AdminTeachers';
-import AdminStudents from './pages/AdminStudents';
-import TeacherOnboarding from './pages/TeacherOnboarding';
+import { preloadAllImages } from './utils/imageCache';
+
+// Lazy load pages for better performance
+const Home = lazy(() => import('./pages/Home'));
+const Team = lazy(() => import('./pages/Team'));
+const Academics = lazy(() => import('./pages/Academics'));
+const Contact = lazy(() => import('./pages/Contact'));
+const RefundPolicy = lazy(() => import('./pages/RefundPolicy'));
+const AdminDashboard = lazy(() => import('./pages/AdminDashboard'));
+const AdminClassrooms = lazy(() => import('./pages/AdminClassrooms'));
+const AdminTeachers = lazy(() => import('./pages/AdminTeachers'));
+const AdminStudents = lazy(() => import('./pages/AdminStudents'));
+const TeacherOnboarding = lazy(() => import('./pages/TeacherOnboarding'));
+
+// Loading component
+const PageLoader = () => (
+  <div className="min-h-screen flex items-center justify-center bg-gray-50">
+    <div className="text-center">
+      <div className="w-16 h-16 border-4 border-red-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+      <p className="text-gray-600 font-medium">Loading...</p>
+    </div>
+  </div>
+);
+
 import './App.css';
 
 function AppContent() {
@@ -24,41 +37,43 @@ function AppContent() {
   const isAdminRoute = location.pathname.startsWith('/admin');
   const isTeacherOnboarding = location.pathname === '/teacher/onboard';
 
+  // Preload images on mount
+  useEffect(() => {
+    preloadAllImages();
+  }, []);
+
   return (
     <div className="App">
       {!isAdminRoute && !isTeacherOnboarding && <Navigation />}
-      <motion.main
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5 }}
-      >
-        <Routes>
-          {/* Public Routes - NOT wrapped in AuthProvider */}
-          <Route path="/" element={<Home />} />
-          <Route path="/team" element={<Team />} />
-          <Route path="/academics" element={<Academics />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/refund-policy" element={<RefundPolicy />} />
-          <Route path="/teacher/onboard" element={<TeacherOnboarding />} />
-          
-          {/* Admin Routes - Wrapped in AuthProvider */}
-          <Route 
-            path="/admin/*" 
-            element={
-              <AuthProvider>
-                <AdminProvider>
-                  <Routes>
-                    <Route 
-                      path="dashboard" 
-                      element={
-                        <AdminRoute>
-                          <AdminDashboard />
-                        </AdminRoute>
-                      } 
-                    />
-                    <Route 
-                      path="classrooms" 
-                      element={
+      <Suspense fallback={<PageLoader />}>
+        <main>
+          <Routes>
+            {/* Public Routes - NOT wrapped in AuthProvider */}
+            <Route path="/" element={<Home />} />
+            <Route path="/team" element={<Team />} />
+            <Route path="/academics" element={<Academics />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/refund-policy" element={<RefundPolicy />} />
+            <Route path="/teacher/onboard" element={<TeacherOnboarding />} />
+            
+            {/* Admin Routes - Wrapped in AuthProvider */}
+            <Route 
+              path="/admin/*" 
+              element={
+                <AuthProvider>
+                  <AdminProvider>
+                    <Routes>
+                      <Route 
+                        path="dashboard" 
+                        element={
+                          <AdminRoute>
+                            <AdminDashboard />
+                          </AdminRoute>
+                        } 
+                      />
+                      <Route 
+                        path="classrooms" 
+                        element={
                         <AdminRoute>
                           <AdminClassrooms />
                         </AdminRoute>
@@ -89,7 +104,8 @@ function AppContent() {
           {/* Redirect any unknown routes to home */}
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
-      </motion.main>
+        </main>
+      </Suspense>
       {!isAdminRoute && !isTeacherOnboarding && <Footer />}
       {!isAdminRoute && !isTeacherOnboarding && <FloatingDemoButton />}
     </div>
