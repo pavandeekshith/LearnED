@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext } from 'react';
+import React, { createContext, useState, useContext, useCallback } from 'react';
 import { supabase } from '../lib/supabaseClient';
 
 const AdminContext = createContext();
@@ -53,9 +53,9 @@ export const AdminProvider = ({ children }) => {
   const [dataLoaded, setDataLoaded] = useState(false);
 
   // Load all admin data with caching
-  const loadAdminData = async (force = false) => {
-    // Skip if already loaded and not forcing refresh
-    if (!force && (dataLoaded || dataLoading)) return;
+  const loadAdminData = useCallback(async (force = false) => {
+    // Skip if already loaded and not forcing refresh (but don't skip if currently loading)
+    if (!force && dataLoaded && !dataLoading) return;
     
     try {
       setDataLoading(true);
@@ -210,10 +210,11 @@ export const AdminProvider = ({ children }) => {
 
     } catch (error) {
       console.error('Error loading admin data:', error);
+      setDataLoaded(false);
     } finally {
       setDataLoading(false);
     }
-  };
+  }, [dataLoaded, dataLoading]);
 
   // Refresh specific data type
   const refreshData = async (dataType) => {

@@ -4,10 +4,10 @@
   "description": "LearnED Admin Dashboard - Separate Admin Application",
   "private": true,
   "dependencies": {
+    "@supabase/supabase-js": "^2.38.0",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
-    "@supabase/supabase-js": "^2.38.0",
     "framer-motion": "^10.16.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -39,5 +39,9 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "."
+  "devDependencies": {
+    "autoprefixer": "^10.4.24",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.17"
+  }
 }

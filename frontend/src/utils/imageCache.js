@@ -11,7 +11,7 @@ const imagesToPreload = [
   '/dharsanya.png',
   '/namrata.png',
   '/Deekshith.jpeg',
-  '/LearnED black.png'
+  '/Logo_new.png'
 ];
 
 // Image cache storage

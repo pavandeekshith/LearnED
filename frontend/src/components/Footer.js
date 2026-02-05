@@ -39,7 +39,6 @@ const Footer = () => {
           {/* Company Info */}
           <div className="space-y-4 pt-0 md:pt-6">
             <div className="flex items-center space-x-2 mb-6">
-              <BookOpen className="w-8 h-8 text-red-500" />
               <h3 className="text-2xl font-bold">
                 <span className="text-white">Learn</span><span className="text-red-500">ED</span>
               </h3>

@@ -91,9 +91,9 @@ const Home = () => {
       image: "https://images.pexels.com/photos/1858175/pexels-photo-1858175.jpeg"
     },
     {
-      name: "Bhuvan",
-      student: "Smitha",
-      text: "Really happy to see the hard work of LearnED tutors in making Smitha a more confident child every day. I am absolutely satisfied with Smitha's learning through LearnED.",
+      name: "Rohit",
+      student: "Bhuvan",
+      text: "Really happy to see the hard work of LearnED tutors in making Bhuvan a more confident child every day. I am absolutely satisfied with Bhuvan's learning through LearnED.",
       rating: 5,
       image: "https://images.pexels.com/photos/1040881/pexels-photo-1040881.jpeg"
     }

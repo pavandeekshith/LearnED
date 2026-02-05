@@ -6,7 +6,7 @@ const LoginModal = () => {
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-  const { login } = useAuth();
+  const { login, authError } = useAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -72,6 +72,12 @@ const LoginModal = () => {
           {error && (
             <div className="rounded-md bg-red-50 p-4">
               <div className="text-sm text-red-700">{error}</div>
+            </div>
+          )}
+
+          {authError && (
+            <div className="rounded-md bg-yellow-50 p-4">
+              <div className="text-sm text-yellow-800">{authError}</div>
             </div>
           )}
 

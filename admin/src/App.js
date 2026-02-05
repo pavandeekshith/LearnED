@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from './contexts/AuthContext';
 import { AdminProvider } from './contexts/AdminContext';
 import ProtectedRoute from './components/ProtectedRoute';
@@ -13,9 +13,9 @@ import GradePricingManager from './pages/GradePricingManager';
 
 function App() {
   return (
-    <AuthProvider>
-      <AdminProvider>
-        <Router>
+    <Router>
+      <AuthProvider>
+        <AdminProvider>
           <div className="App">
             <Routes>
               <Route 
@@ -80,9 +80,9 @@ function App() {
               <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
           </div>
-        </Router>
-      </AdminProvider>
-    </AuthProvider>
+        </AdminProvider>
+      </AuthProvider>
+    </Router>
   );
 }
 
